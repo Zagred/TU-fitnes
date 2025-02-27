@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.calculator.CalculatorPage
 
 class HomePage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,11 +14,11 @@ class HomePage : AppCompatActivity() {
         val calendar=findViewById<Button>(R.id.button3)
 
         calculaterl.setOnClickListener{
-            val intent= Intent(this,Calculator::class.java)
+            val intent= Intent(this, CalculatorPage::class.java)
             startActivity(intent)
         }
         calendar.setOnClickListener {
-            val intent=Intent(this,Calendar::class.java)
+            val intent=Intent(this, CalendarActivity::class.java)
             startActivity(intent)
         }
     }

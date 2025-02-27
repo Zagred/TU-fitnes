@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.content.Intent
 import android.widget.Button
+import com.example.myapplication.calculator.BMICalculator
 
 
 class PickCalculator : AppCompatActivity() {
@@ -21,7 +22,7 @@ class PickCalculator : AppCompatActivity() {
         }
         val btnCalculatorBmi = findViewById<Button>(R.id.btnCalculatorBmi)
         btnCalculatorBmi.setOnClickListener {
-            val intent= Intent(this,Calculator::class.java)
+            val intent= Intent(this, BMICalculator::class.java)
             startActivity(intent)
         }
     }
