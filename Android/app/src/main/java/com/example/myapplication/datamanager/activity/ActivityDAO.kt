@@ -16,7 +16,7 @@ interface ActivityDAO {
     fun findByName(name: String): Activity
 
     @Query("UPDATE Activity SET description = :description WHERE name LIKE :name ")
-    fun updateDescriptionByName(username: String, description: String)
+    fun updateDescriptionByName(name: String, description: String)
 
     @Query("DELETE FROM Activity WHERE name LIKE :name")
     fun deleteActivityByName(name: String)
