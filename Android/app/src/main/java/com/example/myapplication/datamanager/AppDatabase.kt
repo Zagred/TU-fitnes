@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.myapplication.dailydata.DailyData
 import com.example.myapplication.datamanager.activity.Activity
 import com.example.myapplication.datamanager.custom.CustomExercise
 import com.example.myapplication.datamanager.custom.CustomWorkout
@@ -17,7 +18,7 @@ import com.example.myapplication.datamanager.user.UserInfo
 @Database(
     entities = [
         User::class, UserInfo::class, NutritionInfo::class, Activity::class, CustomExercise::class,
-        CustomWorkout::class, CustomWorkoutCustomExercise::class
+        CustomWorkout::class, CustomWorkoutCustomExercise::class, DailyData::class
                ],
     version = 1
 )
