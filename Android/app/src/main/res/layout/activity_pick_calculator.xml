@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layout_background"
+    tools:context=".PickCalculator">
+    <TextView
+        android:id="@+id/chooseCalculatorTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Choose a calculator"
+        android:textSize="42sp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnCalculatorBmi"
+        android:layout_width="296dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@android:color/holo_orange_light"
+        android:text="BMI Calculator"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:cornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseCalculatorTxt" />
+
+    <TextView
+        android:id="@+id/txtViewForBMICalc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="The Body Mass Index (BMI) Calculator can be used to calculate BMI value and corresponding weight status while taking age into consideration."
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCalculatorBmi" />
+
+    <Button
+        android:id="@+id/btnCalculatorCalorie"
+        android:layout_width="296dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@android:color/holo_orange_light"
+        android:text="Calorie Calculator"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:cornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewForBMICalc" />
+
+    <TextView
+        android:id="@+id/txtViewForCalorieCalc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="The Calorie Calculator can be used to estimate the number of calories a person needs to consume each day."
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCalculatorCalorie" />
+</androidx.constraintlayout.widget.ConstraintLayout>
