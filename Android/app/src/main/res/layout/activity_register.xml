@@ -5,8 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/baclground"
-    tools:context=".login.Register">
+    tools:context=".Register">
 
     <Button
         android:id="@+id/btSubmit"
@@ -46,6 +45,35 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.59" />
 
+    <EditText
+        android:id="@+id/tEmailRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberPassword"
+        android:text="Email"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.405" />
+
+    <EditText
+        android:id="@+id/tPhoneRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone"
+        android:text="Phone number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.683" />
+
     <ImageButton
         android:id="@+id/ibRegister"
         android:layout_width="wrap_content"
@@ -58,4 +86,13 @@
         app:layout_constraintVertical_bias="0.203"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <EditText
+        android:id="@+id/tGenderRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Gender"
+        tools:layout_editor_absoluteX="102dp"
+        tools:layout_editor_absoluteY="517dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

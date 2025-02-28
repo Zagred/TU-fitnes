@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/baclground"
     tools:context=".HomePage">
 
     <Button
-        android:id="@+id/btProfileHomeP"
+        android:id="@+id/button"
         android:layout_width="180dp"
         android:layout_height="90dp"
-        android:backgroundTint="@color/white"
         android:text="Профил"
-        android:textColor="@color/redOrange"
-        android:textSize="19dp"
-        android:textStyle="bold"
-        app:cornerRadius="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.056"
@@ -27,15 +20,10 @@
         app:layout_constraintVertical_bias="0.151" />
 
     <Button
-        android:id="@+id/btMealsHomeP"
+        android:id="@+id/button2"
         android:layout_width="180dp"
         android:layout_height="90dp"
-        android:backgroundTint="@color/white"
         android:text="Хранителен режим"
-        android:textColor="@color/redOrange"
-        android:textSize="19dp"
-        android:textStyle="bold"
-        app:cornerRadius="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.056"
@@ -44,15 +32,10 @@
         app:layout_constraintVertical_bias="0.322" />
 
     <Button
-        android:id="@+id/btCalendarHomeP"
+        android:id="@+id/button3"
         android:layout_width="180dp"
         android:layout_height="200dp"
-        android:backgroundTint="@color/white"
         android:text="Календар"
-        android:textColor="@color/redOrange"
-        android:textSize="19dp"
-        android:textStyle="bold"
-        app:cornerRadius="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.943"
@@ -61,15 +44,10 @@
         app:layout_constraintVertical_bias="0.182" />
 
     <Button
-        android:id="@+id/btWorkoutHomeP"
+        android:id="@+id/button4"
         android:layout_width="180dp"
         android:layout_height="200dp"
-        android:backgroundTint="@color/white"
         android:text="Тренировки"
-        android:textColor="@color/redOrange"
-        android:textSize="19dp"
-        android:textStyle="bold"
-        app:cornerRadius="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
@@ -78,15 +56,10 @@
         app:layout_constraintVertical_bias="0.581" />
 
     <Button
-        android:id="@+id/btFriendsHomeP"
+        android:id="@+id/button5"
         android:layout_width="180dp"
         android:layout_height="90dp"
-        android:backgroundTint="@color/white"
         android:text="Твоите приятели"
-        android:textColor="@color/redOrange"
-        android:textSize="19dp"
-        android:textStyle="bold"
-        app:cornerRadius="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
@@ -95,15 +68,10 @@
         app:layout_constraintVertical_bias="0.812" />
 
     <Button
-        android:id="@+id/btTrainerHomeP"
+        android:id="@+id/button6"
         android:layout_width="180dp"
         android:layout_height="90dp"
-        android:backgroundTint="@color/white"
         android:text="Съвети за треньор"
-        android:textColor="@color/redOrange"
-        android:textSize="19dp"
-        android:textStyle="bold"
-        app:cornerRadius="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.943"
@@ -112,15 +80,10 @@
         app:layout_constraintVertical_bias="0.653" />
 
     <Button
-        android:id="@+id/btGoalsHomeP"
+        android:id="@+id/button7"
         android:layout_width="180dp"
         android:layout_height="90dp"
-        android:backgroundTint="@color/white"
         android:text="Постижения"
-        android:textColor="@color/redOrange"
-        android:textSize="19dp"
-        android:textStyle="bold"
-        app:cornerRadius="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.943"
@@ -129,16 +92,12 @@
         app:layout_constraintVertical_bias="0.482" />
 
     <Button
-        android:id="@+id/btCommunityHomeP"
+        android:id="@+id/button8"
         android:layout_width="180dp"
         android:layout_height="90dp"
-        android:backgroundTint="@color/white"
+        android:layout_marginStart="0dp"
         android:text="Общество"
-        android:textColor="@color/redOrange"
-        android:textSize="19dp"
-        android:textStyle="bold"
         android:translationX="0dp"
-        app:cornerRadius="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
@@ -147,15 +106,11 @@
         app:layout_constraintVertical_bias="0.98" />
 
     <Button
-        android:id="@+id/btCalculatorHomeP"
+        android:id="@+id/button9"
         android:layout_width="180dp"
         android:layout_height="200dp"
-        android:backgroundTint="@color/white"
+        android:layout_marginStart="0dp"
         android:text="Калкулатор"
-        android:textColor="@color/redOrange"
-        android:textSize="19dp"
-        android:textStyle="bold"
-        app:cornerRadius="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.94"
@@ -163,18 +118,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.98" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Be better!"
-        android:textColor="@color/white"
-        android:textSize="60sp"
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="383dp"
+        android:layout_height="77dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.464"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024" />
+        app:layout_constraintVertical_bias="0.024"
+        app:srcCompat="@android:drawable/divider_horizontal_dark" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
