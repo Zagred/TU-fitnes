@@ -18,7 +18,7 @@ import java.sql.Date
     ])
 data class UserInfo(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    @ColumnInfo(name = "birthdate") val birthdate: Date,
+    @ColumnInfo(name = "birthdate") val birthdate: String,
     @ColumnInfo(name = "gender") val gender: String,
     @ColumnInfo(name = "height") val height: Int,
     @ColumnInfo(name = "weight") val weight: Float,

@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.myapplication.dailydata.DailyData
 import com.example.myapplication.datamanager.activity.Activity
+import com.example.myapplication.datamanager.activity.ActivityDAO
 import com.example.myapplication.datamanager.custom.CustomExercise
 import com.example.myapplication.datamanager.custom.CustomWorkout
 import com.example.myapplication.datamanager.custom.CustomWorkoutCustomExercise
@@ -24,7 +25,7 @@ import com.example.myapplication.datamanager.user.UserInfo
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDAO(): UserDAO
-
+    abstract fun activityDAO(): ActivityDAO
     companion object {
         private const val DATABASE_NAME = "calorie.db"
 
