@@ -17,12 +17,24 @@ import java.sql.Date
         )
     ])
 data class UserInfo(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    @ColumnInfo(name = "birthdate") val birthdate: Date,
-    @ColumnInfo(name = "gender") val gender: String,
-    @ColumnInfo(name = "height") val height: Int,
-    @ColumnInfo(name = "weight") val weight: Float,
-    @ColumnInfo(name = "user_id") val userId: Int,
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo
+    val id: Int = 0,
+
+    @ColumnInfo(name = "birthdate")
+    val birthdate: String,
+
+    @ColumnInfo(name = "gender")
+    val gender: String,
+
+    @ColumnInfo(name = "height")
+    val height: Int,
+
+    @ColumnInfo(name = "weight")
+    val weight: Float,
+
+    @ColumnInfo(name = "user_id")
+    val userId: Int,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

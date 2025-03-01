@@ -1,5 +1,6 @@
 package com.example.myapplication.datamanager.custom
 
+import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.ForeignKey
@@ -24,7 +25,10 @@ import androidx.room.Relation
         )
     ])
 data class CustomWorkoutCustomExercise(
+    @ColumnInfo(name = "custom_workout_id")
     val customWorkoutId: Int,
+
+    @ColumnInfo(name = "custom_exercise_id")
     val customExerciseId: Int
 )
 

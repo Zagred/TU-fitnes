@@ -13,6 +13,7 @@ import com.example.myapplication.datamanager.user.NutritionInfo
 import com.example.myapplication.datamanager.user.User
 import com.example.myapplication.datamanager.user.UserDAO
 import com.example.myapplication.datamanager.user.UserInfo
+import com.example.myapplication.datamanager.user.UserInfoDAO
 
 
 @Database(
@@ -24,6 +25,7 @@ import com.example.myapplication.datamanager.user.UserInfo
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDAO(): UserDAO
+    abstract fun userInfoDao(): UserInfoDAO
 
     companion object {
         private const val DATABASE_NAME = "calorie.db"
