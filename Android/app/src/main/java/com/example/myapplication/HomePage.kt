@@ -22,7 +22,8 @@ class HomePage : AppCompatActivity() {
 
 
         profile.setOnClickListener {
-            val intent=Intent(this, Profile::class.java)
+            val intent = Intent(this, Profile::class.java)
+            intent.putExtra("USER_ID", getIntent().getIntExtra("USER_ID", -1))
             startActivity(intent)
         }
         /*meals*/
