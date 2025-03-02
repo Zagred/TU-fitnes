@@ -21,7 +21,7 @@ data class UserInfo(
     @ColumnInfo(name = "birthdate") val birthdate: String,
     @ColumnInfo(name = "gender") val gender: String,
     @ColumnInfo(name = "height") val height: Int,
-    @ColumnInfo(name = "weight") val weight: Float,
+    @ColumnInfo(name = "weight") val weight: Double,
     @ColumnInfo(name = "user_id") val userId: Int,
 ) {
     override fun equals(other: Any?): Boolean {

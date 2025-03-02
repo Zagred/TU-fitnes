@@ -10,7 +10,7 @@ import androidx.room.Update
 interface CustomWorkoutDAO {
     @Query("SELECT * FROM CustomWorkout")
     fun getAll(): List<CustomWorkout>
-
+/*
     @Query("SELECT * FROM CustomWorkout WHERE user_id IN " +
             "(SELECT * FROM USER WHERE username LIKE :username)")
     fun getAllUserWorkoutsByUsername(id: Int, username: String): List<CustomWorkout>
@@ -29,7 +29,7 @@ interface CustomWorkoutDAO {
 
     @Query("DELETE FROM CustomWorkout WHERE id = :id")
     fun deleteCustomWorkoutById(id: Int)
-
+*/
     @Update
     fun update(customWorkout: CustomWorkout)
 

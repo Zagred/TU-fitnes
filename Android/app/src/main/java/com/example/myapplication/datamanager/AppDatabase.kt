@@ -10,10 +10,13 @@ import com.example.myapplication.datamanager.activity.ActivityDAO
 import com.example.myapplication.datamanager.custom.CustomExercise
 import com.example.myapplication.datamanager.custom.CustomWorkout
 import com.example.myapplication.datamanager.custom.CustomWorkoutCustomExercise
+import com.example.myapplication.datamanager.custom.CustomWorkoutDAO
 import com.example.myapplication.datamanager.user.NutritionInfo
+import com.example.myapplication.datamanager.user.NutritionInfoDAO
 import com.example.myapplication.datamanager.user.User
 import com.example.myapplication.datamanager.user.UserDAO
 import com.example.myapplication.datamanager.user.UserInfo
+import com.example.myapplication.datamanager.user.UserInfoDAO
 
 
 @Database(
@@ -26,6 +29,10 @@ import com.example.myapplication.datamanager.user.UserInfo
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDAO(): UserDAO
     abstract fun activityDAO(): ActivityDAO
+    abstract fun userInfoDAO(): UserInfoDAO
+    abstract fun nutritionInfoDAO():NutritionInfoDAO
+    abstract fun customWorckoutDAO():CustomWorkoutDAO
+
     companion object {
         private const val DATABASE_NAME = "calorie.db"
 

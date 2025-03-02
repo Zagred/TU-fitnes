@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Transaction
 import androidx.room.Update
 
 
@@ -11,6 +12,9 @@ import androidx.room.Update
 interface UserDAO {
     @Query("SELECT * FROM User")
     fun getAll(): List<User>
+
+    @Query("SELECT * FROM User WHERE uid = :userId LIMIT 1")
+    fun findById(userId: Int): User
 
     @Query("SELECT * FROM User WHERE username LIKE :username LIMIT 1")
     fun findByUsername(username: String): User
@@ -32,4 +36,5 @@ interface UserDAO {
 
     @Delete
     fun delete(user: User)
+
 }

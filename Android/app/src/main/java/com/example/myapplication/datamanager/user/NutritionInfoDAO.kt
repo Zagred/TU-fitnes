@@ -10,7 +10,7 @@ import androidx.room.Update
 interface NutritionInfoDAO {
     @Query("SELECT * FROM NutritionInfo")
     fun getAll(): List<NutritionInfo>
-
+/*
     @Query("SELECT * FROM NutritionInfo WHERE user_id LIKE :userId LIMIT 1")
     fun findByUserId(userId: Int): NutritionInfo
 
@@ -37,7 +37,7 @@ interface NutritionInfoDAO {
     @Query("DELETE FROM NutritionInfo WHERE user_id IN " +
             "(SELECT uid, username FROM User WHERE username = :username)")
     fun deleteNutritionInfoByUsername(username: String)
-
+*/
     @Update
     fun update(nutritionInfo: NutritionInfo)
 
