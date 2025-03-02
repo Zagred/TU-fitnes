@@ -8,6 +8,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.myapplication.calculator.BMICalculator
+import com.example.myapplication.login.Login
+import com.example.myapplication.login.Register
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +24,10 @@ class MainActivity : AppCompatActivity() {
         //smenyane mejdu stranicite
         login.setOnClickListener{
             val intent=Intent(this,HomePage::class.java)
+            startActivity(intent)
+        }
+        register.setOnClickListener{
+            val intent=Intent(this,Register::class.java)
             startActivity(intent)
         }
     }

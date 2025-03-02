@@ -8,18 +8,18 @@ import androidx.room.Relation
 
 @Entity(
     tableName = "CustomWorkoutCustomExercise",
-    primaryKeys = ["custom_workout_id", "custom_exercise_id"],
+    primaryKeys = ["customWorkoutId", "customExerciseId"],
     foreignKeys = [
         ForeignKey(
             entity = CustomWorkout::class,
             parentColumns = arrayOf("id"),
-            childColumns = arrayOf("custom_workout_id"),
+            childColumns = arrayOf("customWorkoutId"),
             onDelete = ForeignKey.CASCADE
         ),
         ForeignKey(
             entity = CustomExercise::class,
             parentColumns = arrayOf("id"),
-            childColumns = arrayOf("custom_exercise_id"),
+            childColumns = arrayOf("customExerciseId"),
             onDelete = ForeignKey.CASCADE
         )
     ])
@@ -33,7 +33,7 @@ data class WorkoutExercise(
     @Embedded val student: CustomWorkout,
     @Relation(
         parentColumn = "id",
-        entityColumn = "custom_workout_id",
+        entityColumn = "customWorkoutId",
         associateBy = Junction(CustomWorkoutCustomExercise::class)
     )
     val courses: List<CustomExercise>
@@ -44,7 +44,7 @@ data class ExerciseWorkout(
     @Embedded val student: CustomExercise,
     @Relation(
         parentColumn = "id",
-        entityColumn = "custom_exercise_id",
+        entityColumn = "customExerciseId",
         associateBy = Junction(CustomWorkoutCustomExercise::class)
     )
     val courses: List<CustomExercise>

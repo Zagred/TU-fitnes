@@ -19,7 +19,7 @@ import java.sql.Date
     ])
 data class DailyData(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    @ColumnInfo(name = "date") val date: Date,
+    @ColumnInfo(name = "date") val date: String,
     @ColumnInfo(name = "cals_consumed") val calsConsumed: Int,
     @ColumnInfo(name = "cals_burnt") val calsBurnt: Int,
     @ColumnInfo(name = "fat_consumed") val fatConsumed: Int,

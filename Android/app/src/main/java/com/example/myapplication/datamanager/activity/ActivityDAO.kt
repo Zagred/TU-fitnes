@@ -9,7 +9,7 @@ import androidx.room.Update
 @Dao
 interface ActivityDAO {
     @Query("SELECT * FROM Activity")
-    fun getAll(): List<Activity>
+    suspend fun getAll(): List<Activity>
 
     @Query("SELECT * FROM Activity WHERE name LIKE :name LIMIT 1")
     fun findByName(name: String): Activity

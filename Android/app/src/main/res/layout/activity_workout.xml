@@ -7,5 +7,25 @@
     android:layout_height="match_parent"
     android:background="@drawable/backround"
     tools:context=".Workout">
+    <TextView
 
+        android:id="@+id/activityTextView"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:text="Activities will be displayed here"
+
+        android:textSize="18sp"
+
+        android:padding="16dp"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
