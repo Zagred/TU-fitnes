@@ -17,14 +17,18 @@ import com.example.myapplication.datamanager.user.User
 import com.example.myapplication.datamanager.user.UserDAO
 import com.example.myapplication.datamanager.user.UserInfo
 import com.example.myapplication.datamanager.user.UserInfoDAO
+import com.example.myapplication.datamanager.user.Friends
+import com.example.myapplication.datamanager.user.FriendsDAO
+import com.example.myapplication.datamanager.user.Post
+import com.example.myapplication.datamanager.user.PostDAO
 
 
 @Database(
     entities = [
         User::class, UserInfo::class, NutritionInfo::class, Activity::class, CustomExercise::class,
-        CustomWorkout::class, CustomWorkoutCustomExercise::class, DailyData::class
+        CustomWorkout::class, CustomWorkoutCustomExercise::class, DailyData::class, Post::class, Friends::class
                ],
-    version = 1
+    version = 2
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDAO(): UserDAO
@@ -32,6 +36,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun userInfoDAO(): UserInfoDAO
     abstract fun nutritionInfoDAO():NutritionInfoDAO
     abstract fun customWorckoutDAO():CustomWorkoutDAO
+    abstract fun postDAO(): PostDAO
+    abstract fun friendsDAO(): FriendsDAO
 
     companion object {
         private const val DATABASE_NAME = "calorie.db"
@@ -55,3 +61,18 @@ abstract class AppDatabase : RoomDatabase() {
         }
     }
 }
+/*synchronized(this) {
+                context.deleteDatabase(DATABASE_NAME)
+
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    AppDatabase::class.java,
+                    DATABASE_NAME
+                )
+                .fallbackToDestructiveMigration()
+                .allowMainThreadQueries()
+                .build()
+
+                INSTANCE = instance
+                return instance
+            }*/

@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.calculator.CalculatorPage
+import com.example.myapplication.social.FriendsActivity
+import com.example.myapplication.social.PostActivity
 
 class HomePage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +39,17 @@ class HomePage : AppCompatActivity() {
         }
         /*trainer*/
         /*friends*/
+        friends.setOnClickListener {
+            val intent = Intent(this, FriendsActivity::class.java)
+            intent.putExtra("USER_ID", getIntent().getIntExtra("USER_ID", -1))
+            startActivity(intent)
+        }
         /*community*/
+        community.setOnClickListener {
+            val intent = Intent(this, PostActivity::class.java)
+            intent.putExtra("USER_ID", getIntent().getIntExtra("USER_ID", -1))
+            startActivity(intent)
+        }
         calculator.setOnClickListener{
             val intent= Intent(this, CalculatorPage::class.java)
             startActivity(intent)
