@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -13,6 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.CoroutineScope
 
 class Workout : AppCompatActivity() {
 
@@ -25,7 +27,8 @@ class Workout : AppCompatActivity() {
         val db = AppDatabase.getInstance(applicationContext)
         activityDao = db.activityDAO()
 
-        insertActivities()
+        //insertActivities()
+        populateDatabaseIfNeeded(applicationContext)
         displayActivities()
     }
 
@@ -45,6 +48,17 @@ class Workout : AppCompatActivity() {
                     "Name: ${activity.name}\nMET: ${activity.metabolicEquivalent}\nDescription: ${activity.description}"
                 }
                 activityTextView.text = activitiesText
+            }
+        }
+    }
+    fun populateDatabaseIfNeeded(context: Context) {
+        val db = AppDatabase.getInstance(context)
+        CoroutineScope(Dispatchers.IO).launch {
+            if (db.activityDAO().getAll().isEmpty()) {
+                db.activityDAO().insert(Activity(name = "Running", metabolicEquivalent = 8, description = "Running at moderate pace"))
+                db.activityDAO().insert(Activity(name = "Cycling", metabolicEquivalent = 6, description = "Casual cycling"))
+                db.activityDAO().insert(Activity(name = "Swimming", metabolicEquivalent = 10, description = "Freestyle swimming"))
+                db.activityDAO().insert(Activity(name = "Walking", metabolicEquivalent = 3, description = "Brisk walking"))
             }
         }
     }

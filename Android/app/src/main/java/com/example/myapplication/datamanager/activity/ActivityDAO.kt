@@ -24,7 +24,7 @@ interface ActivityDAO {
     fun update(activity: Activity)
 
     @Insert
-    fun insert(activity: Activity)
+    suspend fun insert(activity: Activity)
 
     @Delete
     fun delete(activity: Activity)
