@@ -34,6 +34,10 @@
             android:name=".calculator.BMICalculator"
             android:exported="false" />
         <activity
+            android:name=".calculator.CalorieCalculator"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".Workout"
             android:exported="false" />
         <activity

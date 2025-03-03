@@ -14,9 +14,13 @@ class CalculatorPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pick_calculator)
         val bmiCalculator=findViewById<Button>(R.id.btnCalculatorBmi)
-
+        val calorieCalculator = findViewById<Button>(R.id.btnCalculatorCalorie)
         bmiCalculator.setOnClickListener{
             val intent= Intent(this, BMICalculator::class.java)
+            startActivity(intent)
+        }
+        calorieCalculator.setOnClickListener{
+            val intent= Intent(this, CalorieCalculator::class.java)
             startActivity(intent)
         }
     }
