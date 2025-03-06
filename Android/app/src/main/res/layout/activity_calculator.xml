@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/layout_background"
-    tools:context=".Calculator">
+    tools:context=".calculator.BMICalculator">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvWeight"
