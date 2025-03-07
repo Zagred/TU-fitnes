@@ -34,7 +34,7 @@ class HomePage : AppCompatActivity() {
             startActivity(intent)
         }
         workout.setOnClickListener{
-            val intent= Intent(this, Workout::class.java)
+            val intent= Intent(this, MainWorkout::class.java)
             startActivity(intent)
         }
         /*trainer*/
@@ -44,7 +44,6 @@ class HomePage : AppCompatActivity() {
             intent.putExtra("USER_ID", getIntent().getIntExtra("USER_ID", -1))
             startActivity(intent)
         }
-        /*community*/
         community.setOnClickListener {
             val intent = Intent(this, PostActivity::class.java)
             intent.putExtra("USER_ID", getIntent().getIntExtra("USER_ID", -1))

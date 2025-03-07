@@ -3,10 +3,7 @@ package com.example.myapplication
 import android.content.Context
 import android.os.Bundle
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.myapplication.datamanager.AppDatabase
 import com.example.myapplication.datamanager.activity.Activity
 import com.example.myapplication.datamanager.activity.ActivityDAO
@@ -16,20 +13,20 @@ import kotlinx.coroutines.withContext
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineScope
 
-class Workout : AppCompatActivity() {
+class MainWorkout : AppCompatActivity() {
 
     private lateinit var activityDao: ActivityDAO
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_workout)
+        setContentView(R.layout.activity_main_workout)
 
         val db = AppDatabase.getInstance(applicationContext)
         activityDao = db.activityDAO()
 
         //insertActivities()
         populateDatabaseIfNeeded(applicationContext)
-        displayActivities()
+        //displayActivities()
     }
 
     private fun insertActivities() {
@@ -39,18 +36,7 @@ class Workout : AppCompatActivity() {
         }
     }
 
-    private fun displayActivities() {
-        lifecycleScope.launch(Dispatchers.IO) {
-            val activities = activityDao.getAll()
-            withContext(Dispatchers.Main) {
-                val activityTextView = findViewById<TextView>(R.id.activityTextView)
-                val activitiesText = activities.joinToString("\n\n") { activity ->
-                    "Name: ${activity.name}\nMET: ${activity.metabolicEquivalent}\nDescription: ${activity.description}"
-                }
-                activityTextView.text = activitiesText
-            }
-        }
-    }
+
     fun populateDatabaseIfNeeded(context: Context) {
         val db = AppDatabase.getInstance(context)
         CoroutineScope(Dispatchers.IO).launch {

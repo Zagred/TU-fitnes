@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".YourWorkout"
+            android:exported="false" />
+        <activity
             android:name=".social.PostActivity"
             android:exported="false" />
         <activity
@@ -35,10 +38,9 @@
             android:exported="false" />
         <activity
             android:name=".calculator.CalorieCalculator"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
-            android:name=".Workout"
+            android:name=".MainWorkout"
             android:exported="false" />
         <activity
             android:name=".HomePage"

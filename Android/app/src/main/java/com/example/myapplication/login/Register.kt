@@ -10,7 +10,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.myapplication.R
-import com.example.myapplication.Workout
 import com.example.myapplication.datamanager.AppDatabase
 import com.example.myapplication.datamanager.custom.CustomWorkout
 import com.example.myapplication.datamanager.custom.CustomWorkoutDAO

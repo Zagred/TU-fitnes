@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/lightBeige"
     tools:context=".login.Login"
     tools:layout_editor_absoluteX="100dp"
     tools:layout_editor_absoluteY="-8dp">
@@ -18,7 +18,7 @@
         android:background="@drawable/main_text"
         android:text="Be better!"
         android:textSize="25sp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
         android:layout_width="300dp"
         android:layout_height="350dp"
         android:layout_gravity="center"
-        android:backgroundTint="@color/redOrange"
+        android:backgroundTint="@color/darkBeige"
         app:cardCornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,8 +50,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:boxBackgroundColor="@color/white"
-                android:textColorHint="@color/redOrange"
+                app:boxBackgroundColor="@color/lightBeige"
+                android:textColorHint="@color/black"
                 app:boxCornerRadiusTopStart="15dp"
                 app:boxCornerRadiusTopEnd="0dp"
                 app:boxCornerRadiusBottomStart="0dp"
@@ -71,8 +71,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:boxBackgroundColor="@color/white"
-                android:textColorHint="@color/redOrange"
+                app:boxBackgroundColor="@color/lightBeige"
+                android:textColorHint="@color/black"
                 app:boxCornerRadiusTopStart="15dp"
                 app:boxCornerRadiusTopEnd="0dp"
                 app:boxCornerRadiusBottomStart="0dp"
@@ -101,21 +101,21 @@
                     android:id="@+id/btLogin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="@color/lightBeige"
                     android:text="Login"
                     android:textStyle="bold"
                     android:textSize="17sp"
-                    android:textColor="@color/redOrange"/>
+                    android:textColor="@color/black"/>
 
                 <Button
                     android:id="@+id/btRegister"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="@color/lightBeige"
                     android:text="Register"
                     android:textStyle="bold"
                     android:textSize="17sp"
-                    android:textColor="@color/redOrange"/>
+                    android:textColor="@color/black"/>
                 </LinearLayout>
         </LinearLayout>
 

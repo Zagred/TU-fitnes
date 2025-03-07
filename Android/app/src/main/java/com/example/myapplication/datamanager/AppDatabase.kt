@@ -45,17 +45,22 @@ abstract class AppDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
+
+
         fun getInstance(context: Context): AppDatabase {
             synchronized(this) {
-                var instance = INSTANCE
+                context.deleteDatabase(DATABASE_NAME)
 
-                if (instance == null){
-                    instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        AppDatabase::class.java,
-                        DATABASE_NAME
-                    ).allowMainThreadQueries().build()
-                }
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    AppDatabase::class.java,
+                    DATABASE_NAME
+                )
+                    .fallbackToDestructiveMigration()
+                    .allowMainThreadQueries()
+                    .build()
+
+                INSTANCE = instance
                 return instance
             }
         }
@@ -74,5 +79,21 @@ abstract class AppDatabase : RoomDatabase() {
                 .build()
 
                 INSTANCE = instance
+                return instance
+            }
+
+
+
+
+            synchronized(this) {
+                var instance = INSTANCE
+
+                if (instance == null){
+                    instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        AppDatabase::class.java,
+                        DATABASE_NAME
+                    ).allowMainThreadQueries().build()
+                }
                 return instance
             }*/

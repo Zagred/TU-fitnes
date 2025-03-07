@@ -21,5 +21,8 @@
 
 
     <color name="redOrange">#ff4b33</color>
+    <color name="lightBeige">#EADFD9</color>
+    <color name="darkBeige">#C8B4A8</color>
+    <color name="textBeige">#8C7264</color>
 
 </resources>
