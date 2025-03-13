@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'CalorieCounter.accounts',
     'CalorieCounter.core',
     'CalorieCounter.calorie_counter',
+    'CalorieCounter.fitness',
 ]
 
 MIDDLEWARE = [
