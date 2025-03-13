@@ -43,7 +43,7 @@ class Register : AppCompatActivity() {
         userDAO = db.userDAO()
         userInfoDAO=db.userInfoDAO()
         nutritionInfo=db.nutritionInfoDAO()
-        workout=db.customWorckoutDAO()
+        workout=db.customWorkoutDAO()
         submitg.setOnClickListener {
             insert()
         }

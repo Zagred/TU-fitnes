@@ -29,7 +29,11 @@ interface CustomWorkoutDAO {
 
     @Query("DELETE FROM CustomWorkout WHERE id = :id")
     fun deleteCustomWorkoutById(id: Int)
+
 */
+@Query("SELECT COUNT(*) FROM CustomWorkout")
+fun getWorkoutCount(): Int
+
     @Update
     fun update(customWorkout: CustomWorkout)
 

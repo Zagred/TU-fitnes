@@ -7,9 +7,11 @@ import androidx.room.RoomDatabase
 import com.example.myapplication.dailydata.DailyData
 import com.example.myapplication.datamanager.activity.Activity
 import com.example.myapplication.datamanager.activity.ActivityDAO
-import com.example.myapplication.datamanager.custom.CustomExercise
+import com.example.myapplication.datamanager.custom.CustomExerciseDAO
 import com.example.myapplication.datamanager.custom.CustomWorkout
+import com.example.myapplication.datamanager.custom.CustomExercise
 import com.example.myapplication.datamanager.custom.CustomWorkoutCustomExercise
+import com.example.myapplication.datamanager.custom.CustomWorkoutCustomExerciseDAO
 import com.example.myapplication.datamanager.custom.CustomWorkoutDAO
 import com.example.myapplication.datamanager.user.NutritionInfo
 import com.example.myapplication.datamanager.user.NutritionInfoDAO
@@ -21,6 +23,7 @@ import com.example.myapplication.datamanager.user.Friends
 import com.example.myapplication.datamanager.user.FriendsDAO
 import com.example.myapplication.datamanager.user.Post
 import com.example.myapplication.datamanager.user.PostDAO
+
 
 
 @Database(
@@ -35,7 +38,9 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun activityDAO(): ActivityDAO
     abstract fun userInfoDAO(): UserInfoDAO
     abstract fun nutritionInfoDAO():NutritionInfoDAO
-    abstract fun customWorckoutDAO():CustomWorkoutDAO
+    abstract fun customWorkoutDAO():CustomWorkoutDAO
+    abstract fun customExerciseDAO(): CustomExerciseDAO
+    abstract fun customWorkoutCustomExerciseDAO(): CustomWorkoutCustomExerciseDAO
     abstract fun postDAO(): PostDAO
     abstract fun friendsDAO(): FriendsDAO
 
@@ -49,18 +54,15 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): AppDatabase {
             synchronized(this) {
-                context.deleteDatabase(DATABASE_NAME)
+                var instance = INSTANCE
 
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    AppDatabase::class.java,
-                    DATABASE_NAME
-                )
-                    .fallbackToDestructiveMigration()
-                    .allowMainThreadQueries()
-                    .build()
-
-                INSTANCE = instance
+                if (instance == null) {
+                    instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        AppDatabase::class.java,
+                        DATABASE_NAME
+                    ).allowMainThreadQueries().build()
+                }
                 return instance
             }
         }
