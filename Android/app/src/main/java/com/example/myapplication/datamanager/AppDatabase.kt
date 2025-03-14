@@ -31,7 +31,7 @@ import com.example.myapplication.datamanager.user.PostDAO
         User::class, UserInfo::class, NutritionInfo::class, Activity::class, CustomExercise::class,
         CustomWorkout::class, CustomWorkoutCustomExercise::class, DailyData::class, Post::class, Friends::class
                ],
-    version = 2
+    version = 3
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDAO(): UserDAO

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.calculator.CalculatorPage
 import com.example.myapplication.social.FriendsActivity
 import com.example.myapplication.social.PostActivity
+import com.example.myapplication.workout.MainWorkout
 
 class HomePage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +36,7 @@ class HomePage : AppCompatActivity() {
         }
         workout.setOnClickListener{
             val intent= Intent(this, MainWorkout::class.java)
+            intent.putExtra("USER_ID", getIntent().getIntExtra("USER_ID", -1))
             startActivity(intent)
         }
         /*trainer*/

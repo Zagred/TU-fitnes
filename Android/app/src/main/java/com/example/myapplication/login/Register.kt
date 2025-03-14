@@ -69,7 +69,7 @@ class Register : AppCompatActivity() {
                 val id=userDAO.findByUsername(username=username)
                 userInfoDAO.insert(UserInfo(0, birthdate = "", gender = "", height = 0, weight =0.0 ,id.uid))
                 nutritionInfo.insert(NutritionInfo(0, caloriesPerDay = 0, carbsPerDay = 1, proteinPerDay = 0, fatPerDay = 0,id.uid))
-                workout.insert(CustomWorkout(0,id.uid,0,0))
+                workout.insert(CustomWorkout(0,id.uid,"first worckout",0))
 
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {

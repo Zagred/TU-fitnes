@@ -13,7 +13,7 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".YourWorkout"
+            android:name=".workout.YourWorkout"
             android:exported="false" />
         <activity
             android:name=".social.PostActivity"
@@ -40,7 +40,7 @@
             android:name=".calculator.CalorieCalculator"
             android:exported="false"></activity>
         <activity
-            android:name=".MainWorkout"
+            android:name=".workout.MainWorkout"
             android:exported="false" />
         <activity
             android:name=".HomePage"

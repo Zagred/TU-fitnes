@@ -18,7 +18,7 @@ import com.example.myapplication.datamanager.user.User
 data class CustomWorkout(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     @ColumnInfo(name = "user_id") val userId: Int,
-    @ColumnInfo(name = "name") val name: Int,
+    @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "rest_in_seconds") val restInSeconds: Int,
 ) {
     override fun equals(other: Any?): Boolean {
