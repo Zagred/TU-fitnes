@@ -24,13 +24,4 @@ data class Activity(
 
         return true
     }
-
-    override fun hashCode(): Int {
-        var result = id
-        result = 31 * result + name.hashCode()
-        result = 31 * result + metabolicEquivalent.hashCode()
-        result = 31 * result + description.hashCode()
-
-        return result
-    }
 }

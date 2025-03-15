@@ -46,7 +46,11 @@ class MainWorkout : AppCompatActivity() {
         // Initialize recyclerView before setting adapter
         recyclerView = findViewById(R.id.rvWorkout)
 
-        adapter = WorkoutAdapter { customWorkout -> deleteWorkout(customWorkout) }
+        adapter = WorkoutAdapter(
+            onDeleteClick = { customWorkout -> deleteWorkout(customWorkout) },
+            onEditClick = { customWorkout -> editWorkout(customWorkout) },
+            onOpenClick = { customWorkout -> openWorkout(customWorkout) }
+        )
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
@@ -58,21 +62,20 @@ class MainWorkout : AppCompatActivity() {
         }
     }
 
-    private fun loadWorkout(){
+    private fun loadWorkout() {
         lifecycleScope.launch(Dispatchers.IO) {
-            val workoutList=database.customWorkoutDAO().getAll()
-            withContext(Dispatchers.Main){
+            val workoutList = database.customWorkoutDAO().getWorkouts(loggedUserId)
+            withContext(Dispatchers.Main) {
                 adapter.setData(workoutList)
             }
         }
-
     }
+
     private fun showAddWorkoutDialog(context: Context) {
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_add_workout, null)
         val etWorkoutName = dialogView.findViewById<EditText>(R.id.etWorkoutName)
         val etWorkoutTimer = dialogView.findViewById<EditText>(R.id.etWorkoutTimer)
         val btnSaveWorkout = dialogView.findViewById<Button>(R.id.btnSaveWorkout)
-        loggedUserId = intent.getIntExtra("USER_ID", -1)
 
         val dialog = AlertDialog.Builder(this)
             .setView(dialogView)
@@ -88,22 +91,34 @@ class MainWorkout : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            //save to databse
+            // Save to database
             val db = AppDatabase.getInstance(context)
             CoroutineScope(Dispatchers.IO).launch {
                 db.customWorkoutDAO()
-                    .insert(CustomWorkout(userId =loggedUserId, name = etWorkoutName.text.toString(), restInSeconds = etWorkoutTimer.text.toString().toInt()))
+                    .insert(CustomWorkout(userId = loggedUserId, name = workoutName, restInSeconds = workoutTimer.toInt()))
                 loadWorkout()
-
             }
             dialog.dismiss()
         }
     }
-    private fun deleteWorkout(customWorkout: CustomWorkout){
-        lifecycleScope.launch(Dispatchers.IO){
+
+    private fun deleteWorkout(customWorkout: CustomWorkout) {
+        lifecycleScope.launch(Dispatchers.IO) {
             database.customWorkoutDAO().delete(customWorkout)
             loadWorkout()
         }
+    }
+
+    private fun editWorkout(customWorkout: CustomWorkout) {
+        Toast.makeText(this, "Editing workout: ${customWorkout.name}", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun openWorkout(customWorkout: CustomWorkout) {
+        val intent = Intent(this, WorkoutDetailsActivity::class.java).apply {
+            putExtra("WORKOUT_ID", customWorkout.id)
+            putExtra("WORKOUT_NAME", customWorkout.name)
+        }
+        startActivity(intent)
     }
 
 }

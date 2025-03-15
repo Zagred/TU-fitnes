@@ -42,4 +42,7 @@ fun getWorkoutCount(): Int
 
     @Delete
     fun delete(customWorkout: CustomWorkout)
+
+    @Query("SELECT * FROM CustomWorkout WHERE user_id=:userId")
+    suspend fun getWorkouts(userId:Int):List<CustomWorkout>
 }

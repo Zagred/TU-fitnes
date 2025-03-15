@@ -3,6 +3,7 @@ package com.example.myapplication.datamanager.custom
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Transaction
 
 @Dao
 interface CustomWorkoutCustomExerciseDAO {
@@ -11,12 +12,8 @@ interface CustomWorkoutCustomExerciseDAO {
 
     @Insert
     fun insert(customWorkoutCustomExercise: CustomWorkoutCustomExercise)
-    /*@Query("SELECT * FROM CustomWorkout WHERE user_id IN " +
-            "(SELECT uid, username FROM User WHERE username LIKE :username)")
-    fun getWorkoutsExerciseByUsername(username: String): List<WorkoutExercise>
 
-    @Query("SELECT * FROM CustomExercise WHERE id IN " +
-            "(SELECT * FROM CustomWorkout WHERE user_id IN " +
-            "(SELECT uid, username FROM User WHERE username LIKE :username))")
-    fun getExerciseWorkoutByUsername(username: String): List<ExerciseWorkout>*/
+    @Transaction
+    @Query("SELECT * FROM CustomExercise WHERE id IN (SELECT customExerciseId FROM CustomWorkoutCustomExercise WHERE customWorkoutId = :workoutId)")
+    fun getExercisesForWorkout(workoutId: Int): List<CustomExercise>
 }
