@@ -24,5 +24,7 @@
     <color name="lightBeige">#EADFD9</color>
     <color name="darkBeige">#C8B4A8</color>
     <color name="textBeige">#8C7264</color>
+    <color name="Orange">#FFB180</color>
+    <color name="lightOrange">#FFCBA9</color>
 
 </resources>

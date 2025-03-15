@@ -56,7 +56,7 @@ abstract class AppDatabase : RoomDatabase() {
             synchronized(this) {
                 var instance = INSTANCE
 
-                if (instance == null) {
+                if (instance == null){
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         AppDatabase::class.java,

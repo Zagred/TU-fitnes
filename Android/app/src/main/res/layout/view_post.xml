@@ -75,7 +75,8 @@
                 android:textColor="@color/redOrange"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                app:cornerRadius="30dp"/>
+                app:cornerRadius="30dp"
+                android:layout_marginBottom="2dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvPosts"

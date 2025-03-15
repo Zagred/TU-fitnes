@@ -6,14 +6,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/darkBeige"
     tools:context=".HomePage">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        android:backgroundTint="@color/redOrange"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/white"
         android:padding="16dp"
         app:cardCornerRadius="30dp"
         app:cardElevation="10dp"
@@ -27,175 +27,200 @@
             android:layout_height="match_parent"
             android:layout_gravity="center">
 
-            <Button
-                android:id="@+id/btProfileHomeP"
-                android:layout_width="180dp"
-                android:layout_height="90dp"
-                android:backgroundTint="@color/white"
-                android:text="Профил"
-                android:textColor="@color/redOrange"
-                android:textSize="19sp"
-                android:textStyle="bold"
-                app:cornerRadius="40dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.05"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.151" />
-
-            <Button
-                android:id="@+id/btMealsHomeP"
-                android:layout_width="180dp"
-                android:layout_height="90dp"
-                android:backgroundTint="@color/white"
-                android:text="Хранителен режим"
-                android:textColor="@color/redOrange"
-                android:textSize="19sp"
-                android:textStyle="bold"
-                app:cornerRadius="40dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.05"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.322" />
-
-            <Button
-                android:id="@+id/btCalendarHomeP"
-                android:layout_width="180dp"
-                android:layout_height="200dp"
-                android:backgroundTint="@color/white"
-                android:text="Календар"
-                android:textColor="@color/redOrange"
-                android:textSize="19sp"
-                android:textStyle="bold"
-                app:cornerRadius="40dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.943"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.182" />
-
-            <Button
-                android:id="@+id/btWorkoutHomeP"
-                android:layout_width="180dp"
-                android:layout_height="200dp"
-                android:backgroundTint="@color/white"
-                android:text="Тренировки"
-                android:textColor="@color/redOrange"
-                android:textSize="19sp"
-                android:textStyle="bold"
-                app:cornerRadius="40dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.05"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.581" />
-
-            <Button
-                android:id="@+id/btFriendsHomeP"
-                android:layout_width="180dp"
-                android:layout_height="90dp"
-                android:backgroundTint="@color/white"
-                android:text="Твоите приятели"
-                android:textColor="@color/redOrange"
-                android:textSize="19sp"
-                android:textStyle="bold"
-                app:cornerRadius="40dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.05"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.812" />
-
-            <Button
-                android:id="@+id/btTrainerHomeP"
-                android:layout_width="180dp"
-                android:layout_height="90dp"
-                android:backgroundTint="@color/white"
-                android:text="Съвети за треньор"
-                android:textColor="@color/redOrange"
-                android:textSize="19sp"
-                android:textStyle="bold"
-                app:cornerRadius="40dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.943"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.653" />
-
-            <Button
-                android:id="@+id/btGoalsHomeP"
-                android:layout_width="180dp"
-                android:layout_height="90dp"
-                android:backgroundTint="@color/white"
-                android:text="Постижения"
-                android:textColor="@color/redOrange"
-                android:textSize="19sp"
-                android:textStyle="bold"
-                app:cornerRadius="40dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.943"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.482" />
-
-            <Button
-                android:id="@+id/btCommunityHomeP"
-                android:layout_width="180dp"
-                android:layout_height="90dp"
-                android:backgroundTint="@color/white"
-                android:text="Общество"
-                android:textColor="@color/redOrange"
-                android:textSize="19sp"
-                android:textStyle="bold"
-                android:translationX="0dp"
-                app:cornerRadius="40dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.05"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.98" />
-
-            <Button
-                android:id="@+id/btCalculatorHomeP"
-                android:layout_width="180dp"
-                android:layout_height="200dp"
-                android:backgroundTint="@color/white"
-                android:text="Калкулатор"
-                android:textColor="@color/redOrange"
-                android:textSize="19sp"
-                android:textStyle="bold"
-                app:cornerRadius="40dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.96"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.98" />
-
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Be better!"
-                android:textColor="@color/white"
-                android:textSize="60sp"
+                android:background="@drawable/home_page_text"
+                android:text="TU Fitness"
+                android:textColor="@color/black"
+                android:textSize="58sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.024" />
+                app:layout_constraintVertical_bias="0.02" />
 
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="3dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.5">
+
+                <Button
+                    android:id="@+id/btProfileHomeP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/darkBeige"
+                    android:ellipsize="end"
+                    android:text="Профил"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="40dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btMealsHomeP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/darkBeige"
+                    android:text="Хранителен режим"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="40dp"
+                    android:ellipsize="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btWorkoutHomeP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/darkBeige"
+                    android:text="Тренировки"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="40dp"
+                    android:ellipsize="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btFriendsHomeP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/darkBeige"
+                    android:text="Твоите приятели"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="40dp"
+                    android:ellipsize="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btCommunityHomeP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/darkBeige"
+                    android:text="Общество"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    android:translationX="0dp"
+                    app:cornerRadius="40dp"
+                    android:ellipsize="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintWidth_percent="0.5">
+
+                <Button
+                    android:id="@+id/btCalendarHomeP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/darkBeige"
+                    android:text="Календар"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="40dp"
+                    android:ellipsize="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <Button
+                    android:id="@+id/btTrainerHomeP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/darkBeige"
+                    android:text="Съвети за треньор"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="40dp"
+                    android:ellipsize="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <Button
+                    android:id="@+id/btGoalsHomeP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/darkBeige"
+                    android:text="Постижения"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="40dp"
+                    android:ellipsize="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+
+                <Button
+                    android:id="@+id/btCalculatorHomeP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/darkBeige"
+                    android:text="Калкулатор"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="40dp"
+                    android:ellipsize="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.5">
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
