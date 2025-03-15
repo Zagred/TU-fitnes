@@ -12,10 +12,10 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="20dp"
+        android:layout_margin="25dp"
         android:backgroundTint="@color/white"
         android:padding="16dp"
-        app:cardCornerRadius="30dp"
+        app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:padding="24dp">
+                android:padding="10dp">
 
                 <TextView
                     android:layout_width="200dp"
@@ -67,10 +67,10 @@
                     android:layout_height="wrap_content"
                     app:boxBackgroundColor="@color/darkBeige"
                     android:textColorHint="@color/black"
-                    app:boxCornerRadiusTopStart="15dp"
-                    app:boxCornerRadiusTopEnd="0dp"
-                    app:boxCornerRadiusBottomStart="0dp"
-                    app:boxCornerRadiusBottomEnd="15dp"
+                    app:boxCornerRadiusTopStart="5dp"
+                    app:boxCornerRadiusTopEnd="5dp"
+                    app:boxCornerRadiusBottomStart="5dp"
+                    app:boxCornerRadiusBottomEnd="5dp"
                     android:layout_marginTop="15dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -89,10 +89,10 @@
                     android:layout_height="wrap_content"
                     app:boxBackgroundColor="@color/darkBeige"
                     android:textColorHint="@color/black"
-                    app:boxCornerRadiusTopStart="15dp"
-                    app:boxCornerRadiusTopEnd="0dp"
-                    app:boxCornerRadiusBottomStart="0dp"
-                    app:boxCornerRadiusBottomEnd="15dp"
+                    app:boxCornerRadiusTopStart="5dp"
+                    app:boxCornerRadiusTopEnd="5dp"
+                    app:boxCornerRadiusBottomStart="5dp"
+                    app:boxCornerRadiusBottomEnd="5dp"
                     android:layout_marginTop="15dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -112,10 +112,10 @@
                     android:layout_height="wrap_content"
                     app:boxBackgroundColor="@color/darkBeige"
                     android:textColorHint="@color/black"
-                    app:boxCornerRadiusTopStart="15dp"
-                    app:boxCornerRadiusTopEnd="0dp"
-                    app:boxCornerRadiusBottomStart="0dp"
-                    app:boxCornerRadiusBottomEnd="15dp"
+                    app:boxCornerRadiusTopStart="5dp"
+                    app:boxCornerRadiusTopEnd="5dp"
+                    app:boxCornerRadiusBottomStart="5dp"
+                    app:boxCornerRadiusBottomEnd="5dp"
                     android:layout_marginTop="15dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -135,10 +135,10 @@
                     android:layout_height="wrap_content"
                     app:boxBackgroundColor="@color/darkBeige"
                     android:textColorHint="@color/black"
-                    app:boxCornerRadiusTopStart="15dp"
-                    app:boxCornerRadiusTopEnd="0dp"
-                    app:boxCornerRadiusBottomStart="0dp"
-                    app:boxCornerRadiusBottomEnd="15dp"
+                    app:boxCornerRadiusTopStart="5dp"
+                    app:boxCornerRadiusTopEnd="5dp"
+                    app:boxCornerRadiusBottomStart="5dp"
+                    app:boxCornerRadiusBottomEnd="5dp"
                     android:layout_marginTop="15dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -158,10 +158,10 @@
                     android:layout_height="wrap_content"
                     app:boxBackgroundColor="@color/darkBeige"
                     android:textColorHint="@color/black"
-                    app:boxCornerRadiusTopStart="15dp"
-                    app:boxCornerRadiusTopEnd="0dp"
-                    app:boxCornerRadiusBottomStart="0dp"
-                    app:boxCornerRadiusBottomEnd="15dp"
+                    app:boxCornerRadiusTopStart="5dp"
+                    app:boxCornerRadiusTopEnd="5dp"
+                    app:boxCornerRadiusBottomStart="5dp"
+                    app:boxCornerRadiusBottomEnd="5dp"
                     android:layout_marginTop="15dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -181,10 +181,10 @@
                     android:layout_height="wrap_content"
                     app:boxBackgroundColor="@color/darkBeige"
                     android:textColorHint="@color/black"
-                    app:boxCornerRadiusTopStart="15dp"
-                    app:boxCornerRadiusTopEnd="0dp"
-                    app:boxCornerRadiusBottomStart="0dp"
-                    app:boxCornerRadiusBottomEnd="15dp"
+                    app:boxCornerRadiusTopStart="5dp"
+                    app:boxCornerRadiusTopEnd="5dp"
+                    app:boxCornerRadiusBottomStart="5dp"
+                    app:boxCornerRadiusBottomEnd="5dp"
                     android:layout_marginTop="15dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -209,6 +209,7 @@
                     android:textStyle="bold"
                     android:textSize="17sp"
                     android:textColor="@color/black"
+                    app:cornerRadius="5dp"
                     app:layout_constraintTop_toBottomOf="@id/tWeightProfile"/>
             </LinearLayout>
         </ScrollView>

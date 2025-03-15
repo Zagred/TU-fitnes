@@ -5,15 +5,17 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@color/darkBeige"
     android:padding="16dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/redOrange"
+        android:backgroundTint="@color/white"
+        android:layout_margin="25dp"
         android:padding="16dp"
-        app:cardCornerRadius="30dp"
+        app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,17 +24,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="10dp">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:boxBackgroundColor="@color/white"
-                android:textColorHint="@color/redOrange"
-                app:boxCornerRadiusTopStart="15dp"
-                app:boxCornerRadiusTopEnd="0dp"
-                app:boxCornerRadiusBottomStart="0dp"
-                app:boxCornerRadiusBottomEnd="15dp">
+                app:boxBackgroundColor="@color/darkBeige"
+                app:boxCornerRadiusTopStart="5dp"
+                app:boxCornerRadiusTopEnd="5dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusBottomEnd="5dp"
+                android:textColorHint="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etTitle"
@@ -48,12 +50,13 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:boxBackgroundColor="@color/white"
-                android:textColorHint="@color/redOrange"
-                app:boxCornerRadiusTopStart="15dp"
-                app:boxCornerRadiusTopEnd="0dp"
-                app:boxCornerRadiusBottomStart="0dp"
-                app:boxCornerRadiusBottomEnd="15dp">
+                app:boxBackgroundColor="@color/darkBeige"
+                android:textColorHint="@color/black"
+                app:boxCornerRadiusTopStart="5dp"
+                app:boxCornerRadiusTopEnd="5dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusBottomEnd="5dp"
+                android:layout_marginTop="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etMessage"
@@ -69,20 +72,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/darkBeige"
                 android:gravity="center"
+                android:layout_marginTop="8dp"
                 android:text="Post"
-                android:textColor="@color/redOrange"
+                android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                app:cornerRadius="30dp"
-                android:layout_marginBottom="2dp"/>
+                app:cornerRadius="10dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvPosts"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:background="@color/darkBeige"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

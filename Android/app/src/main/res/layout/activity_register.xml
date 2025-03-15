@@ -11,11 +11,9 @@
     <androidx.cardview.widget.CardView
         android:layout_width="300dp"
         android:layout_height="400dp"
-        android:layout_margin="16dp"
+        android:layout_margin="25dp"
         android:backgroundTint="@color/white"
-        android:padding="16dp"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,18 +34,18 @@
                 <TextView
                     android:layout_width="200dp"
                     android:layout_height="50dp"
-                    android:gravity="center"
                     android:background="@drawable/home_page_text"
+                    android:gravity="center"
                     android:text="Register"
-                    android:textSize="25sp"
                     android:textColor="@color/black"
+                    android:textSize="25sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.1"/>
+                    app:layout_constraintVertical_bias="0.1" />
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -67,10 +65,10 @@
                     android:layout_height="wrap_content"
                     app:boxBackgroundColor="@color/darkBeige"
                     android:textColorHint="@color/black"
-                    app:boxCornerRadiusTopStart="15dp"
-                    app:boxCornerRadiusTopEnd="0dp"
-                    app:boxCornerRadiusBottomStart="0dp"
-                    app:boxCornerRadiusBottomEnd="15dp"
+                    app:boxCornerRadiusTopStart="5dp"
+                    app:boxCornerRadiusTopEnd="5dp"
+                    app:boxCornerRadiusBottomStart="5dp"
+                    app:boxCornerRadiusBottomEnd="5dp"
                     android:layout_marginTop="15dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -89,10 +87,10 @@
                     android:layout_height="wrap_content"
                     app:boxBackgroundColor="@color/darkBeige"
                     android:textColorHint="@color/black"
-                    app:boxCornerRadiusTopStart="15dp"
-                    app:boxCornerRadiusTopEnd="0dp"
-                    app:boxCornerRadiusBottomStart="0dp"
-                    app:boxCornerRadiusBottomEnd="15dp"
+                    app:boxCornerRadiusTopStart="5dp"
+                    app:boxCornerRadiusTopEnd="5dp"
+                    app:boxCornerRadiusBottomStart="5dp"
+                    app:boxCornerRadiusBottomEnd="5dp"
                     android:layout_marginTop="5dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -111,10 +109,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/darkBeige"
+                    app:cornerRadius="5dp"
                     android:text="Register"
                     android:textStyle="bold"
                     android:textSize="17sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    />
             </LinearLayout>
         </ScrollView>
     </androidx.cardview.widget.CardView>
