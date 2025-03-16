@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main class="main-plan-details">
+        <section id="plan-details">
+            <h1>Class Details</h1>
+            <div class="info-section">
+                <div class="plan-header">
+                    <div class="left">
+                        <img class="food-img" src="{{ class.image_url }}" alt='image'/>
+                        {% if request.user.is_authenticated and not is_joined%}
+                            <a href="{% url 'join class' pk=class.pk %}" class="add-button">Join class</a>
+                        {% else %}
+                            <a href="{% url 'leave class' pk=class.pk %}" class="add-button">Leave class</a>
+                        {% endif %}
+                    </div>
+                    <div class="right">
+                        <h1>{{ class.name }}</h1>
+                        <p><span class="description">Name: {{ class.name }}</span></p>
+                        <p><span class="description">Date: {{ class.date }}</span></p>
+                        <p><span class="description">Time: {{ class.time }}</span></p>
+                        <p><span class="description">Class Duration: {{ class.duration_in_minutes }} min</span></p>
+                        <p><span class="description">Trainer: {{ class.trainer_id.full_name }}</span></p>
+                        <p><span class="description">Description: {{ class.description }}</span></p>
+                        <p><span class="description">User capacity: {{ users_number }} / {{ class.max_user_capacity }}</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main class="main-food-plans">
+        <h1>Classes</h1>
+        <section class="main-section-plans">
+            {% if object_list %}
+                {% for class in object_list %}
+                    <article id="plan">
+                        <img src="{{ class.image_url }}" alt="image">
+                        <h3>{{ class.name }}</h3>
+                        <h3>{{ class.date }} {{ class.time }}</h3>
+                        {% if request.user.is_authenticated%}
+                            <a href="{% url 'class details' pk=class.pk %}">Details</a>
+                        {% endif %}
+                    </article>
+                {% endfor %}
+            {% else %}
+                <h1>No Classes Available!</h1>
+            {% endif %}
+        </section>
+    </main>
+{% endblock %}
