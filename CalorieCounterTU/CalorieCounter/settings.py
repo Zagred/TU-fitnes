@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -13,7 +14,7 @@ SECRET_KEY = 'django-insecure-i4=1-1h(gfi9-ely*gqm&z&j!x*9#!pqs#!)b+@2^qkbla!bsq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost',]
 
 # ‘secure’ cookies.
 SESSION_COOKIE_SECURE = True
@@ -29,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
 
     'CalorieCounter.accounts',
     'CalorieCounter.core',
@@ -48,12 +50,17 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'CalorieCounter.urls'
 
+default_loaders = [
+    "django.template.loaders.filesystem.Loader",
+    "django.template.loaders.app_directories.Loader",
+]
+
+cached_loaders = [("django.template.loaders.cached.Loader", default_loaders)]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
-        'APP_DIRS': True,
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -61,6 +68,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            "loaders": default_loaders if DEBUG else cached_loaders,
         },
     },
 ]
@@ -81,14 +89,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.PyMemcacheCache',
-        'LOCATION': '127.0.0.1:11211',
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
