@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8"/>
     <link rel="icon" href="{% static 'images/diet.png' %}" type="image/icon type">
-    <title>Calorie Counter</title>
+    <title>TU Fitness</title>
     <link rel="stylesheet" href="{% static 'css/home.css' %}"/>
 </head>
 
@@ -16,7 +16,7 @@
     <!-- Navigation Bar -->
     <header>
         <nav class="nav">
-            <a href="{% url 'home' %}" id="title">Calorie Counter</a>
+            <a href="{% url 'home' %}" id="title">TU Fitness</a>
             <ul>
                 {% if not request.user.is_authenticated %}
                     <li><a href="{% url 'food plans' %}">Food Plans</a></li>
@@ -63,7 +63,7 @@
     <!-- Footer -->
     <footer>
         <div>
-            &copy;Calorie Counter
+            &copy;TU Fitness
         </div>
     </footer>
     <!-- End Footer -->

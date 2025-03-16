@@ -10,7 +10,7 @@
     <!--Chart.js-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 
-    <title>Calorie Counter</title>
+    <title>TU Fitness</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
 </head>
 
@@ -20,7 +20,7 @@
     <!-- Navigation Bar -->
     <header>
         <nav>
-            <a href="{% url 'home' %}" id="title">Calorie Counter</a>
+            <a href="{% url 'home' %}" id="title">TU Fitness</a>
             <ul>
                 {% if not request.user.is_authenticated %}
                     <li><a href="{% url 'food plans' %}">Food Plans</a></li>
@@ -52,7 +52,7 @@
     <!-- Footer -->
     <footer>
         <div>
-            &copy;Calorie Counter
+            &copy;TU Fitness
         </div>
     </footer>
     <!-- End Footer -->
