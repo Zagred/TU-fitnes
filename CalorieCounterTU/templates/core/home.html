@@ -29,7 +29,9 @@
                     <!--Only for user with created profile-->
                     <li><a href="{% url 'calorie counter' %}">Your Calories</a></li>
                     <li><a href="{% url 'food plans' %}">Food Plans</a></li>
-                    <li><a href="{% url 'my trainer' pk=user.trainer_id.pk %}">My Trainer</a></li>
+                    {% if user.trainer_id %}
+                        <li><a href="{% url 'my trainer' pk=user.trainer_id.pk %}">My Trainer</a></li>
+                    {% endif %}
                     <li><a href="{% url 'trainers' %}">Trainers</a></li>
                     <li><a href="{% url 'my classes' %}">My Classes</a></li>
                     <li><a href="{% url 'classes' %}">Classes</a></li>

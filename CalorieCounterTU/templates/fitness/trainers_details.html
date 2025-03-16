@@ -10,9 +10,9 @@
                     <div class="left">
                         <img class="food-img" src="{{ trainer.profile_pic_url }}" alt='trainer image'/>
                         {% if request.user.is_authenticated and not is_chosen%}
-                            <a href="{% url 'choose trainer' pk=trainer.pk %}" class="add-button">Choose as personal trainer</a>
+                            <a href="{% url 'choose trainer' pk=trainer.pk %}" class="add-button">Choose trainer</a>
                         {% else %}
-                            <a href="{% url 'remove personal trainer' pk=trainer.pk %}" class="add-button">Remove personal trainer</a>
+                            <a href="{% url 'remove personal trainer' pk=trainer.pk %}" class="add-button">Remove trainer</a>
                         {% endif %}
                     </div>
                     <div class="right">
