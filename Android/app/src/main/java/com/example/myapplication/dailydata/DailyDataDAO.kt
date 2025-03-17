@@ -9,7 +9,7 @@ import java.sql.Date
 
 @Dao
 interface DailyDataDAO {
-
+/*
     @Query("SELECT * FROM DailyData WHERE user_id LIKE :userId")
     fun getAllByUserId(userId: Int): List<DailyData>
 
@@ -52,5 +52,5 @@ interface DailyDataDAO {
 
     @Insert
     fun insert(dailyData: DailyData)
-
+*/
 }

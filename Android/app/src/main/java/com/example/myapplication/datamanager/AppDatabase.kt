@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.myapplication.dailydata.DailyData
+import com.example.myapplication.dailydata.DailyDataDAO
 import com.example.myapplication.datamanager.activity.Activity
 import com.example.myapplication.datamanager.activity.ActivityDAO
 import com.example.myapplication.datamanager.custom.CustomExerciseDAO
@@ -43,6 +44,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun customWorkoutCustomExerciseDAO(): CustomWorkoutCustomExerciseDAO
     abstract fun postDAO(): PostDAO
     abstract fun friendsDAO(): FriendsDAO
+    abstract fun dailyDataDAO(): DailyDataDAO
 
     companion object {
         private const val DATABASE_NAME = "calorie.db"
@@ -56,12 +58,14 @@ abstract class AppDatabase : RoomDatabase() {
             synchronized(this) {
                 var instance = INSTANCE
 
-                if (instance == null){
+                if (instance == null) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         AppDatabase::class.java,
                         DATABASE_NAME
-                    ).allowMainThreadQueries().build()
+                    ).allowMainThreadQueries()
+                        .createFromAsset("database/fitnessapp.db")
+                        .build()
                 }
                 return instance
             }

@@ -87,6 +87,7 @@ class Login : AppCompatActivity() {
 
                 }
             } catch (e: Exception) {
+                Log.e("LoginError", "Failed to login user", e)
                 withContext(Dispatchers.Main) {
                     Toast.makeText(
                         this@Login,
