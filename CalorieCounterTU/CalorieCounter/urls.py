@@ -6,4 +6,5 @@ urlpatterns = [
     path('', include('CalorieCounter.core.urls')),
     path('account/', include('CalorieCounter.accounts.urls')),
     path('calorie-counter/', include('CalorieCounter.calorie_counter.urls')),
+    path('fitness/', include('CalorieCounter.fitness.urls')),
 ]
