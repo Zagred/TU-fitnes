@@ -30,7 +30,7 @@ interface CustomExerciseDAO {
     fun update(customExercise: CustomExercise)
 
     @Insert
-    fun insert(customExercise: CustomExercise)
+    fun insert(customExercise: CustomExercise): Long
 
     @Delete
     fun delete(customExercise: CustomExercise)

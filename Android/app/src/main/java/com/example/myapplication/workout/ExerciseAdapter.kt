@@ -9,7 +9,9 @@ import com.example.myapplication.R
 import com.example.myapplication.datamanager.activity.Activity
 import com.example.myapplication.datamanager.custom.CustomExercise
 
-class ExerciseAdapter : RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>() {
+class ExerciseAdapter(
+    private val onEditClick: (CustomExercise, Activity?) -> Unit
+) : RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>() {
 
     private var exerciseList = emptyList<Pair<CustomExercise, Activity?>>()
 
@@ -17,6 +19,7 @@ class ExerciseAdapter : RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>
         val exerciseName: TextView = itemView.findViewById(R.id.tvExerciseName)
         val exerciseDetails: TextView = itemView.findViewById(R.id.tvExerciseDetails)
         val activityDescription: TextView = itemView.findViewById(R.id.tvActivityDescription)
+        val editButton: TextView = itemView.findViewById(R.id.tvEditExercise)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExerciseViewHolder {
@@ -28,9 +31,13 @@ class ExerciseAdapter : RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>
         val (exercise, activity) = exerciseList[position]
 
         activity?.let {
-            holder.exerciseName.text=it.name
+            holder.exerciseName.text = it.name
             holder.exerciseDetails.text = "Sets: ${exercise.sets}, Reps: ${exercise.reps}, Weight: ${exercise.weightsInKg}kg"
             holder.activityDescription.text = "Description: ${it.description ?: "No description"}"
+
+            holder.editButton.setOnClickListener {
+                onEditClick(exercise, activity)
+            }
         } ?: run {
             holder.activityDescription.text = ""
         }

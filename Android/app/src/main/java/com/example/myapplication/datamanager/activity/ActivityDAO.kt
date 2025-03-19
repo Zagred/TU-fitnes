@@ -30,4 +30,6 @@ interface ActivityDAO {
     fun delete(activity: Activity)
     @Query("SELECT * FROM Activity WHERE id = :activityId")
     fun getActivityById(activityId: Int): Activity?
+    @Query("SELECT * FROM Activity")
+    fun getActivities(): List<Activity>
 }

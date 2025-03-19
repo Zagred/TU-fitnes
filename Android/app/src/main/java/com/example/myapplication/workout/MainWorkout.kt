@@ -110,7 +110,39 @@ class MainWorkout : AppCompatActivity() {
     }
 
     private fun editWorkout(customWorkout: CustomWorkout) {
-        Toast.makeText(this, "Editing workout: ${customWorkout.name}", Toast.LENGTH_SHORT).show()
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_add_workout, null)
+        val etWorkoutName = dialogView.findViewById<EditText>(R.id.etWorkoutName)
+        val etWorkoutTimer = dialogView.findViewById<EditText>(R.id.etWorkoutTimer)
+        val btnSaveWorkout = dialogView.findViewById<Button>(R.id.btnSaveWorkout)
+
+        etWorkoutName.setText(customWorkout.name)
+        etWorkoutTimer.setText(customWorkout.restInSeconds.toString())
+
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("Edit Workout")
+            .setView(dialogView)
+            .create()
+        dialog.show()
+
+        btnSaveWorkout.setOnClickListener {
+            val workoutName = etWorkoutName.text.toString().trim()
+            val workoutTimer = etWorkoutTimer.text.toString().trim()
+
+            if (workoutName.isEmpty() || workoutTimer.isEmpty()) {
+                Toast.makeText(this, "Please enter all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            lifecycleScope.launch(Dispatchers.IO) {
+                val updatedWorkout = customWorkout.copy(
+                    name = workoutName,
+                    restInSeconds = workoutTimer.toInt()
+                )
+                database.customWorkoutDAO().update(updatedWorkout)
+                loadWorkout()
+            }
+            dialog.dismiss()
+        }
     }
 
     private fun openWorkout(customWorkout: CustomWorkout) {
