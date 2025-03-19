@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkBeige"
+    android:background="@color/greenButtons"
     tools:context=".login.Register">
 
     <androidx.cardview.widget.CardView
@@ -37,7 +37,7 @@
                     android:background="@drawable/home_page_text"
                     android:gravity="center"
                     android:text="Register"
-                    android:textColor="@color/black"
+                    android:textColor="@color/greenText"
                     android:textSize="25sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -63,8 +63,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@color/darkBeige"
-                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="@color/greenButtons"
+                    android:textColorHint="@color/greenText"
                     app:boxCornerRadiusTopStart="5dp"
                     app:boxCornerRadiusTopEnd="5dp"
                     app:boxCornerRadiusBottomStart="5dp"
@@ -85,8 +85,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@color/darkBeige"
-                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="@color/greenButtons"
+                    android:textColorHint="@color/greenText"
                     app:boxCornerRadiusTopStart="5dp"
                     app:boxCornerRadiusTopEnd="5dp"
                     app:boxCornerRadiusBottomStart="5dp"
@@ -108,13 +108,12 @@
                     android:id="@+id/btSubmit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/darkBeige"
+                    android:backgroundTint="@color/yellow"
                     app:cornerRadius="5dp"
                     android:text="Register"
                     android:textStyle="bold"
                     android:textSize="17sp"
-                    android:textColor="@color/black"
-                    />
+                    android:textColor="@color/greenText"/>
             </LinearLayout>
         </ScrollView>
     </androidx.cardview.widget.CardView>

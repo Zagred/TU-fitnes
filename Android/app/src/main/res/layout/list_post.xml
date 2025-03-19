@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/darkBeige"
+    android:background="@color/greenButtons"
     android:orientation="vertical">
 
     <ScrollView
@@ -30,9 +30,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:background="@color/darkBeige"
+                android:background="@color/greenButtons"
                 android:hint="Title of the post"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/greenText"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 app:cornerRadius="5dp">
@@ -42,9 +42,9 @@
                 android:id="@+id/tvMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/darkBeige"
+                android:background="@color/greenButtons"
                 android:hint="Your post..."
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/greenText"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 app:boxCornerRadiusTopStart="5dp"
@@ -58,10 +58,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/yellow"
                 android:gravity="center"
                 android:text="Delete"
-                android:textColor="@color/black"
+                android:textColor="@color/greenText"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:cornerRadius="5dp"/>

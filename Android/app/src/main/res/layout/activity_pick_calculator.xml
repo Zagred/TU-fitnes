@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkBeige"
+    android:background="@color/greenButtons"
     tools:context=".calculator.CalorieCalculator">
 
     <androidx.cardview.widget.CardView
@@ -42,18 +42,17 @@
                     android:text="Choose a calculator"
                     android:textSize="42sp"
                     android:textStyle="bold"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/greenText" />
 
                 <Button
                     android:id="@+id/btnCalculatorBmi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="100dp"
-                    android:backgroundTint="@color/darkBeige"
+                    android:backgroundTint="@color/yellow"
                     android:gravity="center"
                     android:text="BMI Calculator"
-                    android:textColor="@color/black"
+                    android:textColor="@color/greenText"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     app:cornerRadius="30dp"
@@ -69,7 +68,7 @@
                     android:layout_marginTop="6dp"
                     android:layout_marginEnd="16dp"
                     android:text="The Body Mass Index (BMI) Calculator can be used to calculate BMI value and corresponding weight status while taking age into consideration."
-                    android:textColor="@color/black"
+                    android:textColor="@color/greenText"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -81,10 +80,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
-                    android:backgroundTint="@color/darkBeige"
+                    android:backgroundTint="@color/yellow"
                     android:gravity="center"
                     android:text="Calorie Calculator"
-                    android:textColor="@color/black"
+                    android:textColor="@color/greenText"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     app:cornerRadius="30dp"
@@ -100,7 +99,7 @@
                     android:layout_marginTop="6dp"
                     android:layout_marginEnd="16dp"
                     android:text="The Calorie Calculator can be used to estimate the number of calories a person needs to consume each day."
-                    android:textColor="@color/black"
+                    android:textColor="@color/greenText"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

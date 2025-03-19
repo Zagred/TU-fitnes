@@ -27,4 +27,9 @@
     <color name="Orange">#FFB180</color>
     <color name="lightOrange">#FFCBA9</color>
 
+    <color name="greenText">#03693D</color>
+    <color name="greenNav">#94c365</color>
+    <color name="greenButtons">#EAF3E1</color>
+    <color name="yellow">#FFE15B</color>
+
 </resources>

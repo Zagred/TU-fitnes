@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkBeige"
+    android:background="@color/greenButtons"
     tools:context=".Profile">
 
     <androidx.cardview.widget.CardView
@@ -40,7 +40,7 @@
                     android:background="@drawable/home_page_text"
                     android:text="My profile"
                     android:textSize="25sp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/greenText"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -65,8 +65,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@color/darkBeige"
-                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="@color/greenButtons"
+                    android:textColorHint="@color/greenText"
                     app:boxCornerRadiusTopStart="5dp"
                     app:boxCornerRadiusTopEnd="5dp"
                     app:boxCornerRadiusBottomStart="5dp"
@@ -87,8 +87,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@color/darkBeige"
-                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="@color/greenButtons"
+                    android:textColorHint="@color/greenText"
                     app:boxCornerRadiusTopStart="5dp"
                     app:boxCornerRadiusTopEnd="5dp"
                     app:boxCornerRadiusBottomStart="5dp"
@@ -110,8 +110,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@color/darkBeige"
-                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="@color/greenButtons"
+                    android:textColorHint="@color/greenText"
                     app:boxCornerRadiusTopStart="5dp"
                     app:boxCornerRadiusTopEnd="5dp"
                     app:boxCornerRadiusBottomStart="5dp"
@@ -133,8 +133,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@color/darkBeige"
-                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="@color/greenButtons"
+                    android:textColorHint="@color/greenText"
                     app:boxCornerRadiusTopStart="5dp"
                     app:boxCornerRadiusTopEnd="5dp"
                     app:boxCornerRadiusBottomStart="5dp"
@@ -156,8 +156,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@color/darkBeige"
-                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="@color/greenButtons"
+                    android:textColorHint="@color/greenText"
                     app:boxCornerRadiusTopStart="5dp"
                     app:boxCornerRadiusTopEnd="5dp"
                     app:boxCornerRadiusBottomStart="5dp"
@@ -179,8 +179,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@color/darkBeige"
-                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="@color/greenButtons"
+                    android:textColorHint="@color/greenText"
                     app:boxCornerRadiusTopStart="5dp"
                     app:boxCornerRadiusTopEnd="5dp"
                     app:boxCornerRadiusBottomStart="5dp"
@@ -203,12 +203,12 @@
                     android:id="@+id/btEditProfile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/darkBeige"
+                    android:backgroundTint="@color/yellow"
                     android:layout_marginTop="15dp"
                     android:text="Edit Profile"
                     android:textStyle="bold"
                     android:textSize="17sp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/greenText"
                     app:cornerRadius="5dp"
                     app:layout_constraintTop_toBottomOf="@id/tWeightProfile"/>
             </LinearLayout>

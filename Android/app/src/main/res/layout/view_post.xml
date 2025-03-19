@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/darkBeige"
+    android:background="@color/greenButtons"
     android:padding="16dp">
 
     <androidx.cardview.widget.CardView
@@ -29,12 +29,12 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:boxBackgroundColor="@color/darkBeige"
+                app:boxBackgroundColor="@color/greenButtons"
                 app:boxCornerRadiusTopStart="5dp"
                 app:boxCornerRadiusTopEnd="5dp"
                 app:boxCornerRadiusBottomStart="5dp"
                 app:boxCornerRadiusBottomEnd="5dp"
-                android:textColorHint="@color/black">
+                android:textColorHint="@color/greenText">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etTitle"
@@ -50,8 +50,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:boxBackgroundColor="@color/darkBeige"
-                android:textColorHint="@color/black"
+                app:boxBackgroundColor="@color/greenButtons"
+                android:textColorHint="@color/greenText"
                 app:boxCornerRadiusTopStart="5dp"
                 app:boxCornerRadiusTopEnd="5dp"
                 app:boxCornerRadiusBottomStart="5dp"
@@ -72,11 +72,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:backgroundTint="@color/darkBeige"
+                android:backgroundTint="@color/yellow"
                 android:gravity="center"
                 android:layout_marginTop="8dp"
                 android:text="Post"
-                android:textColor="@color/black"
+                android:textColor="@color/greenText"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:cornerRadius="10dp"/>
@@ -85,7 +85,7 @@
                 android:id="@+id/rvPosts"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/darkBeige"
+                android:background="@color/greenButtons"
                 android:layout_weight="1"
                 android:layout_marginTop="5dp"/>
         </LinearLayout>
