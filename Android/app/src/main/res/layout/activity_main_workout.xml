@@ -51,10 +51,10 @@
 
                 <Button
                     android:id="@+id/addWorkout"
-                    android:layout_width="wrap_content"
+                    android:layout_width="47dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:backgroundTint="@color/greenButtons"
+                    android:backgroundTint="@color/yellow"
                     android:gravity="center"
                     android:text="+"
                     android:textColor="@color/greenText"

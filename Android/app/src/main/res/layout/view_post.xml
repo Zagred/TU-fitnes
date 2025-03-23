@@ -30,6 +30,9 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeColor="@android:color/transparent"
+                app:boxStrokeWidth="0dp"
                 app:boxBackgroundColor="@color/greenButtons"
                 app:boxCornerRadiusTopStart="5dp"
                 app:boxCornerRadiusTopEnd="5dp"
@@ -51,6 +54,9 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeColor="@android:color/transparent"
+                app:boxStrokeWidth="0dp"
                 app:boxBackgroundColor="@color/greenButtons"
                 android:textColorHint="@color/greenText"
                 app:boxCornerRadiusTopStart="5dp"
@@ -80,7 +86,7 @@
                 android:textColor="@color/greenText"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                app:cornerRadius="10dp"/>
+                app:cornerRadius="5dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvPosts"

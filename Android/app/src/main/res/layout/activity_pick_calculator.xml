@@ -22,6 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -54,9 +55,9 @@
                     android:gravity="center"
                     android:text="BMI Calculator"
                     android:textColor="@color/greenText"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
                     android:textStyle="bold"
-                    app:cornerRadius="30dp"
+                    app:cornerRadius="5dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/chooseCalculatorTxt" />
@@ -70,7 +71,7 @@
                     android:layout_marginEnd="16dp"
                     android:text="The Body Mass Index (BMI) Calculator can be used to calculate BMI value and corresponding weight status while taking age into consideration."
                     android:textColor="@color/greenText"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnCalculatorBmi" />
@@ -85,9 +86,9 @@
                     android:gravity="center"
                     android:text="Calorie Calculator"
                     android:textColor="@color/greenText"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
                     android:textStyle="bold"
-                    app:cornerRadius="30dp"
+                    app:cornerRadius="5dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtViewForBMICalc" />
@@ -101,7 +102,7 @@
                     android:layout_marginEnd="16dp"
                     android:text="The Calorie Calculator can be used to estimate the number of calories a person needs to consume each day."
                     android:textColor="@color/greenText"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnCalculatorCalorie" />

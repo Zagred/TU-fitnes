@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:layout_margin="25dp"
         android:backgroundTint="@color/white"
-        android:padding="16dp"
+        android:padding="24dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,12 +29,13 @@
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="wrap_content"
+                android:layout_width="260dp"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:background="@drawable/home_page_text"
                 android:text="TU Fitness"
                 android:textColor="@color/greenText"
-                android:textSize="56sp"
+                android:textSize="50sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +50,7 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="3dp"
+                android:padding="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintWidth_percent="0.5">
 
@@ -141,7 +142,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="3dp"
+                android:padding="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintWidth_percent="0.5">
 
