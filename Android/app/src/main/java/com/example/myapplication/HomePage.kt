@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.calculator.CalculatorPage
+import com.example.myapplication.mealplan.MealPlanPage
 import com.example.myapplication.social.FriendsActivity
 import com.example.myapplication.social.PostActivity
 import com.example.myapplication.workout.MainWorkout
@@ -53,6 +54,11 @@ class HomePage : AppCompatActivity() {
         }
         calculator.setOnClickListener{
             val intent= Intent(this, CalculatorPage::class.java)
+            startActivity(intent)
+        }
+        meals.setOnClickListener{
+            val intent= Intent(this, MealPlanPage::class.java)
+            intent.putExtra("USER_ID", getIntent().getIntExtra("USER_ID", -1))
             startActivity(intent)
         }
     }
