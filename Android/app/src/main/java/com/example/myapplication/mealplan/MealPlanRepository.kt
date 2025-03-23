@@ -63,11 +63,9 @@ class MealPlanRepository {
                     )
                 )
 
-                // Create Basic auth header - this is how the example does it
                 val credentials = "$appId:$appKey"
                 val basic = "Basic " + Base64.encodeToString(credentials.toByteArray(), Base64.NO_WRAP)
 
-                // Call the API with the correct headers
                 val response = RetrofitClient.instance.getMealPlan(
                     appId = appId,
                     appKey = appKey,
@@ -86,7 +84,6 @@ class MealPlanRepository {
         }
     }
 
-    // New method to fetch detailed meal plan
     suspend fun fetchDetailedMealPlan(appId: String, appKey: String, calories: Int): List<Meal> {
         return withContext(Dispatchers.IO) {
             try {
@@ -95,7 +92,6 @@ class MealPlanRepository {
 
                 Log.d("MealPlanRepository", "Basic meals extracted: ${basicMeals.size}")
 
-                // For each basic meal, fetch detailed information
                 val detailedMeals = mutableListOf<Meal>()
 
                 for (meal in basicMeals) {
@@ -103,15 +99,13 @@ class MealPlanRepository {
                         Log.d("MealPlanRepository", "Fetching details for: ${meal.label}")
                         val detailedMeal = fetchRecipeDetails(meal.url, appId, appKey)
                         if (detailedMeal != null) {
-                            // Preserve the meal category from the basic meal
                             detailedMeals.add(detailedMeal.copy(mealCategory = meal.mealCategory))
                         } else {
-                            // Fallback to basic meal if detailed info can't be fetched
                             detailedMeals.add(meal)
                         }
                     } catch (e: Exception) {
                         Log.e("MealPlanRepository", "Error fetching recipe details: ${e.message}", e)
-                        detailedMeals.add(meal) // Use basic meal as fallback
+                        detailedMeals.add(meal)
                     }
                 }
 
@@ -124,7 +118,6 @@ class MealPlanRepository {
         }
     }
 
-    // Helper function to fetch detailed recipe information
     private suspend fun fetchRecipeDetails(url: String, appId: String, appKey: String): Meal? {
         return try {
             // Extract recipe ID from the URL
@@ -136,7 +129,6 @@ class MealPlanRepository {
 
             Log.d("MealPlanRepository", "Extracting recipe ID: $recipeId from URL: $url")
 
-            // Call the API to get detailed recipe information
             val response = RetrofitClient.instance.getRecipeDetails(
                 recipeId = recipeId,
                 type = "public",
@@ -145,7 +137,6 @@ class MealPlanRepository {
                 userId = "kristianstanev03"
             )
 
-            // Map the response to our Meal model
             response.recipe.let { recipe ->
                 Meal(
                     label = recipe.label,
@@ -168,7 +159,6 @@ class MealPlanRepository {
         }
     }
 
-    // Helper function to extract recipe ID from URL
     private fun extractRecipeIdFromUrl(url: String): String? {
         val regex = "recipes/v2/([^?]*)".toRegex()
         val matchResult = regex.find(url)

@@ -2,7 +2,6 @@ package com.example.myapplication.mealplan
 
 import com.google.gson.annotations.SerializedName
 
-// ==== API Request Models ====
 data class MealPlanRequest(
     val size: Int,
     val plan: PlanDetails
@@ -18,7 +17,6 @@ data class SectionDetails(
     val fit: Map<String, Map<String, Int>>
 )
 
-// ==== API Response Models ====
 data class MealPlanResponse(
     @SerializedName("status") val status: String,
     @SerializedName("selection") val selection: List<DaySelection>
@@ -43,7 +41,6 @@ data class LinkDetails(
     @SerializedName("href") val href: String
 )
 
-// ==== Recipe Detail Models ====
 data class RecipeResponse(
     @SerializedName("recipe") val recipe: RecipeDetails
 )
@@ -72,7 +69,6 @@ data class ImageDetails(
     @SerializedName("url") val url: String
 )
 
-// ==== Meal Model (Used for UI display) ====
 data class Meal(
     val label: String,
     val url: String,
@@ -86,10 +82,9 @@ data class Meal(
     val mealType: List<String> = emptyList(),
     val dishType: List<String> = emptyList(),
     val imageUrl: String? = null,
-    val mealCategory: String = "" // Breakfast, Lunch, Dinner, etc.
+    val mealCategory: String = ""
 )
 
-// ==== Extension Functions ====
 fun MealPlanResponse.extractMeals(): List<Meal> {
     val meals = mutableListOf<Meal>()
 
@@ -111,7 +106,6 @@ private fun extractMealsFromSection(sections: Map<String, SectionResponse>, meal
             ))
         }
 
-        // If this section has subsections
         section.sections?.let { subsections ->
             extractMealsFromSection(subsections, meals,
                 if (category.isNotEmpty()) category else sectionName)
