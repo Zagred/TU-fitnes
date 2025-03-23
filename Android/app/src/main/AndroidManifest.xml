@@ -24,12 +24,6 @@
             android:name=".mealplan.MealPlanPage"
             android:exported="false" />
         <activity
-            android:name=".workout.AddExerciseActivity"
-            android:exported="false" />
-        <activity
-            android:name=".workout.EditWOrkoutActivity"
-            android:exported="false" />
-        <activity
             android:name=".workout.WorkoutDetailsActivity"
             android:exported="false" />
         <activity
