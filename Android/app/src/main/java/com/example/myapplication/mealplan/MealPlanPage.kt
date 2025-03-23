@@ -23,7 +23,7 @@ class MealPlanPage : AppCompatActivity() {
             startActivity(intent)
         }
         checkCaloriesBtn.setOnClickListener {
-            val intent = Intent(this, CalorieCalculator::class.java)
+            val intent = Intent(this, CheckCalories::class.java)
             startActivity(intent)
         }
     }
