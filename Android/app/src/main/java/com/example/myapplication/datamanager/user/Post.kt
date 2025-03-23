@@ -21,3 +21,10 @@ data class Post(
     @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "message") val message: String,
 )
+data class PostWithUsername(
+    val postId: Int,
+    val userId: Int,
+    val title: String,
+    val message: String,
+    val username: String
+)

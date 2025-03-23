@@ -24,6 +24,13 @@ import com.example.myapplication.datamanager.custom.CustomWorkoutCustomExercise
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.os.Build
+import android.os.CountDownTimer
+import androidx.core.app.NotificationCompat
+import android.media.RingtoneManager
 
 class WorkoutDetailsActivity : AppCompatActivity() {
 
@@ -32,10 +39,14 @@ class WorkoutDetailsActivity : AppCompatActivity() {
     private lateinit var database: AppDatabase
     private var workoutId: Int = -1
     private var workoutName: String = ""
+    private lateinit var restTimer: CountDownTimer
+    private var restInSeconds: Int = 0
+    private var isTimerRunning = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_workout_details)
+        requestNotificationPermission()
 
         database = AppDatabase.getInstance(application)
         workoutId = intent.getIntExtra("WORKOUT_ID", -1)
@@ -55,6 +66,20 @@ class WorkoutDetailsActivity : AppCompatActivity() {
         // Add the button to add exercises
         findViewById<TextView>(R.id.addExercise).setOnClickListener {
             showAddExerciseDialog()
+        }
+        lifecycleScope.launch(Dispatchers.IO) {
+            val workout = database.customWorkoutDAO().findById(workoutId)
+            withContext(Dispatchers.Main) {
+                restInSeconds = workout?.restInSeconds ?: 60
+            }
+        }
+        createNotificationChannel()
+        findViewById<TextView>(R.id.startTimer).setOnClickListener {
+            if (!isTimerRunning) {
+                startRestTimer()
+            } else {
+                cancelRestTimer()
+            }
         }
     }
 
@@ -178,6 +203,85 @@ class WorkoutDetailsActivity : AppCompatActivity() {
                 loadExercises()
             }
             dialog.dismiss()
+        }
+    }
+    private fun startRestTimer() {
+        val timerButton = findViewById<TextView>(R.id.startTimer)
+        isTimerRunning = true
+        timerButton.text = "⏱️ Cancel"
+
+        restTimer = object : CountDownTimer(restInSeconds * 1000L, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                val secondsRemaining = millisUntilFinished / 1000
+                // Update UI with countdown
+                runOnUiThread {
+                    timerButton.text = "⏱️ ${secondsRemaining}s"
+                }
+            }
+
+            override fun onFinish() {
+                isTimerRunning = false
+                timerButton.text = "⏱️ Start Rest"
+                // Send notification
+                sendRestCompletedNotification()
+            }
+        }.start()
+    }
+
+    private fun cancelRestTimer() {
+        if (::restTimer.isInitialized) {
+            restTimer.cancel()
+        }
+        isTimerRunning = false
+        findViewById<TextView>(R.id.startTimer).text = "⏱️ Start Rest"
+    }
+
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = "Rest Timer"
+            val descriptionText = "Notifications for workout rest timer"
+            val importance = NotificationManager.IMPORTANCE_HIGH
+            val channel = NotificationChannel("REST_TIMER_CHANNEL", name, importance).apply {
+                description = descriptionText
+            }
+            val notificationManager: NotificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
+
+    private fun sendRestCompletedNotification() {
+        val notificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        val soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+
+        val notification = NotificationCompat.Builder(this, "REST_TIMER_CHANNEL")
+            .setContentTitle("Rest Time Complete!")
+            .setContentText("Time to start your next exercise")
+            .setSmallIcon(R.drawable.ic_launcher_foreground) // Use an appropriate icon
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setSound(soundUri)
+            .setVibrate(longArrayOf(0, 500, 250, 500))
+            .setAutoCancel(true)
+            .build()
+
+        notificationManager.notify(1, notification)
+    }
+
+    // Make sure to cancel the timer in onDestroy
+    override fun onDestroy() {
+        super.onDestroy()
+        if (::restTimer.isInitialized) {
+            restTimer.cancel()
+        }
+    }
+    private fun requestNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) !=
+                android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 100)
+            }
         }
     }
 }

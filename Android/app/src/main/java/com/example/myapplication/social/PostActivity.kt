@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.datamanager.AppDatabase
 import com.example.myapplication.datamanager.user.Post
+import com.example.myapplication.datamanager.user.PostWithUsername
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -24,10 +25,11 @@ class PostActivity : AppCompatActivity() {
     private lateinit var database: AppDatabase
 
     private var loggedUserId: Int = -1
+    private var isAdmin: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.view_post) // Matches your XML file
+        setContentView(R.layout.view_post)
 
         etTitle = findViewById(R.id.etTitle)
         etMessage = findViewById(R.id.etMessage)
@@ -36,18 +38,27 @@ class PostActivity : AppCompatActivity() {
 
         database = AppDatabase.getInstance(application)
 
-        // Get the logged-in user ID from the Intent
+        // Get the logged-in user ID and role from the Intent
         loggedUserId = intent.getIntExtra("USER_ID", -1)
         if (loggedUserId == -1) {
             Toast.makeText(this, "Invalid User", Toast.LENGTH_SHORT).show()
             finish()
         }
 
-        adapter = PostAdapter(loggedUserId) { post -> deletePost(post) }
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = adapter
+        // Check if user is admin
+        lifecycleScope.launch(Dispatchers.IO) {
+            val user = database.userDAO().getUserById(loggedUserId)
+            isAdmin = user?.role == "admin"
 
-        loadPosts()
+            withContext(Dispatchers.Main) {
+                // Initialize adapter after determining admin status
+                adapter = PostAdapter(loggedUserId, isAdmin) { post -> deletePost(post) }
+                recyclerView.layoutManager = LinearLayoutManager(this@PostActivity)
+                recyclerView.adapter = adapter
+
+                loadPosts()
+            }
+        }
 
         btnPost.setOnClickListener {
             val title = etTitle.text.toString().trim()
@@ -62,7 +73,7 @@ class PostActivity : AppCompatActivity() {
 
     private fun loadPosts() {
         lifecycleScope.launch(Dispatchers.IO) {
-            val postsList = database.postDAO().getAllPosts()
+            val postsList = database.postDAO().getAllPostsWithUsername()
             withContext(Dispatchers.Main) {
                 adapter.setData(postsList)
             }
@@ -80,14 +91,14 @@ class PostActivity : AppCompatActivity() {
         }
     }
 
-    private fun deletePost(post: Post) {
-        if (post.userId != loggedUserId) {
+    private fun deletePost(post: PostWithUsername) {
+        if (!isAdmin && post.userId != loggedUserId) {
             Toast.makeText(this, "You can only delete your own posts", Toast.LENGTH_SHORT).show()
             return
         }
 
         lifecycleScope.launch(Dispatchers.IO) {
-            database.postDAO().deletePost(post)
+            database.postDAO().deletePostById(post.postId)
             loadPosts()
         }
     }

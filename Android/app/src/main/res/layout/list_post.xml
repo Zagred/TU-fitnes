@@ -53,6 +53,19 @@
                 app:boxCornerRadiusBottomEnd="5dp">
             </com.google.android.material.textfield.MaterialAutoCompleteTextView>
 
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/tvUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/greenButtons"
+                android:textColor="@color/greenText"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                android:gravity="end"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp">
+            </com.google.android.material.textfield.MaterialAutoCompleteTextView>
+
             <Button
                 android:id="@+id/btnDelete"
                 android:layout_width="wrap_content"

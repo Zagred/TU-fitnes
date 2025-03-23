@@ -28,6 +28,9 @@ interface UserDAO {
     @Query("DELETE FROM User WHERE username = :username")
     fun deleteUser(username: String)
 
+    @Query("SELECT * FROM User WHERE uid = :userId")
+    suspend fun getUserById(userId: Int): User?
+
     @Update
     fun update(user: User)
 

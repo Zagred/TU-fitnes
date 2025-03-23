@@ -17,7 +17,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Workout Name" />
-
+    <TextView
+        android:id="@+id/startTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="⏱️ Start Rest"
+        android:textColor="@color/design_default_color_secondary"
+        android:textSize="16sp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/addExercise"
+        app:layout_constraintTop_toTopOf="parent" />
     <TextView
         android:id="@+id/addExercise"
         android:layout_width="wrap_content"

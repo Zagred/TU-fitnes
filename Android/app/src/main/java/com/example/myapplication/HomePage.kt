@@ -38,6 +38,7 @@ class HomePage : AppCompatActivity() {
         workout.setOnClickListener{
             val intent= Intent(this, MainWorkout::class.java)
             intent.putExtra("USER_ID", getIntent().getIntExtra("USER_ID", -1))
+
             startActivity(intent)
         }
         /*trainer*/

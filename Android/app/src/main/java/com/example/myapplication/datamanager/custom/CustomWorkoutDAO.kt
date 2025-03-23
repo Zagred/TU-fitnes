@@ -45,4 +45,6 @@ fun getWorkoutCount(): Int
 
     @Query("SELECT * FROM CustomWorkout WHERE user_id=:userId")
     suspend fun getWorkouts(userId:Int):List<CustomWorkout>
+    @Query("SELECT * FROM CustomWorkout WHERE id = :id LIMIT 1")
+    suspend fun findById(id: Int): CustomWorkout?
 }
