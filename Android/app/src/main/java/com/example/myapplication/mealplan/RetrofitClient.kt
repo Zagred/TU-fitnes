@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit
 object RetrofitClient {
     private const val BASE_URL = "https://api.edamam.com/"
 
-    // Create OkHttpClient with logging for debugging
     private val okHttpClient by lazy {
         val loggingInterceptor = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
@@ -23,7 +22,6 @@ object RetrofitClient {
             .build()
     }
 
-    // Create Retrofit instance
     private val retrofit by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -32,7 +30,6 @@ object RetrofitClient {
             .build()
     }
 
-    // Create API service
     val instance: EdamamApiService by lazy {
         retrofit.create(EdamamApiService::class.java)
     }
