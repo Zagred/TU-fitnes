@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.achievement.AchievementActivity
 import com.example.myapplication.calculator.CalculatorPage
+import com.example.myapplication.datamanager.achievement.Achievement
 import com.example.myapplication.mealplan.MealPlanPage
 import com.example.myapplication.social.FriendsActivity
 import com.example.myapplication.social.PostActivity
@@ -60,6 +62,11 @@ class HomePage : AppCompatActivity() {
         }
         meals.setOnClickListener{
             val intent= Intent(this, MealPlanPage::class.java)
+            intent.putExtra("USER_ID", getIntent().getIntExtra("USER_ID", -1))
+            startActivity(intent)
+        }
+        goals.setOnClickListener{
+            val intent= Intent(this, AchievementActivity::class.java)
             intent.putExtra("USER_ID", getIntent().getIntExtra("USER_ID", -1))
             startActivity(intent)
         }

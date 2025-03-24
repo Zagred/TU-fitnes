@@ -26,13 +26,15 @@ import com.example.myapplication.datamanager.user.Friends
 import com.example.myapplication.datamanager.user.FriendsDAO
 import com.example.myapplication.datamanager.user.Post
 import com.example.myapplication.datamanager.user.PostDAO
-
+import com.example.myapplication.datamanager.achievement.Achievement
+import com.example.myapplication.datamanager.achievement.AchievementDAO
 
 
 @Database(
     entities = [
         User::class, UserInfo::class, NutritionInfo::class, Activity::class, CustomExercise::class,
-        CustomWorkout::class, CustomWorkoutCustomExercise::class, DailyData::class, Post::class, Friends::class, CalendarEvent::class
+        CustomWorkout::class, CustomWorkoutCustomExercise::class, DailyData::class, Post::class,
+        Friends::class, CalendarEvent::class, Achievement::class
     ],
     version = 4
 )
@@ -48,6 +50,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun friendsDAO(): FriendsDAO
     abstract fun dailyDataDAO(): DailyDataDAO
     abstract fun calendarEventDao(): CalendarEventDAO
+    abstract fun achievementDAO(): AchievementDAO
+
 
     companion object {
         private const val DATABASE_NAME = "calorie.db"
@@ -66,7 +70,9 @@ abstract class AppDatabase : RoomDatabase() {
                         context.applicationContext,
                         AppDatabase::class.java,
                         DATABASE_NAME
-                    ).allowMainThreadQueries().build()
+                    ).allowMainThreadQueries()
+                        .createFromAsset("database/fitnessapp.db")
+                        .build()
                 }
                 return instance
             }
