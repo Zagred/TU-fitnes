@@ -10,7 +10,7 @@
     <!--Chart.js-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 
-    <title>Calorie Counter</title>
+    <title>TU Fitness</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
 </head>
 
@@ -20,10 +20,12 @@
     <!-- Navigation Bar -->
     <header>
         <nav>
-            <a href="{% url 'home' %}" id="title">Calorie Counter</a>
+            <a href="{% url 'home' %}" id="title">TU Fitness</a>
             <ul>
                 {% if not request.user.is_authenticated %}
                     <li><a href="{% url 'food plans' %}">Food Plans</a></li>
+                    <li><a href="{% url 'trainers' %}">Trainers</a></li>
+                    <li><a href="{% url 'classes' %}">Classes</a></li>
                     <li><a href="{% url 'about' %}">About</a></li>
                     <!--Only for not log in user-->
                     <li><a href="{% url 'login' %}">Login</a></li>
@@ -31,8 +33,13 @@
                     <!--Only for user with created profile-->
                     <li><a href="{% url 'calorie counter' %}">Your Calories</a></li>
                     <li><a href="{% url 'food plans' %}">Food Plans</a></li>
+                    {% if user.trainer_id %}
+                        <li><a href="{% url 'my trainer' pk=user.trainer_id.pk %}">My Trainer</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'trainers' %}">Trainers</a></li>
+                    <li><a href="{% url 'my classes' %}">My Classes</a></li>
+                    <li><a href="{% url 'classes' %}">Classes</a></li>
                     <li><a href="{% url 'about' %}">About</a></li>
-                    <!--Only for user with created profile-->
                     <li><a href="{% url 'profile details' username=user.username %}">Profile</a></li>
                 {% endif %}
             </ul>
@@ -44,13 +51,13 @@
     {% block content %}
     {% endblock %}
 
-    <!-- Footer -->
-    <footer>
-        <div>
-            &copy;Calorie Counter | Jasmine Y.
-        </div>
-    </footer>
-    <!-- End Footer -->
+{#    <!-- Footer -->#}
+{#    <footer>#}
+{#        <div>#}
+{#            &copy;TU Fitness#}
+{#        </div>#}
+{#    </footer>#}
+{#    <!-- End Footer -->#}
 
 </div>
 </body>

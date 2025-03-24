@@ -5,6 +5,7 @@ from django.core import validators
 from django.db import models
 
 from CalorieCounter.accounts.validators import validate_age_through_birthday
+from CalorieCounter.fitness.models import Trainer, Class
 
 
 class CustomUser(AbstractUser):
@@ -79,6 +80,18 @@ class CustomUser(AbstractUser):
     )
 
     REQUIRED_FIELDS = ['birthday', 'gender', 'height', 'weight']
+
+    trainer_id = models.ForeignKey(
+        to=Trainer,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+    )
+
+    class_id = models.ManyToManyField(
+        to=Class,
+        blank=True,
+    )
 
     @property
     def age(self):

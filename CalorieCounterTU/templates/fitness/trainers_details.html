@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main class="main-plan-details">
+        <section id="plan-details">
+            <h1>Trainer Details</h1>
+            <div class="info-section">
+                <div class="plan-header">
+                    <div class="left">
+                        <img class="food-img" src="{{ trainer.profile_pic_url }}" alt='trainer image'/>
+                        {% if request.user.is_authenticated and not is_chosen%}
+                            <a href="{% url 'choose trainer' pk=trainer.pk %}" class="add-button">Choose trainer</a>
+                        {% else %}
+                            <a href="{% url 'remove personal trainer' pk=trainer.pk %}" class="add-button">Remove trainer</a>
+                        {% endif %}
+                    </div>
+                    <div class="right">
+                        <h1>{{ trainer.name }}</h1>
+                        <p><span class="description">Name: {{ trainer.full_name }}</span></p>
+                        <p><span class="description">Age: {{ trainer.age }}</span></p>
+                        <p><span class="description">Gender: {{ trainer.gender }}</span></p>
+                        <p><span class="description">Bio: {{ trainer.biography }}</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
