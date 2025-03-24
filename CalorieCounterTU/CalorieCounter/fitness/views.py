@@ -33,7 +33,49 @@ def choose_trainer(request, pk):
 
 def remove_trainer(request, pk):
     user = CustomUser.objects.get(username=request.user.username)
-    trainer = Trainer.objects.get(pk=pk)
-    user.trainer_id.remove(trainer)
+    user.trainer_id = None
     user.save()
     return redirect('trainers')
+
+
+class ClassesView(views.ListView):
+    queryset = Class.objects.all()
+    template_name = 'fitness/classes.html'
+
+
+class MyClassesView(views.ListView):
+    template_name = 'fitness/my_classes.html'
+
+    def get_queryset(self):
+        return CustomUser.objects.get(username=self.request.user.username).class_id.all()
+
+
+class ClassDetailsView(views.DetailView):
+    model = Class
+    template_name = 'fitness/class_details.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ClassDetailsView, self).get_context_data(**kwargs)
+        user = CustomUser.objects.get(username=self.request.user.username)
+        class_object = Class.objects.get(pk=self.kwargs['pk'])
+        context['is_joined'] = user.class_id.filter(id=class_object.id).exists()
+        context['users_number'] = len(CustomUser.objects.filter(class_id=self.kwargs['pk']))
+        return context
+
+
+def join_class(request, pk):
+    user = CustomUser.objects.get(username=request.user.username)
+    class_object = Class.objects.get(pk=pk)
+    if class_object.max_user_capacity > len(CustomUser.objects.filter(class_id=pk)):
+        user.class_id.add(class_object)
+        user.save()
+        return redirect('my classes')
+    return redirect(reverse('class details', kwargs={'pk': pk}))
+
+
+def leave_class(request, pk):
+    user = CustomUser.objects.get(username=request.user.username)
+    class_object = Class.objects.get(pk=pk)
+    user.class_id.remove(class_object)
+    user.save()
+    return redirect('my classes')
