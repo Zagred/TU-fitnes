@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_gravity="center_horizontal"
-                    android:background="@drawable/home_page_text"
+                    android:background="@drawable/main_text"
                     android:text="Choose a calculator"
                     android:textSize="42sp"
                     android:textStyle="bold"

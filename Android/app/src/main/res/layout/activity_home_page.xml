@@ -32,7 +32,7 @@
                 android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:background="@drawable/home_page_text"
+                android:background="@drawable/main_text"
                 android:text="TU Fitness"
                 android:textColor="@color/greenText"
                 android:textSize="50sp"
