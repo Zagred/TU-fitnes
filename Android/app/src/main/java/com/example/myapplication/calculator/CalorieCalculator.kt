@@ -28,8 +28,6 @@ class CalorieCalculator : AppCompatActivity() {
         val radioGroup = findViewById<RadioGroup>(R.id.rgGender)
         val btnCalculate = findViewById<Button>(R.id.btnCalculate)
         val tvIndex = findViewById<TextView>(R.id.tvIndex)
-        val tvResult = findViewById<TextView>(R.id.tvResult)
-        val tvInfo = findViewById<TextView>(R.id.tvInfo)
 
         btnCalculate.setOnClickListener {
             val weight = etWeight.text.toString().toDoubleOrNull()
@@ -45,8 +43,6 @@ class CalorieCalculator : AppCompatActivity() {
 
             } else {
                 tvIndex.text = "Invalid input!"
-                tvResult.text = "Error"
-                tvInfo.text = "Please enter valid values."
             }
         }
     }

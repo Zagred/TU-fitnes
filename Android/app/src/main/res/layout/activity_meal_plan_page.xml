@@ -38,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_gravity="center_horizontal"
-                    android:background="@drawable/home_page_text"
+                    android:background="@drawable/main_text"
                     android:text="Choose an option"
                     android:textSize="42sp"
                     android:textStyle="bold"
@@ -56,7 +56,7 @@
                     android:textColor="@color/greenText"
                     android:textSize="30sp"
                     android:textStyle="bold"
-                    app:cornerRadius="30dp"
+                    app:cornerRadius="5dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/chooseOptionTxt" />
@@ -87,7 +87,7 @@
                     android:textColor="@color/greenText"
                     android:textSize="30sp"
                     android:textStyle="bold"
-                    app:cornerRadius="30dp"
+                    app:cornerRadius="5dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtViewForMealPlan" />
