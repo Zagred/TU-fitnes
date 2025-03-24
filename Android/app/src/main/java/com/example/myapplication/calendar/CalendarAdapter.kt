@@ -6,34 +6,81 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.util.*
 
 class CalendarAdapter(
     private val days: List<String>,
-    private val onDateClick: (String) -> Unit
+    private val savedDates: MutableSet<String>,
+    private val onDateClick: (String, Boolean) -> Unit
 ) : RecyclerView.Adapter<CalendarAdapter.CalendarViewHolder>() {
-
-    private val selectedDates = mutableSetOf<String>()
 
     inner class CalendarViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val dayText: TextView = itemView.findViewById(R.id.day_text)
 
-        fun bind(date: String) {
-            dayText.text = date
+        fun bind(dateText: String) {
+            val calendar = Calendar.getInstance()
+            val currentMonth = calendar.get(Calendar.MONTH) + 1
+            val currentYear = calendar.get(Calendar.YEAR)
 
-            if (selectedDates.contains(date)) {
-                dayText.setTextColor(Color.RED)
+            var isCurrentMonth = true
+            var displayText = dateText
+            var month = currentMonth
+            var year = currentYear
+
+            when {
+                dateText.startsWith("prev-") -> {
+                    displayText = dateText.substring(5)
+                    isCurrentMonth = false
+
+                    // Calculate previous month
+                    if (currentMonth == 1) {
+                        month = 12
+                        year = currentYear - 1
+                    } else {
+                        month = currentMonth - 1
+                    }
+                }
+                dateText.startsWith("next-") -> {
+                    displayText = dateText.substring(5)
+                    isCurrentMonth = false
+
+                    // Calculate next month
+                    if (currentMonth == 12) {
+                        month = 1
+                        year = currentYear + 1
+                    } else {
+                        month = currentMonth + 1
+                    }
+                }
+            }
+
+            dayText.text = displayText
+
+            val dateKey = "$year-$month-$displayText"
+
+            if (!isCurrentMonth) {
+                dayText.setTextColor(Color.GRAY)
+                dayText.alpha = 0.5f
             } else {
-                dayText.setTextColor(Color.BLACK)
+                dayText.alpha = 1.0f
+                if (savedDates.contains(dateKey)) {
+                    dayText.setTextColor(Color.RED)
+                } else {
+                    dayText.setTextColor(Color.BLACK)
+                }
             }
 
             dayText.setOnClickListener {
-                if (selectedDates.contains(date)) {
-                    selectedDates.remove(date)
+                if (!isCurrentMonth) return@setOnClickListener
+
+                val isNowSelected = !savedDates.contains(dateKey)
+                if (isNowSelected) {
+                    savedDates.add(dateKey)
                 } else {
-                    selectedDates.add(date)
+                    savedDates.remove(dateKey)
                 }
                 notifyDataSetChanged()
-                onDateClick(date)
+                onDateClick(dateKey, isNowSelected)
             }
         }
     }

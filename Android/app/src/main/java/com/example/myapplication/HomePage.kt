@@ -32,7 +32,8 @@ class HomePage : AppCompatActivity() {
         }
         /*meals*/
         calendar.setOnClickListener {
-            val intent=Intent(this, CalendarActivity::class.java)
+            val intent = Intent(this, CalendarActivity::class.java)
+            intent.putExtra("USER_ID", getIntent().getIntExtra("USER_ID", -1))
             startActivity(intent)
         }
         workout.setOnClickListener{

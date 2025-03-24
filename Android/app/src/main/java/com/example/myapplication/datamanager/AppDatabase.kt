@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.myapplication.calendar.CalendarEvent
+import com.example.myapplication.calendar.CalendarEventDAO
 import com.example.myapplication.dailydata.DailyData
 import com.example.myapplication.dailydata.DailyDataDAO
 import com.example.myapplication.datamanager.activity.Activity
@@ -30,9 +32,9 @@ import com.example.myapplication.datamanager.user.PostDAO
 @Database(
     entities = [
         User::class, UserInfo::class, NutritionInfo::class, Activity::class, CustomExercise::class,
-        CustomWorkout::class, CustomWorkoutCustomExercise::class, DailyData::class, Post::class, Friends::class
+        CustomWorkout::class, CustomWorkoutCustomExercise::class, DailyData::class, Post::class, Friends::class, CalendarEvent::class
     ],
-    version = 3
+    version = 4
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDAO(): UserDAO
@@ -45,6 +47,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun postDAO(): PostDAO
     abstract fun friendsDAO(): FriendsDAO
     abstract fun dailyDataDAO(): DailyDataDAO
+    abstract fun calendarEventDao(): CalendarEventDAO
 
     companion object {
         private const val DATABASE_NAME = "calorie.db"
@@ -58,14 +61,12 @@ abstract class AppDatabase : RoomDatabase() {
             synchronized(this) {
                 var instance = INSTANCE
 
-                if (instance == null) {
+                if (instance == null){
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         AppDatabase::class.java,
                         DATABASE_NAME
-                    ).allowMainThreadQueries()
-                        .createFromAsset("database/fitnessapp.db")
-                        .build()
+                    ).allowMainThreadQueries().build()
                 }
                 return instance
             }
