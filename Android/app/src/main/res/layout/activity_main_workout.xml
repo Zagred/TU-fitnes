@@ -38,8 +38,8 @@
                     android:layout_height="50dp"
                     android:gravity="center"
                     android:background="@drawable/main_text"
-                    android:text="Тренировки"
-                    android:textSize="30sp"
+                    android:text="Workout"
+                    android:textSize="40sp"
                     android:textColor="@color/greenText"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -68,10 +68,10 @@
                     android:id="@+id/rvWorkout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:backgroundTint="@color/greenButtons"
                     android:textColor="@color/greenText"
                     android:textSize="15sp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_marginTop="5dp"/>
             </LinearLayout>
         </ScrollView>
     </androidx.cardview.widget.CardView>

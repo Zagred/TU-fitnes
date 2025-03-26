@@ -5,7 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/greenButtons"
     android:orientation="vertical">
 
     <ScrollView
@@ -21,7 +20,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="10dp"
+            android:padding="20dp"
             app:cornerRadius="5dp">
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
@@ -30,10 +29,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:background="@color/greenButtons"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeColor="@android:color/black"
+                app:boxStrokeWidth="2dp"
+                app:boxBackgroundColor="@color/white"
                 android:hint="Title of the post"
                 android:textColorHint="@color/greenText"
-                android:textSize="28sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 app:cornerRadius="5dp">
             </com.google.android.material.textfield.MaterialAutoCompleteTextView>
@@ -42,10 +44,13 @@
                 android:id="@+id/tvMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/greenButtons"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeColor="@android:color/black"
+                app:boxStrokeWidth="2dp"
+                app:boxBackgroundColor="@color/white"
                 android:hint="Your post..."
                 android:textColorHint="@color/greenText"
-                android:textSize="28sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:boxCornerRadiusTopStart="5dp"
                 app:boxCornerRadiusTopEnd="5dp"
@@ -57,7 +62,6 @@
                 android:id="@+id/tvUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/greenButtons"
                 android:textColor="@color/greenText"
                 android:textSize="18sp"
                 android:textStyle="italic"
@@ -75,7 +79,7 @@
                 android:gravity="center"
                 android:text="Delete"
                 android:textColor="@color/greenText"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:cornerRadius="5dp"/>
         </LinearLayout>

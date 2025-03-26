@@ -6,53 +6,113 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/greenButtons"
     tools:context=".achievement.AchievementActivity">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp"
+        android:layout_margin="25dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Input Section for New Goals -->
-        <EditText
-            android:id="@+id/goalNameInput"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Goal (e.g., Run 10 miles)"
-            android:inputType="text"/>
+            android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/targetValueInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Target Value"
-            android:inputType="number"
-            android:layout_marginBottom="8dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="20dp">
 
-        <Button
-            android:id="@+id/addGoalButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add Goal"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="filled"
+                    app:boxStrokeColor="@android:color/black"
+                    app:boxStrokeWidth="2dp"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxCornerRadiusTopStart="5dp"
+                    app:boxCornerRadiusTopEnd="5dp"
+                    app:boxCornerRadiusBottomStart="5dp"
+                    app:boxCornerRadiusBottomEnd="5dp"
+                    android:textColorHint="@color/greenText">
 
-        <!-- Display Section for Goals -->
-        <TextView
-            android:id="@+id/goalDisplay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Your Goals"
-            android:textSize="18sp"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/goalNameInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Goal (e.g., Run 10 miles)"
+                        android:inputType="text"
+                        android:textStyle="bold"
+                        android:textSize="18sp"/>
 
-        <!-- RecyclerView to list goals -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/goalRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-    </LinearLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="filled"
+                    app:boxStrokeColor="@android:color/black"
+                    app:boxStrokeWidth="2dp"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxCornerRadiusTopStart="5dp"
+                    app:boxCornerRadiusTopEnd="5dp"
+                    app:boxCornerRadiusBottomStart="5dp"
+                    app:boxCornerRadiusBottomEnd="5dp"
+                    android:textColorHint="@color/greenText">
 
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/targetValueInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Target Value"
+                        android:inputType="text"
+                        android:textStyle="bold"
+                        android:textSize="18sp"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/addGoalButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:backgroundTint="@color/yellow"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:text="Add Goal"
+                    android:textColor="@color/greenText"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="5dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/goalRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/greenText"
+                    android:textSize="15sp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:id="@+id/goalDisplay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Your Goals"
+                    android:textColor="@color/greenText"
+                    android:textSize="18sp"/>
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

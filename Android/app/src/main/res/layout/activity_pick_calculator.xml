@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:padding="24dp">
+                android:padding="20dp">
 
                 <TextView
                     android:id="@+id/chooseCalculatorTxt"
@@ -41,7 +41,7 @@
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/main_text"
                     android:text="Choose a calculator"
-                    android:textSize="42sp"
+                    android:textSize="33sp"
                     android:textStyle="bold"
                     android:textColor="@color/greenText" />
 
