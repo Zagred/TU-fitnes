@@ -1,9 +1,13 @@
 package com.example.myapplication
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +28,7 @@ class CalendarActivity : AppCompatActivity() {
     private lateinit var dateView: TextView
     private lateinit var calendarRecyclerView: RecyclerView
     private lateinit var selectedDateInfo: TextView
+    private lateinit var allDatesView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +37,8 @@ class CalendarActivity : AppCompatActivity() {
         calendar = Calendar.getInstance()
         currentMonth = calendar.get(Calendar.MONTH)
         currentYear = calendar.get(Calendar.YEAR)
+        allDatesView = findViewById(R.id.all_dates_view)
+
 
         dateView = findViewById(R.id.date_view)
         calendarRecyclerView = findViewById(R.id.calendar_recycler_view)
@@ -59,8 +66,84 @@ class CalendarActivity : AppCompatActivity() {
         }
 
         updateCalendarView()
+        checkTodayWorkoutDay()
+
+    }
+    private fun checkTodayWorkoutDay() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            try {
+                val db = AppDatabase.getInstance(applicationContext)
+
+                // Get today's date
+                val todayCalendar = Calendar.getInstance()
+                val todayYear = todayCalendar.get(Calendar.YEAR)
+                val todayMonth = todayCalendar.get(Calendar.MONTH) + 1
+                val todayDay = todayCalendar.get(Calendar.DAY_OF_MONTH)
+
+                Log.d("WorkoutCheck", "Checking workout for: $todayDay/$todayMonth/$todayYear")
+                Log.d("WorkoutCheck", "User ID: $userId")
+
+                // Check if today is a workout day
+                val todayWorkoutDay = db.calendarEventDao().checkEventExists(
+                    userId,
+                    todayDay.toString(),
+                    todayMonth,
+                    todayYear
+                )
+
+                Log.d("WorkoutCheck", "Is workout day: $todayWorkoutDay")
+
+                if (todayWorkoutDay) {
+                    withContext(Dispatchers.Main) {
+                        showWorkoutNotification()
+                    }
+
+                    // Remove today's workout day
+                    db.calendarEventDao().deleteEvent(
+                        userId,
+                        todayDay.toString(),
+                        todayMonth,
+                        todayYear
+                    )
+
+                    Log.d("WorkoutCheck", "Workout day removed")
+                }
+            } catch (e: Exception) {
+                Log.e("WorkoutCheck", "Error checking workout day", e)
+            }
+        }
     }
 
+    private fun showWorkoutNotification() {
+        try {
+            val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+
+            // Create notification channel for Android 8.0+
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                val channel = NotificationChannel(
+                    "workout_channel",
+                    "Workout Notifications",
+                    NotificationManager.IMPORTANCE_HIGH
+                )
+                notificationManager.createNotificationChannel(channel)
+            }
+
+            // Build the notification
+            val builder = NotificationCompat.Builder(this, "workout_channel")
+                .setSmallIcon(android.R.drawable.ic_dialog_info) // Use a system icon as fallback
+                .setContentTitle("Workout Reminder")
+                .setContentText("It's time to go workout!")
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setAutoCancel(true)
+
+            // Show the notification
+            notificationManager.notify(2, builder.build())
+
+            Log.d("WorkoutCheck", "Notification shown")
+        } catch (e: Exception) {
+            Log.e("WorkoutCheck", "Error showing notification", e)
+        }
+    }
     private fun updateCalendarView() {
         val monthName = getMonthName(currentMonth + 1)
         dateView.text = "$monthName $currentYear"
@@ -75,12 +158,33 @@ class CalendarActivity : AppCompatActivity() {
             } else {
                 deleteDate(selectedDate)
             }
+            updateAllDatesDisplay()
         }
 
         calendarRecyclerView.layoutManager = GridLayoutManager(this, 7)
         calendarRecyclerView.adapter = adapter
 
         loadSavedDates()
+    }
+    private fun updateAllDatesDisplay() {
+        if (savedDates.isEmpty()) {
+            allDatesView.text = "No dates selected"
+            return
+        }
+
+        val sortedDates = savedDates.sortedWith(compareBy({ it.split("-")[0].toInt() },
+            { it.split("-")[1].toInt() },
+            { it.split("-")[2].toInt() }))
+
+        val formattedDates = sortedDates.joinToString("\n") { dateKey ->
+            val parts = dateKey.split("-")
+            val year = parts[0]
+            val month = getMonthName(parts[1].toInt())
+            val day = parts[2]
+            "$day $month $year"
+        }
+
+        allDatesView.text = formattedDates
     }
 
     private fun formatDateKey(date: String): String {
@@ -187,12 +291,42 @@ class CalendarActivity : AppCompatActivity() {
                 val day = parts[2]
 
                 db.calendarEventDao().deleteEvent(userId, day, month, year)
+
+                // Send notification after successful deletion
+                withContext(Dispatchers.Main) {
+                    showRemovalNotification(day, month, year)
+
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
     }
+    private fun showRemovalNotification(day: String, month: Int, year: Int) {
+        val monthName = getMonthName(month)
+        val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 
+        // Create notification channel for Android 8.0+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                "calendar_channel",
+                "Calendar Notifications",
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
+            notificationManager.createNotificationChannel(channel)
+        }
+
+        // Build the notification
+        val builder = NotificationCompat.Builder(this, "calendar_channel")
+            .setSmallIcon(R.drawable.ic_notification) // You'll need to add this icon to your drawable resources
+            .setContentTitle("Date Removed")
+            .setContentText("You've removed $day $monthName $year from your calendar")
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setAutoCancel(true)
+
+        // Show the notification
+        notificationManager.notify(1, builder.build())
+    }
     private fun loadSavedDates() {
         lifecycleScope.launch(Dispatchers.IO) {
             try {

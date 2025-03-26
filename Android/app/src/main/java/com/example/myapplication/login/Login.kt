@@ -20,6 +20,7 @@ import kotlinx.coroutines.withContext
 
 class Login : AppCompatActivity() {
     private lateinit var userDAO: UserDAO
+    private var loginAttempts = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,9 +34,7 @@ class Login : AppCompatActivity() {
 
         login.setOnClickListener {
             lifecycleScope.launch {
-                Log.i("Mytag","before login")
                 login()
-
             }
         }
         register.setOnClickListener {
@@ -55,12 +54,18 @@ class Login : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+            return
         }
 
-         withContext(Dispatchers.IO) {
+        withContext(Dispatchers.IO) {
             try {
-                val user = userDAO.findByUsername(username = username) ?: return@withContext false
+                val user = userDAO.findByUsername(username = username) ?: run {
+                    incrementLoginAttempt()
+                    return@withContext false
+                }
+
                 if (user.password == password) {
+                    loginAttempts = 0
                     val userId = user.uid
 
                     withContext(Dispatchers.Main) {
@@ -70,21 +75,13 @@ class Login : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
 
-                        // Create intent and pass the user ID
                         val intent = Intent(this@Login, HomePage::class.java)
                         intent.putExtra("USER_ID", userId)
                         startActivity(intent)
                     }
 
                 } else {
-                    withContext(Dispatchers.Main) {
-                        Toast.makeText(
-                            this@Login,
-                            "Invalid username or password",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-
+                    incrementLoginAttempt()
                 }
             } catch (e: Exception) {
                 Log.e("LoginError", "Failed to login user", e)
@@ -95,7 +92,26 @@ class Login : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+            }
+        }
+    }
 
+    private suspend fun incrementLoginAttempt() {
+        loginAttempts++
+
+        withContext(Dispatchers.Main) {
+            if (loginAttempts >= 3) {
+                Toast.makeText(
+                    this@Login,
+                    "Too many failed login attempts",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+                Toast.makeText(
+                    this@Login,
+                    "Invalid username or password",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }

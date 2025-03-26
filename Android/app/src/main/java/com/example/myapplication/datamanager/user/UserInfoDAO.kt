@@ -45,4 +45,8 @@ interface UserInfoDAO {
 
     @Delete
     fun delete(userInfo: UserInfo)
+
+    @Query("DELETE FROM UserInfo WHERE user_id = :userId")
+    fun deleteUserInfoByUserId(userId: Int)
+
 }
