@@ -12,6 +12,15 @@ import com.example.myapplication.social.FriendsActivity
 import com.example.myapplication.social.PostActivity
 import com.example.myapplication.workout.MainWorkout
 
+import android.widget.Toast
+import com.example.myapplication.coach.AdminCoachesActivity
+import com.example.myapplication.coach.UserCoachesActivity
+import com.example.myapplication.datamanager.AppDatabase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+
 class HomePage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +35,7 @@ class HomePage : AppCompatActivity() {
         val community=findViewById<Button>(R.id.btCommunityHomeP)
         val calculator=findViewById<Button>(R.id.btCalculatorHomeP)
 
+        val userId = getIntent().getIntExtra("USER_ID", -1)
 
         profile.setOnClickListener {
             val intent = Intent(this, Profile::class.java)
@@ -69,6 +79,34 @@ class HomePage : AppCompatActivity() {
             val intent= Intent(this, AchievementActivity::class.java)
             intent.putExtra("USER_ID", getIntent().getIntExtra("USER_ID", -1))
             startActivity(intent)
+        }
+        trainer.setOnClickListener {
+            // Check if user is an admin
+            val userDAO = AppDatabase.getInstance(applicationContext).userDAO()
+
+            CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    val user = userDAO.getUserById(userId)
+
+                    withContext(Dispatchers.Main) {
+                        val intent = if (user?.role == "admin") {
+                            Intent(this@HomePage, AdminCoachesActivity::class.java)
+                        } else {
+                            Intent(this@HomePage, UserCoachesActivity::class.java)
+                        }
+                        intent.putExtra("USER_ID", userId)
+                        startActivity(intent)
+                    }
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(
+                            this@HomePage,
+                            "Error accessing coaches: ${e.localizedMessage}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
         }
     }
 }
