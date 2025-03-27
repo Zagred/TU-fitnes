@@ -11,6 +11,9 @@ interface CalendarEventDAO {
     @Query("SELECT * FROM CalendarEvents WHERE userId = :userId AND month = :month AND year = :year")
     suspend fun getEventsForMonth(userId: Int, month: Int, year: Int): List<CalendarEvent>
 
+    @Query("SELECT EXISTS(SELECT 1 FROM CalendarEvents WHERE userId = :userId AND date = :date AND month = :month AND year = :year)")
+    suspend fun checkEventExists(userId: Int, date: String, month: Int, year: Int): Boolean
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(event: CalendarEvent)
 
@@ -19,4 +22,7 @@ interface CalendarEventDAO {
 
     @Query("DELETE FROM CalendarEvents WHERE userId = :userId AND date = :date AND month = :month AND year = :year")
     suspend fun deleteEvent(userId: Int, date: String, month: Int, year: Int)
+
+    @Query("SELECT * FROM CalendarEvents WHERE userId = :userId ORDER BY year, month, date")
+    suspend fun getAllUserEvents(userId: Int): List<CalendarEvent>
 }
