@@ -7,81 +7,94 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <ScrollView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="20dp"
-            app:cornerRadius="5dp">
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:gravity="center"
-                app:boxBackgroundMode="filled"
-                app:boxStrokeColor="@android:color/black"
-                app:boxStrokeWidth="2dp"
-                app:boxBackgroundColor="@color/white"
-                android:hint="Title of the post"
-                android:textColorHint="@color/greenText"
-                android:textSize="22sp"
-                android:textStyle="bold"
+                android:orientation="vertical"
+                android:padding="20dp"
                 app:cornerRadius="5dp">
-            </com.google.android.material.textfield.MaterialAutoCompleteTextView>
 
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/tvMessage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxBackgroundMode="filled"
-                app:boxStrokeColor="@android:color/black"
-                app:boxStrokeWidth="2dp"
-                app:boxBackgroundColor="@color/white"
-                android:hint="Your post..."
-                android:textColorHint="@color/greenText"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:boxCornerRadiusTopStart="5dp"
-                app:boxCornerRadiusTopEnd="5dp"
-                app:boxCornerRadiusBottomStart="5dp"
-                app:boxCornerRadiusBottomEnd="5dp">
-            </com.google.android.material.textfield.MaterialAutoCompleteTextView>
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    app:boxBackgroundMode="filled"
+                    app:boxStrokeColor="@android:color/black"
+                    app:boxStrokeWidth="2dp"
+                    app:boxBackgroundColor="@color/white"
+                    android:hint="Title of the post"
+                    android:textColorHint="@color/greenText"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="5dp">
+                </com.google.android.material.textfield.MaterialAutoCompleteTextView>
 
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/tvUsername"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/greenText"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                android:gravity="end"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp">
-            </com.google.android.material.textfield.MaterialAutoCompleteTextView>
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/tvMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="filled"
+                    app:boxStrokeColor="@android:color/black"
+                    app:boxStrokeWidth="2dp"
+                    app:boxBackgroundColor="@color/white"
+                    android:hint="Your post..."
+                    android:textColorHint="@color/greenText"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:boxCornerRadiusTopStart="5dp"
+                    app:boxCornerRadiusTopEnd="5dp"
+                    app:boxCornerRadiusBottomStart="5dp"
+                    app:boxCornerRadiusBottomEnd="5dp">
+                </com.google.android.material.textfield.MaterialAutoCompleteTextView>
 
-            <Button
-                android:id="@+id/btnDelete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:backgroundTint="@color/yellow"
-                android:gravity="center"
-                android:text="Delete"
-                android:textColor="@color/greenText"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:cornerRadius="5dp"/>
-        </LinearLayout>
-    </ScrollView>
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/tvUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/greenText"
+                    android:textSize="18sp"
+                    android:textStyle="italic"
+                    android:gravity="end"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp">
+                </com.google.android.material.textfield.MaterialAutoCompleteTextView>
+
+                <Button
+                    android:id="@+id/btnDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/yellow"
+                    android:gravity="center"
+                    android:text="Delete"
+                    android:textColor="@color/greenText"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="5dp"/>
+            </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

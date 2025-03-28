@@ -7,69 +7,82 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <ScrollView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/mealImageView"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="centerCrop" />
-
-            <TextView
-                android:id="@+id/titleTextView"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Meal Title"
-                android:textColor="@color/greenText"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                tools:ignore="Suspicious0dp" />
+                android:orientation="vertical"
+                android:padding="20dp">
 
-            <TextView
-                android:id="@+id/categoryTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginTop="8dp"
-                android:text="Category: Breakfast"
-                android:textColor="@color/greenText"
-                android:textSize="14sp"
-                tools:ignore="Suspicious0dp" />
+                <ImageView
+                    android:id="@+id/mealImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop" />
 
-            <TextView
-                android:id="@+id/caloriesTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginTop="8dp"
-                android:text="Calories: 500 (2 servings)"
-                android:textColor="@color/greenText"
-                android:textSize="14sp"
-                tools:ignore="Suspicious0dp" />
+                <TextView
+                    android:id="@+id/titleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Meal Title"
+                    android:textColor="@color/greenText"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:ignore="Suspicious0dp" />
 
-            <TextView
-                android:id="@+id/ingredientsTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginTop="8dp"
-                android:text="Ingredients: - Ingredient 1\n- Ingredient 2"
-                android:textColor="@color/greenText"
-                android:textSize="14sp"
-                tools:ignore="Suspicious0dp" />
-        </LinearLayout>
-    </ScrollView>
+                <TextView
+                    android:id="@+id/categoryTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:text="Category: Breakfast"
+                    android:textColor="@color/greenText"
+                    android:textSize="14sp"
+                    tools:ignore="Suspicious0dp" />
+
+                <TextView
+                    android:id="@+id/caloriesTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:text="Calories: 500 (2 servings)"
+                    android:textColor="@color/greenText"
+                    android:textSize="14sp"
+                    tools:ignore="Suspicious0dp" />
+
+                <TextView
+                    android:id="@+id/ingredientsTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:text="Ingredients: - Ingredient 1\n- Ingredient 2"
+                    android:textColor="@color/greenText"
+                    android:textSize="14sp"
+                    tools:ignore="Suspicious0dp" />
+            </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

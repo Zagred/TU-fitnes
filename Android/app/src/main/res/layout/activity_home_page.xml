@@ -172,7 +172,7 @@
                         android:layout_width="160dp"
                         android:layout_height="80dp"
                         android:backgroundTint="@color/greenButtons"
-                        android:text="Trainer"
+                        android:text="Coach"
                         android:textColor="@color/greenText"
                         android:textSize="16sp"
                         android:textStyle="bold"

@@ -51,6 +51,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Enter Goal (e.g., Run 10 miles)"
                         android:inputType="text"
+                        android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="18sp"/>
 
@@ -75,6 +76,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Enter Target Value"
                         android:inputType="text"
+                        android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="18sp"/>
 
@@ -108,10 +110,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Your Goals"
                     android:textColor="@color/greenText"
                     android:textSize="18sp"/>
-
             </LinearLayout>
         </ScrollView>
     </androidx.cardview.widget.CardView>

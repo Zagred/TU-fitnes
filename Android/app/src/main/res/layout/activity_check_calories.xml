@@ -50,6 +50,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Enter food (e.g., 1lb brisket and fries)"
                         android:inputType="text"
+                        android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="18sp"/>
 
@@ -98,7 +99,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
             </LinearLayout>
         </ScrollView>
     </androidx.cardview.widget.CardView>

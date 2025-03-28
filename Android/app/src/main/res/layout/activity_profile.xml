@@ -82,6 +82,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Name"
                         android:inputType="textPersonName"
+                        android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="18sp"/>
 
@@ -107,6 +108,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Gender"
                         android:inputType="text"
+                        android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         app:layout_constraintTop_toBottomOf="@id/tNameProfile"/>
@@ -133,6 +135,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Phone Number"
                         android:inputType="phone"
+                        android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         app:layout_constraintTop_toBottomOf="@id/tGenderProfile"/>
@@ -159,6 +162,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Date of Birth"
                         android:inputType="date"
+                        android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         app:layout_constraintTop_toBottomOf="@id/tPhoneProfile"/>
@@ -185,6 +189,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Height (cm)"
                         android:inputType="numberDecimal"
+                        android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         app:layout_constraintTop_toBottomOf="@id/tBirthProfile"/>
@@ -211,36 +216,46 @@
                         android:layout_height="wrap_content"
                         android:hint="Weight (kg)"
                         android:inputType="numberDecimal"
+                        android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         app:layout_constraintTop_toBottomOf="@id/tHeightProfile"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <Button
-                    android:id="@+id/btEditProfile"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/yellow"
-                    android:layout_marginEnd="10dp"
-                    android:text="Edit Profile"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:textColor="@color/greenText"
-                    app:cornerRadius="5dp"/>
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:weightSum="2">
 
-                <Button
-                    android:id="@+id/btDeleteProfile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/red"
-                    android:text="Delete Profile"
-                    android:textStyle="bold"
-                    android:textSize="17sp"
-                    android:textColor="@color/white"
-                    app:cornerRadius="5dp"/>
+                    <Button
+                        android:id="@+id/btEditProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/yellow"
+                        android:layout_marginEnd="10dp"
+                        android:text="Edit Profile"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="@color/greenText"
+                        app:cornerRadius="5dp"/>
+
+                    <Button
+                        android:id="@+id/btDeleteProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/yellow"
+                        android:layout_marginEnd="10dp"
+                        android:text="Delete Profile"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="@color/greenText"
+                        app:cornerRadius="5dp"/>
+                </LinearLayout>
             </LinearLayout>
-
         </ScrollView>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
