@@ -2,8 +2,12 @@ package com.example.myapplication.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Email
+import android.text.TextUtils
+import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -25,8 +29,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.regex.Pattern
 
+
 class Register : AppCompatActivity() {
-    private lateinit var userDAO:UserDAO
+    private lateinit var userDAO: UserDAO
     private lateinit var userInfoDAO: UserInfoDAO
     private lateinit var nutritionInfo: NutritionInfoDAO
     private lateinit var workout: CustomWorkoutDAO
@@ -43,14 +48,22 @@ class Register : AppCompatActivity() {
         val submitg = findViewById<Button>(R.id.btSubmit)
         val db = AppDatabase.getInstance(applicationContext)
         userDAO = db.userDAO()
-        userInfoDAO=db.userInfoDAO()
-        nutritionInfo=db.nutritionInfoDAO()
-        workout=db.customWorkoutDAO()
+        userInfoDAO = db.userInfoDAO()
+        nutritionInfo = db.nutritionInfoDAO()
+        workout = db.customWorkoutDAO()
 
         submitg.setOnClickListener {
             insert()
         }
+        val loginText = findViewById<TextView>(R.id.loginText)
+
+        loginText.setOnClickListener {
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
+        }
     }
+
+
     private fun isPasswordStrong(password: String): Boolean {
 
         val passwordPattern = Pattern.compile(
@@ -63,11 +76,18 @@ class Register : AppCompatActivity() {
         return passwordPattern.matcher(password).matches()
     }
 
+    private fun isEmailValid(email: String): Boolean {
+        val emailPattern = Pattern.compile(
+            "^[A-Za-z0-9_-]+@[a-z-]+\\.[a-z]+$"
+        )
+        return emailPattern.matcher(email).matches()
+    }
+
     private fun insert() {
-        val username = findViewById<EditText>(R.id.tNameRegister).text.toString()
+        val email = findViewById<EditText>(R.id.tNameRegister).text.toString()
         val password = findViewById<EditText>(R.id.tPassRegister).text.toString()
 
-        if (username.isBlank() || password.isBlank()) {
+        if (email.isBlank() || password.isBlank()) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             return
         }
@@ -84,25 +104,33 @@ class Register : AppCompatActivity() {
             ).show()
             return
         }
+        if (!isEmailValid(email)) {
+            Toast.makeText(
+                this,
+                "Please enter a valid email address!\n",
+                Toast.LENGTH_LONG
+            ).show()
+            return
+        }
 
         lifecycleScope.launch(Dispatchers.IO) {
             try {
                 // Check if username already exists
-                val existingUser = userDAO.findByUsername(username)
+                val existingUser = userDAO.findByUsername(email)
                 if (existingUser != null) {
                     withContext(Dispatchers.Main) {
-                        Toast.makeText(this@Register, "Username already exists", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@Register, "Email is already registered", Toast.LENGTH_SHORT).show()
                     }
                     return@launch
                 }
 
-                userDAO.insert(User(0, username = username, password = password))
+                userDAO.insert(User(0, username = email, password = password))
 
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@Register, "User registered successfully!", Toast.LENGTH_SHORT).show()
                 }
 
-                val id = userDAO.findByUsername(username)
+                val id = userDAO.findByUsername(email)
                 userInfoDAO.insert(UserInfo(0, birthdate = "", gender = "", height = 0, weight = 0.0, id.uid))
                 nutritionInfo.insert(NutritionInfo(0, caloriesPerDay = 0, carbsPerDay = 1, proteinPerDay = 0, fatPerDay = 0, id.uid))
                 workout.insert(CustomWorkout(0, id.uid, "first workout", 0))
