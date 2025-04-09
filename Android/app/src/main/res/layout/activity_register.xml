@@ -78,7 +78,7 @@
                         android:id="@+id/tNameRegister"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Username"
+                        android:hint="Email"
                         android:inputType="text"
                         android:textColor="@color/black"
                         android:textStyle="bold"
@@ -118,10 +118,18 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/yellow"
                     app:cornerRadius="5dp"
-                    android:text="Register"
+                    android:text="Sign up"
                     android:textStyle="bold"
                     android:textSize="16sp"
                     android:textColor="@color/greenText"/>
+
+                <TextView
+                    android:id="@+id/loginText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Already have an account? Log in"
+                    android:textColor="@color/greenText"
+                    android:layout_marginTop="10dp"/>
             </LinearLayout>
         </ScrollView>
     </androidx.cardview.widget.CardView>

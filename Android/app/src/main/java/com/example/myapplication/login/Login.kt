@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -27,7 +28,7 @@ class Login : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val login = findViewById<Button>(R.id.btLogin)
-        val register = findViewById<Button>(R.id.btRegister)
+        val register = findViewById<TextView>(R.id.btRegister)
 
         val db = AppDatabase.getInstance(applicationContext)
         userDAO = db.userDAO()
