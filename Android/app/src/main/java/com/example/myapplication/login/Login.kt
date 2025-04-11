@@ -43,13 +43,14 @@ class Login : AppCompatActivity() {
         }
     }
 
-    private suspend fun login(){
-        val username = findViewById<EditText>(R.id.tNameLogin).text.toString()
+    private suspend fun login() {
+        val email = findViewById<EditText>(R.id.tNameLogin).text.toString()
         val password = findViewById<EditText>(R.id.tPassLogin).text.toString()
 
-        if (username.isBlank() || password.isBlank()) {
+        if (email.isBlank() || password.isBlank()) {
             withContext(Dispatchers.Main) {
-                Toast.makeText(this@Login,
+                Toast.makeText(
+                    this@Login,
                     "Please fill in all fields",
                     Toast.LENGTH_SHORT
                 ).show()
@@ -59,7 +60,8 @@ class Login : AppCompatActivity() {
 
         withContext(Dispatchers.IO) {
             try {
-                val user = userDAO.findByUsername(username = username) ?: run {
+                // Try to find user by email
+                val user = userDAO.findByEmail(email) ?: run {
                     incrementLoginAttempt()
                     return@withContext false
                 }
@@ -79,7 +81,6 @@ class Login : AppCompatActivity() {
                         intent.putExtra("USER_ID", userId)
                         startActivity(intent)
                     }
-
                 } else {
                     incrementLoginAttempt()
                 }
@@ -109,7 +110,7 @@ class Login : AppCompatActivity() {
             } else {
                 Toast.makeText(
                     this@Login,
-                    "Invalid username or password",
+                    "Invalid email or password",
                     Toast.LENGTH_SHORT
                 ).show()
             }

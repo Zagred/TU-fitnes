@@ -38,7 +38,7 @@ import com.example.myapplication.datamanager.coach.CoachDAO
         CustomWorkout::class, CustomWorkoutCustomExercise::class, DailyData::class, Post::class,
         Friends::class, CalendarEvent::class, Achievement::class, Coach::class
     ],
-    version = 4
+    version = 5
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDAO(): UserDAO
@@ -65,17 +65,18 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): AppDatabase {
             synchronized(this) {
-                var instance = INSTANCE
+                context.deleteDatabase(DATABASE_NAME)
 
-                if (instance == null){
-                    instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        AppDatabase::class.java,
-                        DATABASE_NAME
-                    ).allowMainThreadQueries()
-                        .createFromAsset("database/fitnessapp.db")
-                        .build()
-                }
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    AppDatabase::class.java,
+                    DATABASE_NAME
+                )
+                    .fallbackToDestructiveMigration()
+                    .allowMainThreadQueries()
+                    .build()
+
+                INSTANCE = instance
                 return instance
             }
         }
