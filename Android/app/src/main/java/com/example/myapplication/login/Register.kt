@@ -55,7 +55,7 @@ class Register : AppCompatActivity() {
         submitg.setOnClickListener {
             insert()
         }
-        val loginText = findViewById<TextView>(R.id.loginText)
+        val loginText = findViewById<Button>(R.id.loginRegister)
 
         loginText.setOnClickListener {
             val intent = Intent(this, Login::class.java)
