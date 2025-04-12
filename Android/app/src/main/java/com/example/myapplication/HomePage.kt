@@ -81,7 +81,6 @@ class HomePage : AppCompatActivity() {
             startActivity(intent)
         }
         trainer.setOnClickListener {
-            // Check if user is an admin
             val userDAO = AppDatabase.getInstance(applicationContext).userDAO()
 
             CoroutineScope(Dispatchers.IO).launch {

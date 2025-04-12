@@ -31,7 +31,7 @@ class BMICalculator : AppCompatActivity() {
     private fun validateInput(weight: String?, height: String?): Boolean {
         return when {
             weight.isNullOrEmpty() -> {
-                Toast.makeText(this, "Weight is empty", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Weight  empty", Toast.LENGTH_LONG).show()
                 return false
             }
 

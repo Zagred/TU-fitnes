@@ -213,7 +213,6 @@ class WorkoutDetailsActivity : AppCompatActivity() {
         restTimer = object : CountDownTimer(restInSeconds * 1000L, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 val secondsRemaining = millisUntilFinished / 1000
-                // Update UI with countdown
                 runOnUiThread {
                     timerButton.text = "⏱️ ${secondsRemaining}s"
                 }
@@ -222,7 +221,6 @@ class WorkoutDetailsActivity : AppCompatActivity() {
             override fun onFinish() {
                 isTimerRunning = false
                 timerButton.text = "⏱️ Start Rest"
-                // Send notification
                 sendRestCompletedNotification()
             }
         }.start()
@@ -269,7 +267,6 @@ class WorkoutDetailsActivity : AppCompatActivity() {
         notificationManager.notify(1, notification)
     }
 
-    // Make sure to cancel the timer in onDestroy
     override fun onDestroy() {
         super.onDestroy()
         if (::restTimer.isInitialized) {

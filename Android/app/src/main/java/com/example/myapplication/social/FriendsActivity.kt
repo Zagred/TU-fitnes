@@ -48,7 +48,6 @@ class FriendsActivity : AppCompatActivity() {
             finish()
         }
 
-        // Check if user is admin
         lifecycleScope.launch(Dispatchers.IO) {
             val currentUser = database.userDAO().findById(loggedUserId)
             isAdmin = currentUser?.role == "admin"
@@ -77,7 +76,6 @@ class FriendsActivity : AppCompatActivity() {
 
             loadAllUsers()
         } else {
-            // Regular user mode setup
             tvTitle.text = "My Friends"
             etFriendUsername.hint = "Add friend by username..."
 
@@ -112,10 +110,8 @@ class FriendsActivity : AppCompatActivity() {
 
     private fun loadFriends() {
         lifecycleScope.launch(Dispatchers.IO) {
-            // Get the friendship relationships
             val friendsList = database.friendsDAO().getFriendsForUser(loggedUserId)
 
-            // Get usernames for each friend
             val friendsWithNames = friendsList.map { friend ->
                 val username = database.userDAO().findById(friend.friendsId)?.username ?: "Unknown User"
                 FriendWithName(friend, username)
@@ -180,7 +176,6 @@ class FriendsActivity : AppCompatActivity() {
 
     private fun deleteUser(user: User) {
         lifecycleScope.launch(Dispatchers.IO) {
-            // Prevent deleting yourself
             if (user.uid == loggedUserId) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@FriendsActivity, "You cannot delete yourself", Toast.LENGTH_SHORT).show()
@@ -188,10 +183,8 @@ class FriendsActivity : AppCompatActivity() {
                 return@launch
             }
 
-            // Delete the user from database
             database.userDAO().delete(user)
 
-            // Reload users list
             loadAllUsers()
 
             withContext(Dispatchers.Main) {
@@ -201,7 +194,6 @@ class FriendsActivity : AppCompatActivity() {
     }
 }
 
-// Data class to hold friend info with username
 data class FriendWithName(
     val friend: Friends,
     val username: String

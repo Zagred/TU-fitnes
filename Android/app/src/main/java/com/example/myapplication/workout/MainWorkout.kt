@@ -43,7 +43,6 @@ class MainWorkout : AppCompatActivity() {
         database = AppDatabase.getInstance(application)
         loggedUserId = intent.getIntExtra("USER_ID", -1)
 
-        // Initialize recyclerView before setting adapter
         recyclerView = findViewById(R.id.rvWorkout)
 
         adapter = WorkoutAdapter(
@@ -91,7 +90,6 @@ class MainWorkout : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Save to database
             val db = AppDatabase.getInstance(context)
             CoroutineScope(Dispatchers.IO).launch {
                 db.customWorkoutDAO()

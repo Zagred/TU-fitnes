@@ -65,18 +65,15 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): AppDatabase {
             synchronized(this) {
-                context.deleteDatabase(DATABASE_NAME)
+                var instance = INSTANCE
 
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    AppDatabase::class.java,
-                    DATABASE_NAME
-                )
-                    .fallbackToDestructiveMigration()
-                    .allowMainThreadQueries()
-                    .build()
-
-                INSTANCE = instance
+                if (instance == null){
+                    instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        AppDatabase::class.java,
+                        DATABASE_NAME
+                    ).allowMainThreadQueries().build()
+                }
                 return instance
             }
         }

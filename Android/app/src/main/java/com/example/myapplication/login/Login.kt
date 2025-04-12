@@ -44,7 +44,7 @@ class Login : AppCompatActivity() {
     }
 
     private suspend fun login() {
-        val email = findViewById<EditText>(R.id.tNameLogin).text.toString()
+        val email = findViewById<EditText>(R.id.tEmailRegister).text.toString()
         val password = findViewById<EditText>(R.id.tPassLogin).text.toString()
 
         if (email.isBlank() || password.isBlank()) {
@@ -60,10 +60,17 @@ class Login : AppCompatActivity() {
 
         withContext(Dispatchers.IO) {
             try {
-                // Try to find user by email
-                val user = userDAO.findByEmail(email) ?: run {
+                // Try to find user by email first
+                var user = userDAO.findByEmail(email)
+
+                // If not found by email, try username
+                if (user == null) {
+                    user = userDAO.findByUsername(email)
+                }
+
+                if (user == null) {
                     incrementLoginAttempt()
-                    return@withContext false
+                    return@withContext
                 }
 
                 if (user.password == password) {
@@ -73,13 +80,14 @@ class Login : AppCompatActivity() {
                     withContext(Dispatchers.Main) {
                         Toast.makeText(
                             this@Login,
-                            "User logged successfully!",
+                            "User logged in successfully!",
                             Toast.LENGTH_SHORT
                         ).show()
 
                         val intent = Intent(this@Login, HomePage::class.java)
                         intent.putExtra("USER_ID", userId)
                         startActivity(intent)
+                        finish()
                     }
                 } else {
                     incrementLoginAttempt()
@@ -89,7 +97,7 @@ class Login : AppCompatActivity() {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(
                         this@Login,
-                        "Failed to login user",
+                        "Failed to login user: ${e.message}",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
