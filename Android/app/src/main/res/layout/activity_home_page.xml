@@ -140,6 +140,22 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <Button
+                        android:id="@+id/btLocationsHomeP"
+                        android:layout_width="160dp"
+                        android:layout_height="80dp"
+                        android:backgroundTint="@color/greenButtons"
+                        android:text="Locations"
+                        android:textColor="@color/greenText"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="5dp"
+                        android:ellipsize="end"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
                         android:id="@+id/btCommunityHomeP"
                         android:layout_width="160dp"
                         android:layout_height="80dp"
