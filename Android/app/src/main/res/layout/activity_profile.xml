@@ -6,256 +6,358 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/greenButtons"
+    android:background="@color/yellow"
     tools:context=".Profile">
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:text="My profile"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="25dp"
-        android:backgroundTint="@color/white"
-        android:padding="20dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="-30dp"
+        app:cardCornerRadius="32dp"
+        app:cardBackgroundColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ScrollView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="-10dp"
+            android:backgroundTint="@color/white"
+            android:padding="16dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:gravity="center"
-                    android:background="@drawable/main_text"
-                    android:text="My profile"
-                    android:textSize="33sp"
-                    android:textColor="@color/greenText"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.1"/>
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.658"
-                    app:layout_constraintHorizontal_bias="0.533"
-                    tools:srcCompat="@tools:sample/avatars"/>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:boxBackgroundMode="filled"
-                    app:boxStrokeColor="@android:color/black"
-                    app:boxStrokeWidth="2dp"
-                    app:boxBackgroundColor="@color/white"
-                    android:textColorHint="@color/greenText"
-                    app:boxCornerRadiusTopStart="5dp"
-                    app:boxCornerRadiusTopEnd="5dp"
-                    app:boxCornerRadiusBottomStart="5dp"
-                    app:boxCornerRadiusBottomEnd="5dp"
-                    android:layout_marginTop="15dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tNameProfile"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Name"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:textSize="18sp"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:boxBackgroundMode="filled"
-                    app:boxStrokeColor="@android:color/black"
-                    app:boxStrokeWidth="2dp"
-                    app:boxBackgroundColor="@color/white"
-                    android:textColorHint="@color/greenText"
-                    app:boxCornerRadiusTopStart="5dp"
-                    app:boxCornerRadiusTopEnd="5dp"
-                    app:boxCornerRadiusBottomStart="5dp"
-                    app:boxCornerRadiusBottomEnd="5dp"
-                    android:layout_marginTop="15dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tGenderProfile"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Gender"
-                        android:inputType="text"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        app:layout_constraintTop_toBottomOf="@id/tNameProfile"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:boxBackgroundMode="filled"
-                    app:boxStrokeColor="@android:color/black"
-                    app:boxStrokeWidth="2dp"
-                    app:boxBackgroundColor="@color/white"
-                    android:textColorHint="@color/greenText"
-                    app:boxCornerRadiusTopStart="5dp"
-                    app:boxCornerRadiusTopEnd="5dp"
-                    app:boxCornerRadiusBottomStart="5dp"
-                    app:boxCornerRadiusBottomEnd="5dp"
-                    android:layout_marginTop="15dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tPhoneProfile"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Phone Number"
-                        android:inputType="phone"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        app:layout_constraintTop_toBottomOf="@id/tGenderProfile"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:boxBackgroundMode="filled"
-                    app:boxStrokeColor="@android:color/black"
-                    app:boxStrokeWidth="2dp"
-                    app:boxBackgroundColor="@color/white"
-                    android:textColorHint="@color/greenText"
-                    app:boxCornerRadiusTopStart="5dp"
-                    app:boxCornerRadiusTopEnd="5dp"
-                    app:boxCornerRadiusBottomStart="5dp"
-                    app:boxCornerRadiusBottomEnd="5dp"
-                    android:layout_marginTop="15dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tBirthProfile"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Date of Birth"
-                        android:inputType="date"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        app:layout_constraintTop_toBottomOf="@id/tPhoneProfile"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:boxBackgroundMode="filled"
-                    app:boxStrokeColor="@android:color/black"
-                    app:boxStrokeWidth="2dp"
-                    app:boxBackgroundColor="@color/white"
-                    android:textColorHint="@color/greenText"
-                    app:boxCornerRadiusTopStart="5dp"
-                    app:boxCornerRadiusTopEnd="5dp"
-                    app:boxCornerRadiusBottomStart="5dp"
-                    app:boxCornerRadiusBottomEnd="5dp"
-                    android:layout_marginTop="15dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tHeightProfile"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Height (cm)"
-                        android:inputType="numberDecimal"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        app:layout_constraintTop_toBottomOf="@id/tBirthProfile"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:boxBackgroundMode="filled"
-                    app:boxStrokeColor="@android:color/black"
-                    app:boxStrokeWidth="2dp"
-                    app:boxBackgroundColor="@color/white"
-                    android:textColorHint="@color/greenText"
-                    app:boxCornerRadiusTopStart="5dp"
-                    app:boxCornerRadiusTopEnd="5dp"
-                    app:boxCornerRadiusBottomStart="5dp"
-                    app:boxCornerRadiusBottomEnd="5dp"
-                    android:layout_marginTop="15dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tWeightProfile"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Weight (kg)"
-                        android:inputType="numberDecimal"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        app:layout_constraintTop_toBottomOf="@id/tHeightProfile"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="match_parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
                     android:gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:weightSum="2">
+                    android:paddingHorizontal="20dp">
 
-                    <Button
-                        android:id="@+id/btEditProfile"
-                        android:layout_width="wrap_content"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/yellow"
-                        android:layout_marginEnd="10dp"
-                        android:text="Edit Profile"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="@color/greenText"
-                        app:cornerRadius="5dp"/>
+                        android:layout_marginTop="60dp"
+                        app:startIconDrawable="@drawable/email"
+                        app:startIconTint="@color/black"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@color/black"
+                        app:boxStrokeWidth="2dp"
+                        app:boxCornerRadiusTopStart="6dp"
+                        app:boxCornerRadiusTopEnd="6dp"
+                        app:boxCornerRadiusBottomStart="6dp"
+                        app:boxCornerRadiusBottomEnd="6dp">
 
-                    <Button
-                        android:id="@+id/btDeleteProfile"
-                        android:layout_width="wrap_content"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tEmailProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Email"
+                            android:inputType="textEmailAddress"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/text_hint"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:gravity="left|center_vertical"
+                            android:padding="8dp"
+                            android:paddingStart="40dp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/black"
+                        android:layout_marginTop="-9dp"
+                        android:layout_marginBottom="8dp"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/yellow"
-                        android:layout_marginEnd="10dp"
-                        android:text="Delete Profile"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="@color/greenText"
-                        app:cornerRadius="5dp"/>
+                        app:startIconDrawable="@drawable/account_circle"
+                        app:startIconTint="@color/black"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@color/black"
+                        app:boxStrokeWidth="2dp"
+                        app:boxCornerRadiusTopStart="6dp"
+                        app:boxCornerRadiusTopEnd="6dp"
+                        app:boxCornerRadiusBottomStart="6dp"
+                        app:boxCornerRadiusBottomEnd="6dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tNameProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Name"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/text_hint"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:gravity="left|center_vertical"
+                            android:padding="8dp"
+                            android:paddingStart="40dp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/black"
+                        android:layout_marginTop="-9dp"
+                        android:layout_marginBottom="8dp"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:startIconDrawable="@drawable/gender"
+                        app:startIconTint="@color/black"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@color/black"
+                        app:boxStrokeWidth="2dp"
+                        app:boxCornerRadiusTopStart="6dp"
+                        app:boxCornerRadiusTopEnd="6dp"
+                        app:boxCornerRadiusBottomStart="6dp"
+                        app:boxCornerRadiusBottomEnd="6dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tGenderProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Gender"
+                            android:inputType="text"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/text_hint"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:gravity="left|center_vertical"
+                            android:padding="8dp"
+                            android:paddingStart="40dp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/black"
+                        android:layout_marginTop="-9dp"
+                        android:layout_marginBottom="8dp"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:startIconDrawable="@drawable/phone"
+                        app:startIconTint="@color/black"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@color/black"
+                        app:boxStrokeWidth="2dp"
+                        app:boxCornerRadiusTopStart="6dp"
+                        app:boxCornerRadiusTopEnd="6dp"
+                        app:boxCornerRadiusBottomStart="6dp"
+                        app:boxCornerRadiusBottomEnd="6dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tPhoneProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Phone Number"
+                            android:inputType="phone"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/text_hint"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:gravity="left|center_vertical"
+                            android:padding="8dp"
+                            android:paddingStart="40dp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/black"
+                        android:layout_marginTop="-9dp"
+                        android:layout_marginBottom="8dp"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:startIconDrawable="@drawable/cake"
+                        app:startIconTint="@color/black"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@color/black"
+                        app:boxStrokeWidth="2dp"
+                        app:boxCornerRadiusTopStart="6dp"
+                        app:boxCornerRadiusTopEnd="6dp"
+                        app:boxCornerRadiusBottomStart="6dp"
+                        app:boxCornerRadiusBottomEnd="6dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tBirthProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Date of Birth"
+                            android:inputType="date"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/text_hint"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:gravity="left|center_vertical"
+                            android:padding="8dp"
+                            android:paddingStart="40dp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/black"
+                        android:layout_marginTop="-9dp"
+                        android:layout_marginBottom="8dp"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:startIconDrawable="@drawable/ruler"
+                        app:startIconTint="@color/black"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@color/black"
+                        app:boxStrokeWidth="2dp"
+                        app:boxCornerRadiusTopStart="6dp"
+                        app:boxCornerRadiusTopEnd="6dp"
+                        app:boxCornerRadiusBottomStart="6dp"
+                        app:boxCornerRadiusBottomEnd="6dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tHeightProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Height (cm)"
+                            android:inputType="numberDecimal"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/text_hint"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:gravity="left|center_vertical"
+                            android:padding="8dp"
+                            android:paddingStart="40dp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/black"
+                        android:layout_marginTop="-9dp"
+                        android:layout_marginBottom="8dp"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:startIconDrawable="@drawable/weight"
+                        app:startIconTint="@color/black"
+                        app:boxBackgroundMode="none"
+                        app:boxStrokeColor="@color/black"
+                        app:boxStrokeWidth="2dp"
+                        app:boxCornerRadiusTopStart="6dp"
+                        app:boxCornerRadiusTopEnd="6dp"
+                        app:boxCornerRadiusBottomStart="6dp"
+                        app:boxCornerRadiusBottomEnd="6dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tWeightProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Weight (kg)"
+                            android:inputType="numberDecimal"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/text_hint"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:gravity="left|center_vertical"
+                            android:padding="8dp"
+                            android:paddingStart="40dp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/black"
+                        android:layout_marginTop="-9dp"
+                        android:layout_marginBottom="8dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:weightSum="2">
+
+                        <Button
+                            android:id="@+id/btEditProfile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="70dp"
+                            android:backgroundTint="@color/black"
+                            android:layout_marginEnd="10dp"
+                            android:text="Update Profile"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="@color/white"
+                            app:cornerRadius="50dp"/>
+
+                        <Button
+                            android:id="@+id/btDeleteProfile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="70dp"
+                            android:backgroundTint="@color/red"
+                            android:layout_marginEnd="10dp"
+                            android:text="Delete Profile"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="@color/white"
+                            app:cornerRadius="50dp"/>
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
-        </ScrollView>
+            </ScrollView>
+        </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:elevation="11dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/panda"
+            app:civ_border_color="@android:color/black"
+            app:civ_border_width="2dp"
+            app:civ_circle_background_color="@android:color/white"/>
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
