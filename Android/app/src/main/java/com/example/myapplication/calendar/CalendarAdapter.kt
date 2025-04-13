@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.lifecycle.lifecycleScope
 import java.util.*
 
 class CalendarAdapter(
@@ -15,13 +14,22 @@ class CalendarAdapter(
     private val onDateClick: (String, Boolean) -> Unit
 ) : RecyclerView.Adapter<CalendarAdapter.CalendarViewHolder>() {
 
+    private var currentMonth: Int = 0
+    private var currentYear: Int = 0
+
+    fun setCurrentMonthAndYear(month: Int, year: Int) {
+        currentMonth = month
+        currentYear = year
+    }
+
     inner class CalendarViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val dayText: TextView = itemView.findViewById(R.id.day_text)
 
         fun bind(dateText: String) {
-            val calendar = Calendar.getInstance()
-            val currentMonth = calendar.get(Calendar.MONTH) + 1
-            val currentYear = calendar.get(Calendar.YEAR)
+            val todayCalendar = Calendar.getInstance()
+            val todayYear = todayCalendar.get(Calendar.YEAR)
+            val todayMonth = todayCalendar.get(Calendar.MONTH) + 1
+            val todayDay = todayCalendar.get(Calendar.DAY_OF_MONTH)
 
             var isCurrentMonth = true
             var displayText = dateText
@@ -33,7 +41,6 @@ class CalendarAdapter(
                     displayText = dateText.substring(5)
                     isCurrentMonth = false
 
-                    // Calculate previous month
                     if (currentMonth == 1) {
                         month = 12
                         year = currentYear - 1
@@ -45,7 +52,6 @@ class CalendarAdapter(
                     displayText = dateText.substring(5)
                     isCurrentMonth = false
 
-                    // Calculate next month
                     if (currentMonth == 12) {
                         month = 1
                         year = currentYear + 1
@@ -59,20 +65,29 @@ class CalendarAdapter(
 
             val dateKey = "$year-$month-$displayText"
 
+            val isPastDate = isPastDate(year, month, displayText.toInt(), todayYear, todayMonth, todayDay)
+
             if (!isCurrentMonth) {
                 dayText.setTextColor(Color.GRAY)
                 dayText.alpha = 0.5f
             } else {
                 dayText.alpha = 1.0f
-                if (savedDates.contains(dateKey)) {
-                    dayText.setTextColor(Color.RED)
-                } else {
-                    dayText.setTextColor(Color.BLACK)
+                when {
+                    isPastDate -> {
+                        dayText.setTextColor(Color.GRAY)
+                        dayText.alpha = 0.5f
+                    }
+                    savedDates.contains(dateKey) -> {
+                        dayText.setTextColor(Color.RED)
+                    }
+                    else -> {
+                        dayText.setTextColor(Color.BLACK)
+                    }
                 }
             }
 
             dayText.setOnClickListener {
-                if (!isCurrentMonth) return@setOnClickListener
+                if (!isCurrentMonth || isPastDate) return@setOnClickListener
 
                 val isNowSelected = !savedDates.contains(dateKey)
                 if (isNowSelected) {
@@ -83,6 +98,19 @@ class CalendarAdapter(
                 notifyDataSetChanged()
                 onDateClick(dateKey, isNowSelected)
             }
+        }
+
+        private fun isPastDate(
+            checkYear: Int,
+            checkMonth: Int,
+            checkDay: Int,
+            currentYear: Int,
+            currentMonth: Int,
+            currentDay: Int
+        ): Boolean {
+            return checkYear < currentYear ||
+                    (checkYear == currentYear && checkMonth < currentMonth) ||
+                    (checkYear == currentYear && checkMonth == currentMonth && checkDay < currentDay)
         }
     }
 

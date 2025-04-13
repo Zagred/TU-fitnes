@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back5"
+    android:background="@drawable/background_login"
     tools:context=".login.Login"
     tools:layout_editor_absoluteX="100dp"
     tools:layout_editor_absoluteY="-8dp">
@@ -39,7 +39,7 @@
                 android:gravity="center"
                 android:text="TU Fitness"
                 android:textSize="40sp"
-                android:textColor="@color/purple50"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -52,10 +52,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                app:startIconDrawable="@drawable/account_circle"
-                app:startIconTint="@color/purple50"
+                app:startIconDrawable="@drawable/email"
+                app:startIconTint="@color/black"
                 app:boxBackgroundMode="none"
-                app:boxStrokeColor="@color/purple50"
+                app:boxStrokeColor="@color/black"
                 app:boxStrokeWidth="2dp"
                 app:boxCornerRadiusTopStart="6dp"
                 app:boxCornerRadiusTopEnd="6dp"
@@ -63,11 +63,11 @@
                 app:boxCornerRadiusBottomEnd="6dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tNameLogin"
+                    android:id="@+id/tEmailLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
-                    android:inputType="text"
+                    android:inputType="textEmailAddress"
                     android:textColor="@color/black"
                     android:textColorHint="@color/text_hint"
                     android:textStyle="bold"
@@ -80,7 +80,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/purple50"
+                android:background="@color/black"
                 android:layout_marginTop="-9dp"
                 android:layout_marginBottom="8dp"/>
 
@@ -89,11 +89,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:endIconMode="password_toggle"
-                app:endIconTint="@color/purple50"
+                app:endIconTint="@color/black"
                 app:startIconDrawable="@drawable/lock"
-                app:startIconTint="@color/purple50"
+                app:startIconTint="@color/black"
                 app:boxBackgroundMode="none"
-                app:boxStrokeColor="@color/purple50"
+                app:boxStrokeColor="@color/black"
                 app:boxStrokeWidth="2dp"
                 app:boxCornerRadiusTopStart="6dp"
                 app:boxCornerRadiusTopEnd="6dp"
@@ -118,14 +118,14 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/purple50"
+                android:background="@color/black"
                 android:layout_marginTop="-9dp"
                 android:layout_marginBottom="8dp"/>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
-                android:background="@color/purple50"
+                android:background="@color/black"
                 android:layout_marginTop="10dp"/>
 
             <Button
@@ -136,7 +136,7 @@
                 android:text="Login"
                 android:textStyle="bold"
                 android:textSize="19sp"
-                android:textColor="@color/purple50"
+                android:textColor="@color/black"
                 android:layout_marginTop="8dp"
                 android:padding="0dp"
                 android:minHeight="0dp"
@@ -154,13 +154,13 @@
                     android:layout_weight="1"
                     android:layout_marginStart="30dp"
                     android:layout_marginEnd="3dp"
-                    android:background="@color/purple50" />
+                    android:background="@color/black" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="OR"
-                    android:textColor="@color/purple50"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -170,7 +170,7 @@
                     android:layout_weight="1"
                     android:layout_marginStart="3dp"
                     android:layout_marginEnd="30dp"
-                    android:background="@color/purple50" />
+                    android:background="@color/black" />
             </LinearLayout>
 
             <Button
@@ -181,7 +181,7 @@
                 android:text="Don't have an account?  Sign up"
                 android:textStyle="bold"
                 android:textSize="13sp"
-                android:textColor="@color/purple50"/>
+                android:textColor="@color/black"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

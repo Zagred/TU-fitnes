@@ -30,15 +30,20 @@ import com.example.myapplication.datamanager.achievement.Achievement
 import com.example.myapplication.datamanager.achievement.AchievementDAO
 import com.example.myapplication.datamanager.coach.Coach
 import com.example.myapplication.datamanager.coach.CoachDAO
+import com.example.myapplication.datamanager.location.Location
+import com.example.myapplication.datamanager.location.LocationDAO
+import com.example.myapplication.challenge.Challenge
+import com.example.myapplication.challenge.ChallengeDAO
 
 
 @Database(
     entities = [
         User::class, UserInfo::class, NutritionInfo::class, Activity::class, CustomExercise::class,
         CustomWorkout::class, CustomWorkoutCustomExercise::class, DailyData::class, Post::class,
-        Friends::class, CalendarEvent::class, Achievement::class, Coach::class
+        Friends::class, CalendarEvent::class, Achievement::class, Coach::class,Location::class,
+        Challenge::class
     ],
-    version = 4
+    version = 5
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDAO(): UserDAO
@@ -54,6 +59,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun calendarEventDao(): CalendarEventDAO
     abstract fun achievementDAO(): AchievementDAO
     abstract fun coachDAO(): CoachDAO
+    abstract fun locationDAO(): LocationDAO
+    abstract fun challengeDAO(): ChallengeDAO
 
     companion object {
         private const val DATABASE_NAME = "calorie.db"
@@ -72,8 +79,9 @@ abstract class AppDatabase : RoomDatabase() {
                         context.applicationContext,
                         AppDatabase::class.java,
                         DATABASE_NAME
-                    ).allowMainThreadQueries()
-                        .createFromAsset("database/fitnessapp.db")
+                    )
+                        .createFromAsset("calorie.db")
+                        .allowMainThreadQueries()
                         .build()
                 }
                 return instance

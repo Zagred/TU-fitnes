@@ -38,14 +38,12 @@ class PostActivity : AppCompatActivity() {
 
         database = AppDatabase.getInstance(application)
 
-        // Get the logged-in user ID and role from the Intent
         loggedUserId = intent.getIntExtra("USER_ID", -1)
         if (loggedUserId == -1) {
             Toast.makeText(this, "Invalid User", Toast.LENGTH_SHORT).show()
             finish()
         }
 
-        // Check if user is admin
         lifecycleScope.launch(Dispatchers.IO) {
             val user = database.userDAO().getUserById(loggedUserId)
             isAdmin = user?.role == "admin"

@@ -16,6 +16,8 @@ roomCommon = "2.6.1"
 roomKtx = "2.6.1"
 room = "2.6.1"
 ksp = "2.0.21-1.0.27"
+playServicesLocation = "21.3.0"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -33,6 +35,8 @@ androidx-room-common = { group = "androidx.room", name = "room-common", version 
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version = "2.6.0" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version = "2.6.0" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version = "2.6.0" }
+play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

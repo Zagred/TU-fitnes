@@ -84,11 +84,20 @@ class Register : AppCompatActivity() {
     }
 
     private fun insert() {
-        val email = findViewById<EditText>(R.id.tNameRegister).text.toString()
+        val email = findViewById<EditText>(R.id.tEmailRegister).text.toString()
+        val username = findViewById<EditText>(R.id.tUsernameRegister).text.toString()
         val password = findViewById<EditText>(R.id.tPassRegister).text.toString()
+        val confirmPassword = findViewById<EditText>(R.id.tPassConfirmRegister).text.toString()
 
-        if (email.isBlank() || password.isBlank()) {
+        // Validate all fields
+        if (email.isBlank() || username.isBlank() || password.isBlank() || confirmPassword.isBlank()) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Check if passwords match
+        if (password != confirmPassword) {
+            Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -104,6 +113,7 @@ class Register : AppCompatActivity() {
             ).show()
             return
         }
+
         if (!isEmailValid(email)) {
             Toast.makeText(
                 this,
@@ -115,25 +125,37 @@ class Register : AppCompatActivity() {
 
         lifecycleScope.launch(Dispatchers.IO) {
             try {
-                // Check if username already exists
-                val existingUser = userDAO.findByUsername(email)
-                if (existingUser != null) {
+                // Check if username or email already exists
+                val existingUserByUsername = userDAO.findByUsername(username)
+                if (existingUserByUsername != null) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(this@Register, "Username is already taken", Toast.LENGTH_SHORT).show()
+                    }
+                    return@launch
+                }
+
+                val existingUserByEmail = userDAO.findByEmail(email)
+                if (existingUserByEmail != null) {
                     withContext(Dispatchers.Main) {
                         Toast.makeText(this@Register, "Email is already registered", Toast.LENGTH_SHORT).show()
                     }
                     return@launch
                 }
 
-                userDAO.insert(User(0, username = email, password = password))
+                // Insert the user with their actual username (not hardcoded)
+                userDAO.insert(User(0, username = username, password = password, email = email))
 
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@Register, "User registered successfully!", Toast.LENGTH_SHORT).show()
                 }
 
-                val id = userDAO.findByUsername(email)
-                userInfoDAO.insert(UserInfo(0, birthdate = "", gender = "", height = 0, weight = 0.0, id.uid))
-                nutritionInfo.insert(NutritionInfo(0, caloriesPerDay = 0, carbsPerDay = 1, proteinPerDay = 0, fatPerDay = 0, id.uid))
-                workout.insert(CustomWorkout(0, id.uid, "first workout", 0))
+                val id = userDAO.findByUsername(username)
+
+                if (id != null) {
+                    workout.insert(CustomWorkout(0, id.uid, "first workout", 0))
+                    userInfoDAO.insert(UserInfo(0, birthdate = "", gender = "", height = 0, weight = 0.0, id.uid))
+                    nutritionInfo.insert(NutritionInfo(0, caloriesPerDay = 0, carbsPerDay = 1, proteinPerDay = 0, fatPerDay = 0, id.uid))
+                }
 
                 withContext(Dispatchers.Main) {
                     val intent = Intent(this@Register, Login::class.java)
@@ -143,7 +165,7 @@ class Register : AppCompatActivity() {
 
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(this@Register, "Failed to register user", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@Register, "Failed to register user: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
             }
         }
