@@ -2,6 +2,7 @@ package com.example.myapplication.challenge
 
 import android.Manifest
 import android.content.ActivityNotFoundException
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -28,6 +29,7 @@ class ChallengePROOFActivity : AppCompatActivity() {
 
     private var isBeforePictureTaken = false
     private var isAfterPictureTaken = false
+    private var isReadyToComplete = false
 
     private val requestCameraPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -47,11 +49,13 @@ class ChallengePROOFActivity : AppCompatActivity() {
                         binding.imgBefore.setImageBitmap(imageBitmap)
                         isBeforePictureTaken = true
                         showToast("Before picture taken")
+                        checkAllRequirementsMet()
                     }
                     CameraAction.TAKE_AFTER -> {
                         binding.imgAfter.setImageBitmap(imageBitmap)
                         isAfterPictureTaken = true
                         showToast("After picture taken")
+                        checkAllRequirementsMet()
                     }
                     else -> {}
                 }
@@ -96,9 +100,7 @@ class ChallengePROOFActivity : AppCompatActivity() {
                 showToast("Please enter your experience")
             } else {
                 showToast("Experience submitted!")
-                if (isBeforePictureTaken && isAfterPictureTaken) {
-                    binding.btnComplete.setBackgroundColor(ContextCompat.getColor(this, android.R.color.black))
-                }
+                checkAllRequirementsMet()
             }
         }
 
@@ -110,14 +112,19 @@ class ChallengePROOFActivity : AppCompatActivity() {
             } else if (!isExperienceValid()) {
                 showToast("Please enter your experience")
             } else {
-                binding.btnComplete.setBackgroundColor(ContextCompat.getColor(this, android.R.color.black))
-
+                // If all requirements are met, proceed with challenge completion
                 completeChallenge()
-                startActivity(Intent(this, ChallengeAnimationActivity::class.java))
-                finish()
             }
         }
+    }
 
+    // New method to check if all requirements are met
+    private fun checkAllRequirementsMet() {
+        if (isBeforePictureTaken && isAfterPictureTaken && isExperienceValid()) {
+            // All requirements met, update button appearance and state
+            binding.btnComplete.setBackgroundColor(ContextCompat.getColor(this, android.R.color.black))
+            isReadyToComplete = true
+        }
     }
 
     private fun isExperienceValid(): Boolean {
@@ -168,13 +175,37 @@ class ChallengePROOFActivity : AppCompatActivity() {
                 it.feedback = binding.etfeedback.text.toString()
                 challengeDao.update(it)
                 challengeDao.markChallengeAsCompleted(challengeId)
+
+                // Add points to SharedPreferences
+                val pointsToAdd = it.points
+                updateDumbbellCounter(pointsToAdd)
             }
 
             withContext(Dispatchers.Main) {
                 showToast("Congratulations! You just earned ${challenge?.points} dumbbells!")
-                startActivity(Intent(this@ChallengePROOFActivity, ChallengeAnimationActivity::class.java))
+
+                // Pass the earned points to the animation activity
+                val intent = Intent(this@ChallengePROOFActivity, ChallengeAnimationActivity::class.java).apply {
+                    putExtra("EARNED_POINTS", challenge?.points ?: 0)
+                }
+                startActivity(intent)
                 finish()
             }
+        }
+    }
+
+    private fun updateDumbbellCounter(pointsToAdd: Int) {
+        // Get the current dumbbell count from SharedPreferences
+        val sharedPref = getSharedPreferences("fitness_app_prefs", Context.MODE_PRIVATE)
+        val currentDumbbells = sharedPref.getInt("dumbbell_count", 0)
+
+        // Add the new points to the current count
+        val newDumbbellCount = currentDumbbells + pointsToAdd
+
+        // Save the updated count back to SharedPreferences
+        with(sharedPref.edit()) {
+            putInt("dumbbell_count", newDumbbellCount)
+            apply()
         }
     }
 }

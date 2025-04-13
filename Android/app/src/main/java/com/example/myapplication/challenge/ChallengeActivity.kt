@@ -1,5 +1,6 @@
 package com.example.myapplication.challenge
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.RadioButton
@@ -28,6 +29,9 @@ class ChallengeActivity : AppCompatActivity() {
 
         challengeDao = AppDatabase.getInstance(this).challengeDAO()
 
+        // Load and display the dumbbell count
+        loadDumbbellCount()
+
         loadChallenges()
 
         binding.btnConfirm.setOnClickListener {
@@ -39,6 +43,21 @@ class ChallengeActivity : AppCompatActivity() {
                 Toast.makeText(this, "Моля, избери предизвикателство", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Reload the dumbbell count when returning to this activity
+        loadDumbbellCount()
+    }
+
+    private fun loadDumbbellCount() {
+        // Get the current dumbbell count from SharedPreferences
+        val sharedPref = getSharedPreferences("fitness_app_prefs", Context.MODE_PRIVATE)
+        val dumbbellCount = sharedPref.getInt("dumbbell_count", 0)
+
+        // Update the TextView displaying the count
+        binding.tvDumbbellCount.text = dumbbellCount.toString()
     }
 
     private fun loadChallenges() {

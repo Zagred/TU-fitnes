@@ -5,6 +5,88 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".challenge.ChallengeAnimationActivity">
 
+    <!-- Полукръгъл поздравителен текст -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="100dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="@color/yellow"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tvCongrats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Congratulations!\nYou rock! 💪"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:padding="20dp" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Иконка на гиричка -->
+
+    <!-- Points counter (New) -->
+
+    <ImageView
+        android:id="@+id/imgdumbell"
+        android:layout_width="284dp"
+        android:layout_height="281dp"
+        android:layout_marginTop="184dp"
+        android:src="@drawable/dum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardMessage" />
+
+    <TextView
+        android:id="@+id/tvPointsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="YOU JUST EARNED"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/tvPoints"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="226dp" />
+
+    <TextView
+        android:id="@+id/tvPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="12dp"
+        app:layout_constraintTop_toTopOf="@id/tvPointsLabel"
+        app:layout_constraintBottom_toBottomOf="@id/tvPointsLabel"
+        app:layout_constraintStart_toEndOf="@id/tvPointsLabel"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Continue бутон долу -->
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="CONTINUE"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/black"
+        app:cornerRadius="32dp"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
