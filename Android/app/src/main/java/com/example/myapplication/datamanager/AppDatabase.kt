@@ -32,13 +32,16 @@ import com.example.myapplication.datamanager.coach.Coach
 import com.example.myapplication.datamanager.coach.CoachDAO
 import com.example.myapplication.datamanager.location.Location
 import com.example.myapplication.datamanager.location.LocationDAO
+import com.example.myapplication.challenge.Challenge
+import com.example.myapplication.challenge.ChallengeDAO
 
 
 @Database(
     entities = [
         User::class, UserInfo::class, NutritionInfo::class, Activity::class, CustomExercise::class,
         CustomWorkout::class, CustomWorkoutCustomExercise::class, DailyData::class, Post::class,
-        Friends::class, CalendarEvent::class, Achievement::class, Coach::class,Location::class
+        Friends::class, CalendarEvent::class, Achievement::class, Coach::class,Location::class,
+        Challenge::class
     ],
     version = 5
 )
@@ -57,6 +60,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun achievementDAO(): AchievementDAO
     abstract fun coachDAO(): CoachDAO
     abstract fun locationDAO(): LocationDAO
+    abstract fun challengeDAO(): ChallengeDAO
 
     companion object {
         private const val DATABASE_NAME = "calorie.db"

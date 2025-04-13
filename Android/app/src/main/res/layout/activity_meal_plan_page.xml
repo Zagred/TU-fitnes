@@ -50,6 +50,7 @@
                 android:src="@drawable/panda"
                 app:civ_border_color="@android:color/black"
                 app:civ_circle_background_color="@android:color/white" />
+
         </LinearLayout>
     </LinearLayout>
 
@@ -91,7 +92,7 @@
                         android:gravity="start">
 
                         <Button
-                            android:id="@+id/btnCalculatorBmi"
+                            android:id="@+id/btnMealPlan"
                             android:layout_width="270dp"
                             android:layout_height="100dp"
                             android:backgroundTint="@color/white"
@@ -124,7 +125,7 @@
                         android:layout_marginTop="60dp">
 
                         <Button
-                            android:id="@+id/btnCalculatorCalorie"
+                            android:id="@+id/btnCheckCalories"
                             android:layout_width="270dp"
                             android:layout_height="100dp"
                             android:layout_gravity="right"

@@ -42,14 +42,6 @@
             android:layout_marginTop="20dp"
             android:orientation="vertical">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/btProfileHomeP"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:layout_gravity="right"
-                android:src="@drawable/panda"
-                app:civ_border_color="@android:color/black"
-                app:civ_circle_background_color="@android:color/white" />
         </LinearLayout>
     </LinearLayout>
 

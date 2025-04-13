@@ -62,16 +62,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:orientation="vertical">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/btProfileHomeP"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:layout_gravity="right"
-                android:src="@drawable/panda"
-                app:civ_border_color="@android:color/black"
-                app:civ_circle_background_color="@android:color/white" />
         </LinearLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/btProfileHomeP"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_gravity="right"
+            android:src="@drawable/panda"
+            app:civ_border_color="@android:color/black"
+            app:civ_circle_background_color="@android:color/white" />
+
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
@@ -157,12 +158,12 @@
                         android:translationZ="2dp"/>
 
                     <Button
-                        android:id="@+id/btGoalsHomeP"
+                        android:id="@+id/btChallengeHomeP"
                         android:layout_width="180dp"
                         android:layout_height="80dp"
                         android:backgroundTint="@color/white"
                         android:drawableLeft="@drawable/challenge"
-                        android:text="Goals"
+                        android:text="Challenges"
                         android:textSize="16sp"
                         android:textColor="@color/black"
                         android:textStyle="bold"

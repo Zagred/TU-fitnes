@@ -20,6 +20,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import android.widget.Toast
+import com.example.myapplication.challenge.ChallengeActivity
 import de.hdodenhof.circleimageview.CircleImageView
 
 class HomePage : AppCompatActivity() {
@@ -30,7 +31,7 @@ class HomePage : AppCompatActivity() {
         val meals = findViewById<Button>(R.id.btMealsHomeP)
         val calendar = findViewById<Button>(R.id.btCalendarHomeP)
         val workout = findViewById<Button>(R.id.btWorkoutHomeP)
-        val goals = findViewById<Button>(R.id.btGoalsHomeP)
+        val challenge = findViewById<Button>(R.id.btChallengeHomeP)
         val trainer = findViewById<Button>(R.id.btTrainerHomeP)
         val friends = findViewById<Button>(R.id.btFriendsHomeP)
         val community = findViewById<Button>(R.id.btCommunityHomeP)
@@ -80,8 +81,8 @@ class HomePage : AppCompatActivity() {
             startActivity(intent)
         }
 
-        goals.setOnClickListener{
-            val intent = Intent(this, AchievementActivity::class.java)
+        challenge.setOnClickListener{
+            val intent = Intent(this, ChallengeActivity::class.java)
             intent.putExtra("USER_ID", userId)
             startActivity(intent)
         }
