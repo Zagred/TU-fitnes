@@ -129,33 +129,38 @@
                         android:layout_marginTop="-9dp"
                         android:layout_marginBottom="8dp"/>
 
-                    <com.google.android.material.textfield.TextInputLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:startIconDrawable="@drawable/gender"
-                        app:startIconTint="@color/black"
-                        app:boxBackgroundMode="none"
-                        app:boxStrokeColor="@color/black"
-                        app:boxStrokeWidth="2dp"
-                        app:boxCornerRadiusTopStart="6dp"
-                        app:boxCornerRadiusTopEnd="6dp"
-                        app:boxCornerRadiusBottomStart="6dp"
-                        app:boxCornerRadiusBottomEnd="6dp">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="8dp">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/tGenderProfile"
-                            android:layout_width="match_parent"
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/gender"
+                            android:tint="@color/black"
+                            android:layout_marginEnd="16dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:hint="Gender"
-                            android:inputType="text"
-                            android:textColor="@color/black"
-                            android:textColorHint="@color/text_hint"
+                            android:text="Gender"
+                            android:textColor="@color/text_hint"
                             android:textStyle="bold"
                             android:textSize="18sp"
-                            android:gravity="left|center_vertical"
-                            android:padding="8dp"
-                            android:paddingStart="40dp"/>
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:layout_marginEnd="16dp"/>
+
+                        <Spinner
+                            android:id="@+id/spinnerGender"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:padding="8dp"/>
+                    </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
@@ -199,39 +204,48 @@
                         android:layout_marginTop="-9dp"
                         android:layout_marginBottom="8dp"/>
 
-                    <com.google.android.material.textfield.TextInputLayout
+                    <!-- Date of Birth field with calendar icon and click functionality -->
+                    <LinearLayout
+                        android:id="@+id/datePickerLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:startIconDrawable="@drawable/cake"
-                        app:startIconTint="@color/black"
-                        app:boxBackgroundMode="none"
-                        app:boxStrokeColor="@color/black"
-                        app:boxStrokeWidth="2dp"
-                        app:boxCornerRadiusTopStart="6dp"
-                        app:boxCornerRadiusTopEnd="6dp"
-                        app:boxCornerRadiusBottomStart="6dp"
-                        app:boxCornerRadiusBottomEnd="6dp">
+                        android:orientation="horizontal"
+                        android:padding="8dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackground">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/cake"
+                            android:tint="@color/black"
+                            android:layout_marginEnd="16dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Date of Birth"
+                            android:textColor="@color/text_hint"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:layout_marginEnd="16dp"/>
+
+                        <TextView
                             android:id="@+id/tBirthProfile"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Date of Birth"
-                            android:inputType="date"
+                            android:hint="Select date"
                             android:textColor="@color/black"
-                            android:textColorHint="@color/text_hint"
-                            android:textStyle="bold"
                             android:textSize="18sp"
-                            android:gravity="left|center_vertical"
-                            android:padding="8dp"
-                            android:paddingStart="40dp"/>
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:textStyle="bold"
+                            android:padding="8dp"/>
+                    </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
                         android:background="@color/black"
-                        android:layout_marginTop="-9dp"
                         android:layout_marginBottom="8dp"/>
 
                     <com.google.android.material.textfield.TextInputLayout

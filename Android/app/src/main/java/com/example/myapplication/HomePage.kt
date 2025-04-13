@@ -20,12 +20,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import android.widget.Toast
+import de.hdodenhof.circleimageview.CircleImageView
 
 class HomePage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)
-        val profile = findViewById<Button>(R.id.btProfileHomeP)
+        val profile = findViewById<CircleImageView>(R.id.btProfileHomeP)
         val meals = findViewById<Button>(R.id.btMealsHomeP)
         val calendar = findViewById<Button>(R.id.btCalendarHomeP)
         val workout = findViewById<Button>(R.id.btWorkoutHomeP)

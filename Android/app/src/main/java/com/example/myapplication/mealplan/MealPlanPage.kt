@@ -15,8 +15,8 @@ class MealPlanPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_meal_plan_page)
-        val mealPlanBtn = findViewById<TextView>(R.id.btnMealPlan)
-        val checkCaloriesBtn = findViewById<TextView>(R.id.btnCheckCalories)
+        val mealPlanBtn = findViewById<TextView>(R.id.btnCalculatorBmi)
+        val checkCaloriesBtn = findViewById<TextView>(R.id.btnCalculatorCalorie)
         mealPlanBtn.setOnClickListener {
             val intent = Intent(this, MealPlan::class.java)
             intent.putExtra("USER_ID", getIntent().getIntExtra("USER_ID", -1))

@@ -1,6 +1,8 @@
 package com.example.myapplication.social
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -29,6 +31,9 @@ class FriendsActivity : AppCompatActivity() {
     private var loggedUserId: Int = -1
     private var isAdmin: Boolean = false
     private lateinit var adapter: FriendsAdapter
+
+    // Store the complete list of users for filtering
+    private var allUsers: List<User> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,6 +80,24 @@ class FriendsActivity : AppCompatActivity() {
             )
 
             loadAllUsers()
+
+            // Setup search functionality for admin
+            etFriendUsername.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+                override fun afterTextChanged(s: Editable?) {
+                    filterUsers(s.toString())
+                }
+            })
+
+            btnClear.setOnClickListener {
+                etFriendUsername.setText("")
+                // Reset to display all users when cleared
+                adapter.setUsersData(allUsers)
+            }
+
         } else {
             tvTitle.text = "My Friends"
             etFriendUsername.hint = "Add friend by username..."
@@ -98,14 +121,29 @@ class FriendsActivity : AppCompatActivity() {
                     Toast.makeText(this, "Enter a username", Toast.LENGTH_SHORT).show()
                 }
             }
+
+            btnClear.setOnClickListener {
+                etFriendUsername.setText("")
+            }
         }
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
+    }
 
-        btnClear.setOnClickListener {
-            etFriendUsername.setText("")
+    private fun filterUsers(query: String) {
+        if (query.isEmpty()) {
+            adapter.setUsersData(allUsers)
+            return
         }
+
+        val filteredList = allUsers.filter { user ->
+            user.username.contains(query, ignoreCase = true) ||
+                    user.email.contains(query, ignoreCase = true) ||
+                    user.role.contains(query, ignoreCase = true)
+        }
+
+        adapter.setUsersData(filteredList)
     }
 
     private fun loadFriends() {
@@ -125,7 +163,7 @@ class FriendsActivity : AppCompatActivity() {
 
     private fun loadAllUsers() {
         lifecycleScope.launch(Dispatchers.IO) {
-            val allUsers = database.userDAO().getAll()
+            allUsers = database.userDAO().getAll()
 
             withContext(Dispatchers.Main) {
                 adapter.setUsersData(allUsers)
@@ -185,9 +223,12 @@ class FriendsActivity : AppCompatActivity() {
 
             database.userDAO().delete(user)
 
-            loadAllUsers()
+            // Reload and update the filtered list as well
+            allUsers = database.userDAO().getAll()
 
             withContext(Dispatchers.Main) {
+                // Apply current filter after deleting
+                filterUsers(etFriendUsername.text.toString())
                 Toast.makeText(this@FriendsActivity, "User deleted", Toast.LENGTH_SHORT).show()
             }
         }

@@ -12,7 +12,6 @@ import com.example.myapplication.HomePage
 import com.example.myapplication.R
 import com.example.myapplication.datamanager.AppDatabase
 import com.example.myapplication.datamanager.user.UserDAO
-import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -29,78 +28,98 @@ class Login : AppCompatActivity() {
         val login = findViewById<Button>(R.id.btLogin)
         val register = findViewById<Button>(R.id.btRegister)
 
-        val db = AppDatabase.getInstance(applicationContext)
-        userDAO = db.userDAO()
+        try {
+            val db = AppDatabase.getInstance(applicationContext)
+            userDAO = db.userDAO()
 
-        login.setOnClickListener {
-            lifecycleScope.launch {
-                login()
+            login.setOnClickListener {
+                lifecycleScope.launch {
+                    login()
+                }
             }
-        }
-        register.setOnClickListener {
-            val intent = Intent(this, Register::class.java)
-            startActivity(intent)
+            register.setOnClickListener {
+                val intent = Intent(this, Register::class.java)
+                startActivity(intent)
+            }
+        } catch (e: Exception) {
+            Log.e("Login", "Error initializing database", e)
+            Toast.makeText(
+                this,
+                "Error initializing app: ${e.message}",
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 
     private suspend fun login() {
-        val email = findViewById<EditText>(R.id.tEmailRegister).text.toString()
-        val password = findViewById<EditText>(R.id.tPassLogin).text.toString()
+        try {
+            val email = findViewById<EditText>(R.id.tEmailLogin).text.toString()
+            val password = findViewById<EditText>(R.id.tPassLogin).text.toString()
 
-        if (email.isBlank() || password.isBlank()) {
-            withContext(Dispatchers.Main) {
-                Toast.makeText(
-                    this@Login,
-                    "Please fill in all fields",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-            return
-        }
-
-        withContext(Dispatchers.IO) {
-            try {
-                // Try to find user by email first
-                var user = userDAO.findByEmail(email)
-
-                // If not found by email, try username
-                if (user == null) {
-                    user = userDAO.findByUsername(email)
-                }
-
-                if (user == null) {
-                    incrementLoginAttempt()
-                    return@withContext
-                }
-
-                if (user.password == password) {
-                    loginAttempts = 0
-                    val userId = user.uid
-
-                    withContext(Dispatchers.Main) {
-                        Toast.makeText(
-                            this@Login,
-                            "User logged in successfully!",
-                            Toast.LENGTH_SHORT
-                        ).show()
-
-                        val intent = Intent(this@Login, HomePage::class.java)
-                        intent.putExtra("USER_ID", userId)
-                        startActivity(intent)
-                        finish()
-                    }
-                } else {
-                    incrementLoginAttempt()
-                }
-            } catch (e: Exception) {
-                Log.e("LoginError", "Failed to login user", e)
+            if (email.isBlank() || password.isBlank()) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(
                         this@Login,
-                        "Failed to login user: ${e.message}",
+                        "Please fill in all fields",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+                return
+            }
+
+            withContext(Dispatchers.IO) {
+                try {
+                    // Try to find user by email first
+                    var user = userDAO.findByEmail(email)
+
+                    // If not found by email, try username
+                    if (user == null) {
+                        user = userDAO.findByUsername(email)
+                    }
+
+                    if (user == null) {
+                        incrementLoginAttempt()
+                        return@withContext
+                    }
+
+                    if (user.password == password) {
+                        loginAttempts = 0
+                        val userId = user.uid
+
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(
+                                this@Login,
+                                "User logged in successfully!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            val intent = Intent(this@Login, HomePage::class.java)
+                            intent.putExtra("USER_ID", userId)
+                            startActivity(intent)
+                            finish()
+                        }
+                    } else {
+                        incrementLoginAttempt()
+                    }
+                } catch (e: Exception) {
+                    Log.e("LoginError", "Failed to login user", e)
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(
+                            this@Login,
+                            "Failed to login user: ${e.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("LoginError", "Unexpected error during login", e)
+            withContext(Dispatchers.Main) {
+                Toast.makeText(
+                    this@Login,
+                    "Unexpected error: ${e.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
@@ -115,6 +134,8 @@ class Login : AppCompatActivity() {
                     "Too many failed login attempts",
                     Toast.LENGTH_LONG
                 ).show()
+                // You could implement a temporary lockout here
+                // or other security measures
             } else {
                 Toast.makeText(
                     this@Login,

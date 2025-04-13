@@ -67,6 +67,8 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/specializationInputLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:boxBackgroundMode="filled"
@@ -77,17 +79,18 @@
                     app:boxCornerRadiusTopEnd="5dp"
                     app:boxCornerRadiusBottomStart="5dp"
                     app:boxCornerRadiusBottomEnd="5dp"
-                    android:textColorHint="@color/greenText">
+                    android:textColorHint="@color/greenText"
+                    android:hint="Specialization">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/coachSpecializationInput"
+                    <AutoCompleteTextView
+                        android:id="@+id/coachSpecializationDropdown"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Specialization"
-                        android:inputType="text"
+                        android:inputType="none"
                         android:textColor="@color/black"
                         android:textStyle="bold"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp"
+                        android:editable="false"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
