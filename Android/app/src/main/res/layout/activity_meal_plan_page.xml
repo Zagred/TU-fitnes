@@ -13,45 +13,27 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:paddingStart="16dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="16dp">
+        android:orientation="vertical"
+        android:paddingTop="30dp">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/chooseCalculatorTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="What you   search for?"
-                android:textColor="@color/yellow"
-                android:textSize="40sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/chooseOptionTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
+            android:paddingStart="16dp"
+            android:text="About your meals"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/btProfileHomeP"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:layout_gravity="right"
-                android:src="@drawable/panda"
-                app:civ_border_color="@android:color/black"
-                app:civ_circle_background_color="@android:color/white" />
-
-        </LinearLayout>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="4dp"
+            android:background="@color/yellow"
+            android:layout_gravity="start"
+            android:layout_marginEnd="80dp"/>
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
@@ -86,15 +68,28 @@
                     android:layout_marginTop="20dp"
                     android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Your food choices matter!"
+                        android:textColor="@color/black"
+                        android:textSize="32sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="start">
+                        android:gravity="start"
+                        android:layout_marginTop="20dp">
 
                         <Button
                             android:id="@+id/btnMealPlan"
                             android:layout_width="270dp"
                             android:layout_height="100dp"
+                            android:layout_marginStart="8dp"
                             android:backgroundTint="@color/white"
                             android:text="Meal Plan"
                             android:textSize="16sp"
@@ -106,7 +101,7 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/txtViewForBMICalc"
+                        android:id="@+id/txtViewForMealPlan"
                         android:layout_width="270dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
@@ -122,12 +117,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="end"
-                        android:layout_marginTop="60dp">
+                        android:layout_marginTop="40dp">
 
                         <Button
                             android:id="@+id/btnCheckCalories"
                             android:layout_width="270dp"
                             android:layout_height="100dp"
+                            android:layout_marginEnd="8dp"
                             android:layout_gravity="right"
                             android:backgroundTint="@color/white"
                             android:text="Check Calories"
@@ -157,6 +153,18 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/btnCalculatorCalorie" />
                     </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:text="Eat wise!!!"
+                        android:textColor="@color/black"
+                        android:textSize="32sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
                 </LinearLayout>
             </GridLayout>
         </ScrollView>
@@ -165,7 +173,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/black"
+        android:background="@color/yellow"
         android:elevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent">
 

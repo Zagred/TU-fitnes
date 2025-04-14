@@ -38,7 +38,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     tools:ignore="Suspicious0dp" />
@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginTop="8dp"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     tools:ignore="Suspicious0dp" />
 
@@ -58,7 +58,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     tools:ignore="Suspicious0dp" />
 
@@ -66,14 +66,14 @@
                     android:id="@+id/deleteCoachButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="3dp"
-                    android:backgroundTint="@color/yellow"
-                    app:cornerRadius="5dp"
+                    android:layout_gravity="top|center"
+                    android:backgroundTint="@color/red"
+                    android:gravity="center"
                     android:text="Remove"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="@color/greenText"/>
+                    app:cornerRadius="50dp"/>
             </LinearLayout>
         </ScrollView>
     </androidx.cardview.widget.CardView>

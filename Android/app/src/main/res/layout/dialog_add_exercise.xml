@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Select Activity"
-                android:textColor="@color/greenText"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -43,7 +43,7 @@
                 app:boxStrokeColor="@android:color/black"
                 app:boxStrokeWidth="2dp"
                 app:boxBackgroundColor="@color/white"
-                android:textColorHint="@color/greenText"
+                android:textColorHint="@color/black"
                 app:boxCornerRadiusTopStart="5dp"
                 app:boxCornerRadiusTopEnd="5dp"
                 app:boxCornerRadiusBottomStart="5dp"
@@ -69,7 +69,7 @@
                 app:boxStrokeColor="@android:color/black"
                 app:boxStrokeWidth="2dp"
                 app:boxBackgroundColor="@color/white"
-                android:textColorHint="@color/greenText"
+                android:textColorHint="@color/black"
                 app:boxCornerRadiusTopStart="5dp"
                 app:boxCornerRadiusTopEnd="5dp"
                 app:boxCornerRadiusBottomStart="5dp"
@@ -95,7 +95,7 @@
                 app:boxStrokeColor="@android:color/black"
                 app:boxStrokeWidth="2dp"
                 app:boxBackgroundColor="@color/white"
-                android:textColorHint="@color/greenText"
+                android:textColorHint="@color/black"
                 app:boxCornerRadiusTopStart="5dp"
                 app:boxCornerRadiusTopEnd="5dp"
                 app:boxCornerRadiusBottomStart="5dp"
@@ -120,13 +120,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:backgroundTint="@color/yellow"
+                android:backgroundTint="@color/black"
                 android:layout_marginTop="16dp"
                 android:text="Save Exercise"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:textColor="@color/greenText"
-                app:cornerRadius="5dp"/>
+                android:textColor="@color/white"
+                app:cornerRadius="50dp"/>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

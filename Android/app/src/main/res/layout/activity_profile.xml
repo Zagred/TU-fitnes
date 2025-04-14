@@ -136,21 +136,17 @@
                         android:gravity="center_vertical"
                         android:padding="8dp">
 
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/gender"
-                            android:tint="@color/black"
-                            android:layout_marginEnd="16dp"/>
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/gender"
                             android:text="Gender"
                             android:textColor="@color/text_hint"
                             android:textStyle="bold"
                             android:textSize="18sp"
-                            android:layout_marginEnd="16dp"/>
+                            android:layout_marginEnd="16dp"
+                            android:padding="8dp"
+                            android:paddingStart="5dp"/>
 
                         <Spinner
                             android:id="@+id/spinnerGender"
@@ -166,8 +162,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
                         android:background="@color/black"
-                        android:layout_marginTop="-9dp"
-                        android:layout_marginBottom="8dp"/>
+                        android:layout_marginTop="-9dp"/>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
@@ -204,7 +199,6 @@
                         android:layout_marginTop="-9dp"
                         android:layout_marginBottom="8dp"/>
 
-                    <!-- Date of Birth field with calendar icon and click functionality -->
                     <LinearLayout
                         android:id="@+id/datePickerLayout"
                         android:layout_width="match_parent"
@@ -215,26 +209,24 @@
                         android:focusable="true"
                         android:background="?attr/selectableItemBackground">
 
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/cake"
-                            android:tint="@color/black"
-                            android:layout_marginEnd="16dp"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/cake"
                             android:text="Date of Birth"
                             android:textColor="@color/text_hint"
                             android:textStyle="bold"
                             android:textSize="18sp"
-                            android:layout_marginEnd="16dp"/>
+                            android:layout_marginEnd="16dp"
+                            android:padding="8dp"
+                            android:paddingStart="5dp"/>
 
                         <TextView
                             android:id="@+id/tBirthProfile"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:hint="Select date"
                             android:textColor="@color/black"
                             android:textSize="18sp"
@@ -246,7 +238,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
                         android:background="@color/black"
-                        android:layout_marginBottom="8dp"/>
+                        android:layout_marginTop="-9dp"/>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
@@ -342,13 +334,13 @@
                             android:id="@+id/btDeleteProfile"
                             android:layout_width="wrap_content"
                             android:layout_height="70dp"
-                            android:backgroundTint="@color/red"
                             android:layout_marginEnd="10dp"
+                            android:backgroundTint="@color/red"
                             android:text="Delete Profile"
-                            android:textStyle="bold"
-                            android:textSize="16sp"
                             android:textColor="@color/white"
-                            app:cornerRadius="50dp"/>
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:cornerRadius="50dp" />
                     </LinearLayout>
                 </LinearLayout>
             </ScrollView>

@@ -208,19 +208,19 @@ class WorkoutDetailsActivity : AppCompatActivity() {
     private fun startRestTimer() {
         val timerButton = findViewById<TextView>(R.id.startTimer)
         isTimerRunning = true
-        timerButton.text = "⏱️ Cancel"
+        timerButton.text = "Cancel"
 
         restTimer = object : CountDownTimer(restInSeconds * 1000L, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 val secondsRemaining = millisUntilFinished / 1000
                 runOnUiThread {
-                    timerButton.text = "⏱️ ${secondsRemaining}s"
+                    timerButton.text = "${secondsRemaining}s"
                 }
             }
 
             override fun onFinish() {
                 isTimerRunning = false
-                timerButton.text = "⏱️ Start Rest"
+                timerButton.text = "Start Rest"
                 sendRestCompletedNotification()
             }
         }.start()
@@ -231,7 +231,7 @@ class WorkoutDetailsActivity : AppCompatActivity() {
             restTimer.cancel()
         }
         isTimerRunning = false
-        findViewById<TextView>(R.id.startTimer).text = "⏱️ Start Rest"
+        findViewById<TextView>(R.id.startTimer).text = "Start Rest"
     }
 
     private fun createNotificationChannel() {

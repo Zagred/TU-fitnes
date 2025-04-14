@@ -1,20 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/greenButtons"
+    android:background="@color/black"
     tools:context=".calculator.CalorieCalculator">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:text="BMI Calculator"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="4dp"
+            android:background="@color/yellow"
+            android:layout_gravity="start"
+            android:layout_marginEnd="125dp"/>
+    </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="25dp"
-        android:backgroundTint="@color/white"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
+        android:layout_marginTop="130dp"
+        app:cardCornerRadius="32dp"
+        app:cardBackgroundColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,18 +49,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="20dp">
+                android:alignmentMode="alignMargins"
+                android:columnCount="1"
+                android:columnOrderPreserved="false"
+                android:useDefaultMargins="true"
+                android:padding="16dp"
+                android:gravity="center">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cvWeight"
                     android:layout_width="300dp"
                     android:layout_height="110dp"
-                    app:cardBackgroundColor="@color/greenButtons"
+                    android:layout_gravity="center"
+                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -54,7 +83,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Weight"
-                            android:textColor="@color/greenText"
+                            android:textColor="@color/black"
                             android:textSize="22sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -72,7 +101,7 @@
                             android:ems="10"
                             android:inputType="number"
                             android:textColor="@color/black"
-                            android:textColorHint="@color/greenText"
+                            android:textColorHint="@color/black"
                             android:textSize="45sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -97,7 +126,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Kg"
-                            android:textColor="@color/greenText"
+                            android:textColor="@color/black"
                             android:textSize="22sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -113,8 +142,9 @@
                     android:id="@+id/cvHeight"
                     android:layout_width="300dp"
                     android:layout_height="110dp"
+                    android:layout_gravity="center"
                     android:layout_marginTop="13dp"
-                    app:cardBackgroundColor="@color/greenButtons"
+                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -133,7 +163,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Height"
-                            android:textColor="@color/greenText"
+                            android:textColor="@color/black"
                             android:textSize="22sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -151,7 +181,7 @@
                             android:ems="10"
                             android:inputType="number"
                             android:textColor="@color/black"
-                            android:textColorHint="@color/greenText"
+                            android:textColorHint="@color/black"
                             android:textSize="45sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -176,7 +206,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Cm"
-                            android:textColor="@color/greenText"
+                            android:textColor="@color/black"
                             android:textSize="22sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -192,8 +222,9 @@
                     android:id="@+id/cvAge"
                     android:layout_width="300dp"
                     android:layout_height="110dp"
+                    android:layout_gravity="center"
                     android:layout_marginTop="13dp"
-                    app:cardBackgroundColor="@color/greenButtons"
+                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -212,7 +243,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Age"
-                            android:textColor="@color/greenText"
+                            android:textColor="@color/black"
                             android:textSize="22sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -230,7 +261,7 @@
                             android:ems="10"
                             android:inputType="number"
                             android:textColor="@color/black"
-                            android:textColorHint="@color/greenText"
+                            android:textColorHint="@color/black"
                             android:textSize="45sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -255,7 +286,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Years"
-                            android:textColor="@color/greenText"
+                            android:textColor="@color/black"
                             android:textSize="22sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -274,6 +305,7 @@
                     android:layout_marginTop="13dp"
                     android:orientation="horizontal"
                     android:gravity="center"
+                    android:layout_gravity="center"
                     app:layout_constraintBottom_toTopOf="@+id/btnCalculate"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -286,7 +318,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="20dp"
                         android:text="Male"
-                        android:textColor="@color/greenText"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
                     <RadioButton
@@ -294,27 +326,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Female"
-                        android:textColor="@color/greenText"
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
                 </RadioGroup>
 
                 <Button
                     android:id="@+id/btnCalculate"
-                    android:layout_width="296dp"
-                    android:layout_height="60dp"
-                    android:layout_marginTop="13dp"
-                    android:backgroundTint="@color/yellow"
-                    app:cornerRadius="5dp"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/black"
                     android:text="Calculate"
-                    android:textColor="@color/greenText"
-                    android:textSize="28sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.65" />
+                    android:textSize="28sp"
+                    android:textColor="@color/white"
+                    app:cornerRadius="50dp"/>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cvResult"
@@ -322,7 +348,7 @@
                     android:layout_height="110dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="13dp"
-                    app:cardBackgroundColor="@color/greenButtons"
+                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -347,12 +373,43 @@
                             android:gravity="center"
                             android:layout_gravity="center"
                             android:textAlignment="center"
-                            android:textColor="@color/greenText"
+                            android:textColor="@color/black"
                             android:textSize="36sp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
-            </LinearLayout>
+            </GridLayout>
         </ScrollView>
     </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btHome"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                app:icon="@drawable/home"
+                app:iconGravity="top"
+                app:iconPadding="4dp"
+                app:iconTint="@color/black"
+                android:text="Home"
+                android:textSize="11sp"
+                android:textColor="@color/black"
+                app:cornerRadius="70dp"
+                android:backgroundTint="@color/white"/>
+        </LinearLayout>
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

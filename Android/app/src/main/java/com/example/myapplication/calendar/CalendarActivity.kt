@@ -45,8 +45,8 @@ class CalendarActivity : AppCompatActivity() {
         calendarRecyclerView = findViewById(R.id.calendar_recycler_view)
         selectedDateInfo = findViewById(R.id.selected_date_info)
 
-        val prevMonthButton = findViewById<Button>(R.id.prev_month)
-        val nextMonthButton = findViewById<Button>(R.id.next_month)
+        val prevMonthButton = findViewById<TextView>(R.id.prev_month)
+        val nextMonthButton = findViewById<TextView>(R.id.next_month)
 
         userId = intent.getIntExtra("USER_ID", -1)
 

@@ -1,118 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@color/greenButtons"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black"
     tools:context=".social.FriendsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:text="Friends"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="4dp"
+            android:background="@color/yellow"
+            android:layout_gravity="start"
+            android:layout_marginEnd="260dp"/>
+    </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/white"
-        android:layout_margin="25dp"
-        app:cardCornerRadius="10dp"
+        android:layout_marginTop="130dp"
+        app:cardCornerRadius="32dp"
+        app:cardBackgroundColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tvTitle"
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textColor="@color/greenText"
-                android:textAlignment="center"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp"/>
+                android:alignmentMode="alignMargins"
+                android:columnCount="1"
+                android:columnOrderPreserved="false"
+                android:useDefaultMargins="true"
+                android:padding="16dp"
+                android:gravity="center">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                app:boxBackgroundMode="filled"
-                app:boxStrokeColor="@android:color/black"
-                app:boxStrokeWidth="2dp"
-                app:boxBackgroundColor="@color/white"
-                app:boxCornerRadiusTopStart="5dp"
-                app:boxCornerRadiusTopEnd="5dp"
-                app:boxCornerRadiusBottomStart="5dp"
-                app:boxCornerRadiusBottomEnd="5dp"
-                android:textColorHint="@color/greenText">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etName"
-                    android:textColor="@color/black"
+                <TextView
+                    android:id="@+id/tvTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="18sp"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:weightSum="2">
-
-                <Button
-                    android:id="@+id/btnAdd"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="10dp"
                     android:layout_gravity="center"
-                    android:backgroundTint="@color/yellow"
                     android:gravity="center"
-                    android:text="Add"
-                    android:textColor="@color/greenText"
-                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:textSize="30sp"
                     android:textStyle="bold"
-                    app:cornerRadius="5dp"/>
+                    android:layout_marginBottom="8dp"/>
 
-                <Button
-                    android:id="@+id/btnClear"
-                    android:layout_width="0dp"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="10dp"
-                    android:layout_gravity="center"
-                    android:backgroundTint="@color/yellow"
-                    android:gravity="center"
-                    android:text="Clear"
-                    android:textColor="@color/greenText"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:cornerRadius="5dp" />
-            </LinearLayout>
+                    app:boxBackgroundMode="none"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidth="2dp"
+                    app:boxCornerRadiusTopStart="6dp"
+                    app:boxCornerRadiusTopEnd="6dp"
+                    app:boxCornerRadiusBottomStart="6dp"
+                    app:boxCornerRadiusBottomEnd="6dp">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvFriends"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/greenText"
-                android:textSize="15sp"
-                android:layout_weight="1"
-                android:layout_marginTop="5dp"/>
-        </LinearLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/text_hint"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="left|center_vertical"
+                        android:padding="8dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/black"
+                    android:layout_marginTop="-9dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/btnAdd"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8"
+                        android:layout_gravity="center_vertical|start"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="80dp"
+                        android:backgroundTint="@color/black"
+                        android:text="Add"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        app:cornerRadius="50dp"/>
+
+                    <Button
+                        android:id="@+id/btnClear"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8"
+                        android:gravity="center"
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginStart="50dp"
+                        android:backgroundTint="@color/red"
+                        android:text="Clear"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="50dp" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvFriends"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="5dp" />
+            </GridLayout>
+        </ScrollView>
     </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btHome"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                app:icon="@drawable/home"
+                app:iconGravity="top"
+                app:iconPadding="4dp"
+                app:iconTint="@color/black"
+                android:text="Home"
+                android:textSize="11sp"
+                android:textColor="@color/black"
+                app:cornerRadius="70dp"
+                android:backgroundTint="@color/white"/>
+        </LinearLayout>
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,7 +46,7 @@
                     app:boxStrokeWidth="2dp"
                     app:boxBackgroundColor="@color/white"
                     android:hint="Title of the post"
-                    android:textColorHint="@color/greenText"
+                    android:textColorHint="@color/black"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     app:cornerRadius="5dp">
@@ -61,7 +61,7 @@
                     app:boxStrokeWidth="2dp"
                     app:boxBackgroundColor="@color/white"
                     android:hint="Your post..."
-                    android:textColorHint="@color/greenText"
+                    android:textColorHint="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:boxCornerRadiusTopStart="5dp"
@@ -74,7 +74,7 @@
                     android:id="@+id/tvUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="italic"
                     android:gravity="end"
@@ -82,18 +82,17 @@
                     android:layout_marginBottom="4dp">
                 </com.google.android.material.textfield.MaterialAutoCompleteTextView>
 
+
                 <Button
                     android:id="@+id/btnDelete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:backgroundTint="@color/yellow"
-                    android:gravity="center"
+                    android:backgroundTint="@color/red"
                     android:text="Delete"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    app:cornerRadius="5dp"/>
+                    app:cornerRadius="50dp" />
             </LinearLayout>
         </ScrollView>
     </androidx.cardview.widget.CardView>

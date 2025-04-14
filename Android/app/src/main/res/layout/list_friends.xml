@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Friend Name"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     tools:ignore="Suspicious0dp" />
@@ -49,14 +49,12 @@
                     android:id="@+id/btnDelete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:backgroundTint="@color/yellow"
-                    android:gravity="center"
+                    android:backgroundTint="@color/red"
                     android:text="Delete"
-                    android:textColor="@color/greenText"
-                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
                     android:textStyle="bold"
-                    app:cornerRadius="5dp" />
+                    app:cornerRadius="50dp" />
             </LinearLayout>
         </ScrollView>
     </androidx.cardview.widget.CardView>

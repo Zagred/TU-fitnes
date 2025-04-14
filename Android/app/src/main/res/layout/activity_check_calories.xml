@@ -1,20 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/greenButtons"
+    android:background="@color/black"
     tools:context=".mealplan.CheckCalories">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:text="Check food calories"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="4dp"
+            android:background="@color/yellow"
+            android:layout_gravity="start"
+            android:layout_marginEnd="39dp"/>
+    </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="25dp"
-        android:backgroundTint="@color/white"
-        android:padding="20dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
+        android:layout_marginTop="130dp"
+        app:cardCornerRadius="32dp"
+        app:cardBackgroundColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,25 +49,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
+            <GridLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="20dp">
+                android:layout_height="wrap_content"
+                android:alignmentMode="alignMargins"
+                android:columnCount="1"
+                android:columnOrderPreserved="false"
+                android:useDefaultMargins="true"
+                android:padding="16dp"
+                android:gravity="center">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundMode="filled"
-                    app:boxStrokeColor="@android:color/black"
+                    app:startIconDrawable="@drawable/food"
+                    app:startIconTint="@color/black"
+                    app:boxBackgroundMode="none"
+                    app:boxStrokeColor="@color/black"
                     app:boxStrokeWidth="2dp"
-                    app:boxBackgroundColor="@color/white"
-                    android:textColorHint="@color/greenText"
-                    app:boxCornerRadiusTopStart="5dp"
-                    app:boxCornerRadiusTopEnd="5dp"
-                    app:boxCornerRadiusBottomStart="5dp"
-                    app:boxCornerRadiusBottomEnd="5dp">
+                    app:boxCornerRadiusTopStart="6dp"
+                    app:boxCornerRadiusTopEnd="6dp"
+                    app:boxCornerRadiusBottomStart="6dp"
+                    app:boxCornerRadiusBottomEnd="6dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/searchEditText"
@@ -51,31 +79,41 @@
                         android:hint="Enter food (e.g., 1lb brisket and fries)"
                         android:inputType="text"
                         android:textColor="@color/black"
+                        android:textColorHint="@color/text_hint"
                         android:textStyle="bold"
-                        android:textSize="18sp"/>
-
+                        android:textSize="18sp"
+                        android:gravity="left|center_vertical"
+                        android:padding="8dp"
+                        android:paddingStart="40dp"/>
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/black"
+                    android:layout_marginTop="-9dp"
+                    android:layout_marginBottom="8dp"/>
 
                 <Button
                     android:id="@+id/searchButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="3dp"
-                    android:backgroundTint="@color/yellow"
-                    app:cornerRadius="5dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/black"
                     android:text="Search"
                     android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="@color/greenText"/>
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    app:cornerRadius="50dp"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="15sp"
                     android:layout_weight="1"
-                    android:layout_marginTop="5dp"/>
+                    android:layout_marginTop="5dp" />
 
                 <ProgressBar
                     android:id="@+id/progressBar"
@@ -91,15 +129,47 @@
                     android:id="@+id/emptyStateText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:text="Enter a food to see nutrition information"
-                    android:textColor="@color/greenText"
-                    android:textSize="18sp"
-                    android:visibility="visible"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </LinearLayout>
+                    app:layout_constraintTop_toBottomOf="@+id/calorieEditText" />
+            </GridLayout>
         </ScrollView>
     </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btHome"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                app:icon="@drawable/home"
+                app:iconGravity="top"
+                app:iconPadding="4dp"
+                app:iconTint="@color/black"
+                android:text="Home"
+                android:textSize="11sp"
+                android:textColor="@color/black"
+                app:cornerRadius="70dp"
+                android:backgroundTint="@color/white"/>
+        </LinearLayout>
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

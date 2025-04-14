@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Food Name"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     tools:ignore="Suspicious0dp" />
@@ -51,7 +51,7 @@
                     android:layout_weight="1"
                     android:layout_marginTop="8dp"
                     android:text="Calories: 0"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     tools:ignore="Suspicious0dp" />
 
@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Serving: 100g"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     tools:ignore="Suspicious0dp" />
 
@@ -79,7 +79,7 @@
                     android:layout_weight="1"
                     android:layout_marginTop="8dp"
                     android:text="Fat: 0g (Sat: 0g)"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     tools:ignore="Suspicious0dp" />
 
@@ -89,7 +89,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Protein: 0g"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     tools:ignore="Suspicious0dp" />
 
@@ -99,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Carbs: 0g (Sugar: 0g, Fiber: 0g)"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     tools:ignore="Suspicious0dp" />
 
@@ -117,7 +117,7 @@
                     android:layout_weight="1"
                     android:layout_marginTop="8dp"
                     android:text="Sodium: 0mg | Potassium: 0mg"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     tools:ignore="Suspicious0dp" />
 
@@ -127,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Cholesterol: 0mg"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     tools:ignore="Suspicious0dp" />
             </LinearLayout>

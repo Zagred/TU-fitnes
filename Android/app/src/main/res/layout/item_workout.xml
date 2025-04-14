@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Workout Name"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     tools:ignore="Suspicious0dp"/>
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Rest: X sec"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     tools:ignore="Suspicious0dp" />
 
@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:text="Options"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:paddingTop="8dp"/>
             </LinearLayout>
         </ScrollView>

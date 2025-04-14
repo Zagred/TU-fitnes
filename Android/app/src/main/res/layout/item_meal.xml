@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Meal Title"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     tools:ignore="Suspicious0dp" />
@@ -57,7 +57,7 @@
                     android:layout_weight="1"
                     android:layout_marginTop="8dp"
                     android:text="Category: Breakfast"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     tools:ignore="Suspicious0dp" />
 
@@ -68,7 +68,7 @@
                     android:layout_weight="1"
                     android:layout_marginTop="8dp"
                     android:text="Calories: 500 (2 servings)"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     tools:ignore="Suspicious0dp" />
 
@@ -79,7 +79,7 @@
                     android:layout_weight="1"
                     android:layout_marginTop="8dp"
                     android:text="Ingredients: - Ingredient 1\n- Ingredient 2"
-                    android:textColor="@color/greenText"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     tools:ignore="Suspicious0dp" />
             </LinearLayout>
