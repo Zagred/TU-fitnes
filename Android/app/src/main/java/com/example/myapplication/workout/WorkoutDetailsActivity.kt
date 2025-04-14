@@ -27,10 +27,12 @@ import kotlinx.coroutines.withContext
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.CountDownTimer
 import androidx.core.app.NotificationCompat
 import android.media.RingtoneManager
+import com.example.myapplication.HomePage
 
 class WorkoutDetailsActivity : AppCompatActivity() {
 
@@ -42,6 +44,8 @@ class WorkoutDetailsActivity : AppCompatActivity() {
     private lateinit var restTimer: CountDownTimer
     private var restInSeconds: Int = 0
     private var isTimerRunning = false
+    private var loggedUserId: Int = -1
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +53,8 @@ class WorkoutDetailsActivity : AppCompatActivity() {
         requestNotificationPermission()
 
         database = AppDatabase.getInstance(application)
+        loggedUserId = intent.getIntExtra("USER_ID", -1)
+
         workoutId = intent.getIntExtra("WORKOUT_ID", -1)
         workoutName = intent.getStringExtra("WORKOUT_NAME") ?: ""
 
@@ -80,6 +86,13 @@ class WorkoutDetailsActivity : AppCompatActivity() {
             } else {
                 cancelRestTimer()
             }
+        }
+        val home=findViewById<Button>(R.id.btHome)
+        home.setOnClickListener{
+            val intent = Intent(this, HomePage::class.java)
+            intent.putExtra("USER_ID", loggedUserId)
+            startActivity(intent)
+            finish()
         }
     }
 

@@ -1,11 +1,15 @@
 package com.example.myapplication.mealplan
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.myapplication.HomePage
+import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityCheckCaloriesBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -28,6 +32,12 @@ class CheckCalories : AppCompatActivity() {
 
         setupRecyclerView()
         setupSearchFunctionality()
+        val home=findViewById<Button>(R.id.btHome)
+        home.setOnClickListener{
+            val intent = Intent(this, HomePage::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun setupRecyclerView() {

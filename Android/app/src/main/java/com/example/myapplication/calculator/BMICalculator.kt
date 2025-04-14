@@ -1,5 +1,6 @@
 package com.example.myapplication.calculator
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -7,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.myapplication.HomePage
 import com.example.myapplication.R
 
 class BMICalculator : AppCompatActivity() {
@@ -25,6 +27,12 @@ class BMICalculator : AppCompatActivity() {
                 val bmi2Digits = String.format("%.2f", bmi).toFloat()
                 displayResult(bmi2Digits)
             }
+        }
+        val home=findViewById<Button>(R.id.btHome)
+        home.setOnClickListener{
+            val intent = Intent(this, HomePage::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 

@@ -1,5 +1,6 @@
 package com.example.myapplication.calculator
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -10,6 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.myapplication.HomePage
 import com.example.myapplication.R
 
 class CalorieCalculator : AppCompatActivity() {
@@ -44,6 +46,12 @@ class CalorieCalculator : AppCompatActivity() {
             } else {
                 tvIndex.text = "Invalid input!"
             }
+        }
+        val home=findViewById<Button>(R.id.btHome)
+        home.setOnClickListener{
+            val intent = Intent(this, HomePage::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 

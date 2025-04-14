@@ -18,6 +18,7 @@ import kotlinx.coroutines.launch
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.HomePage
 import com.example.myapplication.R
 import com.example.myapplication.datamanager.custom.CustomExercise
 import com.example.myapplication.datamanager.custom.CustomExerciseDAO
@@ -58,6 +59,13 @@ class MainWorkout : AppCompatActivity() {
         val addWorkoutButton = findViewById<TextView>(R.id.addWorkout)
         addWorkoutButton.setOnClickListener {
             showAddWorkoutDialog(applicationContext)
+        }
+        val home=findViewById<Button>(R.id.btHome)
+        home.setOnClickListener{
+            val intent = Intent(this, HomePage::class.java)
+            intent.putExtra("USER_ID", loggedUserId)
+            startActivity(intent)
+            finish()
         }
     }
 
@@ -147,6 +155,7 @@ class MainWorkout : AppCompatActivity() {
         val intent = Intent(this, WorkoutDetailsActivity::class.java).apply {
             putExtra("WORKOUT_ID", customWorkout.id)
             putExtra("WORKOUT_NAME", customWorkout.name)
+            putExtra("USER_ID", loggedUserId)
         }
         startActivity(intent)
     }

@@ -2,6 +2,7 @@ package com.example.myapplication
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -72,6 +73,13 @@ class CalendarActivity : AppCompatActivity() {
             withContext(Dispatchers.Main) {
                 checkTodayWorkoutDay()
             }
+        }
+        val home=findViewById<Button>(R.id.btHome)
+        home.setOnClickListener{
+            val intent = Intent(this, HomePage::class.java)
+            intent.putExtra("USER_ID", userId)
+            startActivity(intent)
+            finish()
         }
 
     }
