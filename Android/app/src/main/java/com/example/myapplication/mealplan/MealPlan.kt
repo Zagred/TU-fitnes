@@ -1,5 +1,6 @@
 package com.example.myapplication.mealplan
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -22,6 +23,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.myapplication.HomePage
 
 class MealPlan : AppCompatActivity() {
     private val appId = "3775050e"
@@ -84,6 +86,12 @@ class MealPlan : AppCompatActivity() {
 
             // Fetch meal plans with the entered calories
             fetchMealPlan(calories)
+        }
+        val home=findViewById<Button>(R.id.btHome)
+        home.setOnClickListener{
+            val intent = Intent(this, HomePage::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 

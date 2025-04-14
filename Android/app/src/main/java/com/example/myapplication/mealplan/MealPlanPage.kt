@@ -2,11 +2,13 @@ package com.example.myapplication.mealplan
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.myapplication.HomePage
 import com.example.myapplication.R
 import com.example.myapplication.calculator.BMICalculator
 import com.example.myapplication.calculator.CalorieCalculator
@@ -25,6 +27,12 @@ class MealPlanPage : AppCompatActivity() {
         checkCaloriesBtn.setOnClickListener {
             val intent = Intent(this, CheckCalories::class.java)
             startActivity(intent)
+        }
+        val home=findViewById<Button>(R.id.btHome)
+        home.setOnClickListener{
+            val intent = Intent(this, HomePage::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }

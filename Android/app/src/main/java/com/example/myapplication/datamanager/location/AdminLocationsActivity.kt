@@ -1,5 +1,6 @@
 package com.example.myapplication.location
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.HomePage
 import com.example.myapplication.R
 import com.example.myapplication.datamanager.AppDatabase
 import com.example.myapplication.datamanager.location.Location
@@ -54,6 +56,13 @@ class AdminLocationsActivity : AppCompatActivity() {
 
         // Load locations
         loadLocations()
+        val home=findViewById<Button>(R.id.btHome)
+        home.setOnClickListener{
+            val intent = Intent(this, HomePage::class.java)
+            intent.putExtra("USER_ID", userId)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun loadLocations() {

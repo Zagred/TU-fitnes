@@ -1,5 +1,6 @@
 package com.example.myapplication.social
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.HomePage
 import com.example.myapplication.R
 import com.example.myapplication.datamanager.AppDatabase
 import com.example.myapplication.datamanager.user.Friends
@@ -60,6 +62,13 @@ class FriendsActivity : AppCompatActivity() {
             withContext(Dispatchers.Main) {
                 setupUI()
             }
+        }
+        val home=findViewById<Button>(R.id.btHome)
+        home.setOnClickListener{
+            val intent = Intent(this, HomePage::class.java)
+            intent.putExtra("USER_ID", loggedUserId)
+            startActivity(intent)
+            finish()
         }
     }
 
