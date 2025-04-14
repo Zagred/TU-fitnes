@@ -16,6 +16,8 @@ import com.example.myapplication.datamanager.user.UserDAO
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import com.example.myapplication.datamanager.LoggedUser
+
 
 
 class Login : AppCompatActivity() {
@@ -93,6 +95,8 @@ class Login : AppCompatActivity() {
                                 "User logged in successfully!",
                                 Toast.LENGTH_SHORT
                             ).show()
+
+                            LoggedUser.setUsername(user.username)
 
                             val intent = Intent(this@Login, HomePage::class.java)
                             intent.putExtra("USER_ID", userId)

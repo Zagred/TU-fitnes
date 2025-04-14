@@ -79,10 +79,7 @@ abstract class AppDatabase : RoomDatabase() {
                         context.applicationContext,
                         AppDatabase::class.java,
                         DATABASE_NAME
-                    )
-                        .createFromAsset("calorie.db")
-                        .allowMainThreadQueries()
-                        .build()
+                    ).allowMainThreadQueries().build()
                 }
                 return instance
             }

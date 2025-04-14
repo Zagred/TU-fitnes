@@ -27,7 +27,7 @@
         android:id="@+id/imgDumbbell"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:src="@drawable/account_circle"
+        android:src="@drawable/fitness"
         android:contentDescription="Dumbbell icon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,7 +90,7 @@
                         android:textSize="18sp"
                         android:textColor="@color/black"
                         android:textStyle="bold"
-                        android:gravity="center" />
+                        android:gravity="left" />
 
                     <!-- RadioGroup -->
                     <RadioGroup
