@@ -3,7 +3,6 @@ package com.example.myapplication.challenge
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +18,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import com.example.myapplication.datamanager.LoggedUser
+import com.example.myapplication.datamanager.user.UserScoreManager
+import com.example.myapplication.datamanager.user.UserChallengeManager
 
 class ChallengeActivity : AppCompatActivity() {
 
@@ -43,7 +44,12 @@ class ChallengeActivity : AppCompatActivity() {
 
         binding.btnConfirm.setOnClickListener {
             if (selectedChallenge != null) {
-                if (selectedChallenge!!.isCompleted) {
+                val isChallengeCompleted = UserChallengeManager.isCurrentUserChallengeCompleted(
+                    this,
+                    selectedChallenge!!.id
+                )
+
+                if (isChallengeCompleted) {
                     Toast.makeText(this, "This challenge is already completed!", Toast.LENGTH_SHORT).show()
                 } else {
                     val intent = Intent(this, ChallengePROOFActivity::class.java)
@@ -66,9 +72,8 @@ class ChallengeActivity : AppCompatActivity() {
     }
 
     private fun loadDumbbellCount() {
-        // Get the current dumbbell count from SharedPreferences
-        val sharedPref = getSharedPreferences("fitness_app_prefs", Context.MODE_PRIVATE)
-        val dumbbellCount = sharedPref.getInt("dumbbell_count", 0)
+        // Get the current dumbbell count using our manager
+        val dumbbellCount = UserScoreManager.getCurrentUserDumbbellCount(this)
 
         // Update the TextView displaying the count
         binding.tvDumbbellCount.text = dumbbellCount.toString()
@@ -78,7 +83,6 @@ class ChallengeActivity : AppCompatActivity() {
         val username = LoggedUser.getUsername() ?: "User"
         val greeting = "Hello, $username!\nAre you ready for your challenges of the day? :)"
 
-        //binding.tvGreeting.text
         val spannable = android.text.SpannableString(greeting)
 
         val start = greeting.indexOf(username)
@@ -95,7 +99,9 @@ class ChallengeActivity : AppCompatActivity() {
     }
 
     private fun checkAndLoadDailyChallenges() {
-        val sharedPref = getSharedPreferences("challenge_prefs", Context.MODE_PRIVATE)
+        // Use username-specific preferences for challenge dates
+        val username = LoggedUser.getUsername() ?: "default"
+        val sharedPref = getSharedPreferences("user_${username}_challenge_prefs", Context.MODE_PRIVATE)
         val lastChallengeDate = sharedPref.getString("last_challenge_date", "")
         val currentDate = getCurrentDate()
 
@@ -115,8 +121,9 @@ class ChallengeActivity : AppCompatActivity() {
 
     private fun loadNewDailyChallenges(currentDate: String) {
         CoroutineScope(Dispatchers.IO).launch {
+            val username = LoggedUser.getUsername() ?: "default"
             // 1. Reset any previously saved daily challenge IDs
-            val sharedPref = getSharedPreferences("challenge_prefs", Context.MODE_PRIVATE)
+            val sharedPref = getSharedPreferences("user_${username}_challenge_prefs", Context.MODE_PRIVATE)
             with(sharedPref.edit()) {
                 putString("last_challenge_date", currentDate)
                 putInt("daily_easy_id", -1)
@@ -153,8 +160,9 @@ class ChallengeActivity : AppCompatActivity() {
 
     private fun loadSavedDailyChallenges() {
         CoroutineScope(Dispatchers.IO).launch {
-            // Get saved challenge IDs
-            val sharedPref = getSharedPreferences("challenge_prefs", Context.MODE_PRIVATE)
+            // Get saved challenge IDs from user-specific prefs
+            val username = LoggedUser.getUsername() ?: "default"
+            val sharedPref = getSharedPreferences("user_${username}_challenge_prefs", Context.MODE_PRIVATE)
             val easyId = sharedPref.getInt("daily_easy_id", -1)
             val mediumId = sharedPref.getInt("daily_medium_id", -1)
             val hardId = sharedPref.getInt("daily_hard_id", -1)
@@ -213,34 +221,40 @@ class ChallengeActivity : AppCompatActivity() {
         binding.radioGroupChallenges.removeAllViews()
 
         loadedChallenges.forEach { challenge ->
+            // Check if this challenge is completed for the current user
+            val isCompleted = UserChallengeManager.isCurrentUserChallengeCompleted(this, challenge.id)
+
             val radioButton = RadioButton(this).apply {
                 text = "${challenge.title}"
                 textSize = 18f
 
-                val iconRes = when (challenge.difficulty.uppercase()) {
-                    "EASY" -> if (challenge.isCompleted) R.drawable.fitness_green else R.drawable.fitness
-                    "MEDIUM" -> if (challenge.isCompleted) R.drawable.fitness_green else R.drawable.fitness
-                    "HARD" -> if (challenge.isCompleted) R.drawable.fitness_green else R.drawable.fitness
+                val leftIcon = when (challenge.difficulty.uppercase()) {
+                    "EASY", "MEDIUM", "HARD" -> {
+                        if (isCompleted) R.drawable.fitness_green else R.drawable.fitness
+                    }
                     else -> 0
                 }
-                // Add green check mark for completed challenges
-                if (challenge.isCompleted) {
-                    setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.check, 0)
+
+                val rightIcon = if (isCompleted) R.drawable.check else 0
+
+                setCompoundDrawablesWithIntrinsicBounds(leftIcon, 0, rightIcon, 0)
+                compoundDrawablePadding = 16
+
+                if (isCompleted) {
                     setTextColor(ContextCompat.getColor(context, R.color.greenTick))
                 }
-
-                setCompoundDrawablesWithIntrinsicBounds(iconRes, 0, 0, 0)
-                compoundDrawablePadding = 16
             }
+
 
             radioButton.setOnClickListener {
                 selectedChallenge = challenge
                 binding.btnConfirm.isEnabled = true
 
                 // If challenge is completed, disable the confirm button
-                if (challenge.isCompleted) {
+                val isChallengeCompleted = UserChallengeManager.isCurrentUserChallengeCompleted(this@ChallengeActivity, challenge.id)
+                if (isChallengeCompleted) {
                     binding.btnConfirm.isEnabled = false
-                    Toast.makeText(this, "This challenge is already completed!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ChallengeActivity, "This challenge is already completed!", Toast.LENGTH_SHORT).show()
                 }
             }
 

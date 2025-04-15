@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.myapplication.R
+import com.example.myapplication.datamanager.user.UserScoreManager
 
 class ChallengeAnimationActivity : AppCompatActivity() {
 
@@ -135,17 +136,7 @@ class ChallengeAnimationActivity : AppCompatActivity() {
     }
 
     private fun updateDumbbellCounter(pointsToAdd: Int) {
-        // Get the current dumbbell count from SharedPreferences
-        val sharedPref = getSharedPreferences("fitness_app_prefs", Context.MODE_PRIVATE)
-        val currentDumbbells = sharedPref.getInt("dumbbell_count", 0)
-
-        // Add the new points to the current count
-        val newDumbbellCount = currentDumbbells + pointsToAdd
-
-        // Save the updated count back to SharedPreferences
-        with(sharedPref.edit()) {
-            putInt("dumbbell_count", newDumbbellCount)
-            apply()
-        }
+        // Use the UserScoreManager to add dumbbells to the current user
+        UserScoreManager.addDumbbellsToCurrentUser(this, pointsToAdd)
     }
 }

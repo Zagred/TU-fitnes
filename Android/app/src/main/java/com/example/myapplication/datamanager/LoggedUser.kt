@@ -23,4 +23,5 @@ object LoggedUser {
     fun setUsername(username: String) {this.username = username}
 
     fun setPassword(password: String) {this.password = password}
+
 }

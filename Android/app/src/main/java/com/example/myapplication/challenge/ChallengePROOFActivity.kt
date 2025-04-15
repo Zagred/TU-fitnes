@@ -15,6 +15,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.myapplication.databinding.ActivityChallengeProofactivityBinding
 import com.example.myapplication.datamanager.AppDatabase
+import com.example.myapplication.datamanager.user.UserScoreManager
+import com.example.myapplication.datamanager.user.UserChallengeManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -172,13 +174,16 @@ class ChallengePROOFActivity : AppCompatActivity() {
     private fun completeChallenge() {
         CoroutineScope(Dispatchers.IO).launch {
             challenge?.let {
+                // Save feedback to the challenge object (if you still need this)
                 it.feedback = binding.etfeedback.text.toString()
                 challengeDao.update(it)
-                challengeDao.markChallengeAsCompleted(challengeId)
 
-                // Add points to SharedPreferences
-                val pointsToAdd = it.points
-                updateDumbbellCounter(pointsToAdd)
+                // IMPORTANT CHANGE: Mark the challenge as completed for this specific user
+                // Instead of updating the database directly, use UserChallengeManager
+                UserChallengeManager.completeCurrentUserChallenge(this@ChallengePROOFActivity, challengeId)
+
+                // Add points to the current user's score
+
             }
 
             withContext(Dispatchers.Main) {
@@ -195,17 +200,7 @@ class ChallengePROOFActivity : AppCompatActivity() {
     }
 
     private fun updateDumbbellCounter(pointsToAdd: Int) {
-        // Get the current dumbbell count from SharedPreferences
-        val sharedPref = getSharedPreferences("fitness_app_prefs", Context.MODE_PRIVATE)
-        val currentDumbbells = sharedPref.getInt("dumbbell_count", 0)
-
-        // Add the new points to the current count
-        val newDumbbellCount = currentDumbbells + pointsToAdd
-
-        // Save the updated count back to SharedPreferences
-        with(sharedPref.edit()) {
-            putInt("dumbbell_count", newDumbbellCount)
-            apply()
-        }
+        // Use the UserScoreManager to add dumbbells to the current user
+        UserScoreManager.addDumbbellsToCurrentUser(this, pointsToAdd)
     }
 }

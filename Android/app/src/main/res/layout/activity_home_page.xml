@@ -95,6 +95,20 @@
                     android:layout_gravity="center">
 
                     <Button
+                        android:id="@+id/btLeaderBoardP"
+                        android:layout_width="180dp"
+                        android:layout_height="80dp"
+                        android:backgroundTint="@color/white"
+                        android:drawableLeft="@drawable/meals"
+                        android:text="LeaderBoard"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:cornerRadius="70dp"
+                        android:elevation="8dp"
+                        android:translationZ="2dp"/>
+
+                    <Button
                         android:id="@+id/btMealsHomeP"
                         android:layout_width="180dp"
                         android:layout_height="80dp"

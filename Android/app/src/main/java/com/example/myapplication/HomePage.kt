@@ -21,6 +21,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import android.widget.Toast
 import com.example.myapplication.challenge.ChallengeActivity
+import com.example.myapplication.leaderboard.LeaderBoardActivity
 import de.hdodenhof.circleimageview.CircleImageView
 
 class HomePage : AppCompatActivity() {
@@ -37,9 +38,15 @@ class HomePage : AppCompatActivity() {
         val community = findViewById<Button>(R.id.btCommunityHomeP)
         val calculator = findViewById<Button>(R.id.btCalculatorHomeP)
         val locations = findViewById<Button>(R.id.btLocationsHomeP)
+        val leaderboard = findViewById<Button>(R.id.btLeaderBoardP)
 
         val userId = intent.getIntExtra("USER_ID", -1)
 
+        leaderboard.setOnClickListener {
+            val intent = Intent(this, LeaderBoardActivity::class.java)
+            intent.putExtra("USER_ID", userId)
+            startActivity(intent)
+        }
         profile.setOnClickListener {
             val intent = Intent(this, Profile::class.java)
             intent.putExtra("USER_ID", userId)
