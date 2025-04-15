@@ -23,6 +23,7 @@ data class UserInfo(
     @ColumnInfo(name = "height") val height: Int,
     @ColumnInfo(name = "weight") val weight: Double,
     @ColumnInfo(name = "user_id") val userId: Int,
+    @ColumnInfo(name = "avatar", defaultValue = "panda") val avatar: String = "panda"
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

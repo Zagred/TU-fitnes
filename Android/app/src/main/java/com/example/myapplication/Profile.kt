@@ -1,13 +1,12 @@
 package com.example.myapplication
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.view.View
+import android.view.ViewGroup
+import android.widget.*
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -19,11 +18,10 @@ import com.example.myapplication.datamanager.user.UserDAO
 import com.example.myapplication.datamanager.user.UserInfo
 import com.example.myapplication.datamanager.user.UserInfoDAO
 import com.example.myapplication.login.Login
+import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import android.widget.ArrayAdapter
-import android.widget.Spinner
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -36,6 +34,7 @@ class Profile : AppCompatActivity() {
     private lateinit var datePickerLayout: LinearLayout
     private val calendar = Calendar.getInstance()
     private val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+    private lateinit var profileImageView: CircleImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,13 +45,19 @@ class Profile : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // Initialize views
         val editButton = findViewById<Button>(R.id.btEditProfile)
         val deleteButton = findViewById<Button>(R.id.btDeleteProfile)
+        profileImageView = findViewById(R.id.imageView)
 
         // Initialize date picker components
         birthDateTextView = findViewById(R.id.tBirthProfile)
         datePickerLayout = findViewById(R.id.datePickerLayout)
         setupDatePicker()
+
+        // Setup avatar selection
+        setupAvatarSelection()
 
         val db = AppDatabase.getInstance(applicationContext)
         infoDAO = db.userInfoDAO()
@@ -76,6 +81,58 @@ class Profile : AppCompatActivity() {
 
         deleteButton.setOnClickListener {
             showDeleteConfirmationDialog()
+        }
+    }
+
+    private fun setupAvatarSelection() {
+        profileImageView.setOnClickListener {
+            showAvatarSelectionDialog()
+        }
+    }
+
+    private fun showAvatarSelectionDialog() {
+        // List of available avatar animals (these should match your drawable resource names)
+        val avatarOptions = listOf("panda", "duck")
+
+        // Create a grid layout for the avatars
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Choose your avatar")
+
+        val inflater = this.layoutInflater
+        val dialogView = inflater.inflate(R.layout.avatar_selection_grid, null)
+        val gridView = dialogView.findViewById<GridView>(R.id.avatarGridView)
+
+        val adapter = AvatarAdapter(this, avatarOptions)
+        gridView.adapter = adapter
+
+        builder.setView(dialogView)
+        builder.setNegativeButton("Cancel") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        val dialog = builder.create()
+
+        gridView.setOnItemClickListener { _, _, position, _ ->
+            val selectedAvatar = avatarOptions[position]
+            updateUserAvatar(selectedAvatar)
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    private fun updateUserAvatar(avatarName: String) {
+        lifecycleScope.launch(Dispatchers.IO) {
+            // Update the avatar in the database
+            infoDAO.updateUserAvatar(userId, avatarName)
+
+            // Update the UI on the main thread
+            withContext(Dispatchers.Main) {
+                // Update the image view with the new avatar
+                val resourceId = resources.getIdentifier(avatarName, "drawable", packageName)
+                profileImageView.setImageResource(resourceId)
+                Toast.makeText(this@Profile, "Avatar updated", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -180,6 +237,19 @@ class Profile : AppCompatActivity() {
                 } catch (e: Exception) {
                     birthDateTextView.text = ""
                 }
+
+                // Load avatar
+                try {
+                    val resourceId = resources.getIdentifier(it.avatar, "drawable", packageName)
+                    if (resourceId != 0) {
+                        profileImageView.setImageResource(resourceId)
+                    } else {
+                        // Fallback to default avatar if resource not found
+                        profileImageView.setImageResource(R.drawable.panda)
+                    }
+                } catch (e: Exception) {
+                    profileImageView.setImageResource(R.drawable.panda)
+                }
             }
         }
     }
@@ -219,7 +289,8 @@ class Profile : AppCompatActivity() {
                     gender = gender,
                     height = height,
                     weight = weight,
-                    userId = userInfo.userId
+                    userId = userInfo.userId,
+                    avatar = userInfo.avatar // Preserve the current avatar
                 )
             )
         }
@@ -257,5 +328,37 @@ class Profile : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+}
+
+class AvatarAdapter(
+    private val context: Context,
+    private val avatarList: List<String>
+) : BaseAdapter() {
+
+    override fun getCount(): Int = avatarList.size
+
+    override fun getItem(position: Int): Any = avatarList[position]
+
+    override fun getItemId(position: Int): Long = position.toLong()
+
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+        val imageView: ImageView
+
+        if (convertView == null) {
+            imageView = ImageView(context)
+            imageView.layoutParams = ViewGroup.LayoutParams(150, 150)
+            imageView.scaleType = ImageView.ScaleType.FIT_CENTER
+            imageView.setPadding(8, 8, 8, 8)
+        } else {
+            imageView = convertView as ImageView
+        }
+
+        val resourceId = context.resources.getIdentifier(
+            avatarList[position], "drawable", context.packageName
+        )
+        imageView.setImageResource(resourceId)
+
+        return imageView
     }
 }

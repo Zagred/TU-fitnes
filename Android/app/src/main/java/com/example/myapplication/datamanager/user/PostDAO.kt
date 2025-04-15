@@ -19,10 +19,13 @@ interface PostDAO {
 
     @Delete
     suspend fun deletePost(post: Post)
-    @Query("SELECT Post.post_id as postId, Post.user_id as userId, Post.title, Post.message, User.username " +
+
+    @Query("SELECT Post.post_id as postId, Post.user_id as userId, Post.title, Post.message, " +
+            "Post.image_path as imagePath, User.username " +
             "FROM Post INNER JOIN User ON Post.user_id = User.uid " +
             "ORDER BY Post.post_id DESC")
     suspend fun getAllPostsWithUsername(): List<PostWithUsername>
+
     @Query("DELETE FROM Post WHERE post_id = :postId")
     suspend fun deletePostById(postId: Int)
 }

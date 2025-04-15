@@ -123,6 +123,37 @@
                     android:layout_marginTop="-9dp"
                     android:layout_marginBottom="8dp"/>
 
+                <!-- Image preview -->
+                <ImageView
+                    android:id="@+id/ivImagePreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"
+                    android:layout_margin="8dp"/>
+
+                <!-- Camera button centered -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+
+                    <Button
+                        android:id="@+id/btnTakePhoto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/black"
+                        android:text="Take Photo"
+                        android:textColor="@color/white"
+                        android:drawableLeft="@android:drawable/ic_menu_camera"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        app:cornerRadius="50dp"/>
+                </LinearLayout>
+
                 <Button
                     android:id="@+id/btnPost"
                     android:layout_width="wrap_content"

@@ -5,11 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.datamanager.user.Post
 import com.example.myapplication.datamanager.user.PostWithUsername
+import java.io.File
 
 class PostAdapter(
     private val loggedUserId: Int,
@@ -24,6 +25,7 @@ class PostAdapter(
         val messageTextView: TextView = itemView.findViewById(R.id.tvMessage)
         val usernameTextView: TextView = itemView.findViewById(R.id.tvUsername)
         val deleteButton: Button = itemView.findViewById(R.id.btnDelete)
+        val postImageView: ImageView = itemView.findViewById(R.id.ivPostImage)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
@@ -36,6 +38,19 @@ class PostAdapter(
         holder.titleTextView.text = currentPost.title
         holder.messageTextView.text = currentPost.message
         holder.usernameTextView.text = "Posted by: ${currentPost.username}"
+
+        // Handle image display if available
+        if (!currentPost.imagePath.isNullOrEmpty()) {
+            val imageFile = File(currentPost.imagePath)
+            if (imageFile.exists()) {
+                holder.postImageView.visibility = View.VISIBLE
+                holder.postImageView.setImageURI(android.net.Uri.fromFile(imageFile))
+            } else {
+                holder.postImageView.visibility = View.GONE
+            }
+        } else {
+            holder.postImageView.visibility = View.GONE
+        }
 
         // Show delete button if admin or if post belongs to logged-in user
         if (isAdmin || currentPost.userId == loggedUserId) {

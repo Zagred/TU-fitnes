@@ -70,6 +70,17 @@
                     app:boxCornerRadiusBottomEnd="5dp">
                 </com.google.android.material.textfield.MaterialAutoCompleteTextView>
 
+                <!-- Add ImageView for post images -->
+                <ImageView
+                    android:id="@+id/ivPostImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone" />
+
                 <com.google.android.material.textfield.MaterialAutoCompleteTextView
                     android:id="@+id/tvUsername"
                     android:layout_width="match_parent"
@@ -81,7 +92,6 @@
                     android:layout_marginTop="4dp"
                     android:layout_marginBottom="4dp">
                 </com.google.android.material.textfield.MaterialAutoCompleteTextView>
-
 
                 <Button
                     android:id="@+id/btnDelete"

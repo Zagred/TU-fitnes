@@ -41,6 +41,7 @@ class HomePage : AppCompatActivity() {
         val leaderboard = findViewById<Button>(R.id.btLeaderBoardP)
 
         val userId = intent.getIntExtra("USER_ID", -1)
+        loadUserAvatar(userId, profile)
 
         leaderboard.setOnClickListener {
             val intent = Intent(this, LeaderBoardActivity::class.java)
@@ -147,6 +148,51 @@ class HomePage : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                     }
+                }
+            }
+        }
+    }
+    override fun onResume() {
+        super.onResume()
+        // Refresh avatar when returning to the homepage (after potential profile changes)
+        val profileImageView = findViewById<CircleImageView>(R.id.btProfileHomeP)
+        val userId = intent.getIntExtra("USER_ID", -1)
+        loadUserAvatar(userId, profileImageView)
+    }
+
+    private fun loadUserAvatar(userId: Int, imageView: CircleImageView) {
+        if (userId == -1) return
+
+        val db = AppDatabase.getInstance(applicationContext)
+        val userInfoDAO = db.userInfoDAO()
+
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val userInfo = userInfoDAO.getUserInfoByUserId(userId)
+
+                withContext(Dispatchers.Main) {
+                    userInfo?.let {
+                        try {
+                            val resourceId = resources.getIdentifier(it.avatar, "drawable", packageName)
+                            if (resourceId != 0) {
+                                imageView.setImageResource(resourceId)
+                            } else {
+                                // Fallback to default avatar
+                                imageView.setImageResource(R.drawable.panda)
+                            }
+                        } catch (e: Exception) {
+                            // If there's an error, use default avatar
+                            imageView.setImageResource(R.drawable.panda)
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(
+                        this@HomePage,
+                        "Error loading avatar: ${e.localizedMessage}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }

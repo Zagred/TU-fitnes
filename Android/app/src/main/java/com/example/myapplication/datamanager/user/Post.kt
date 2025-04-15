@@ -20,11 +20,14 @@ data class Post(
     @ColumnInfo(name="user_id") val userId: Int,
     @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "message") val message: String,
+    @ColumnInfo(name = "image_path") val imagePath: String? = null // Add this line for storing image path
 )
+
 data class PostWithUsername(
     val postId: Int,
     val userId: Int,
     val title: String,
     val message: String,
-    val username: String
+    val username: String,
+    val imagePath: String? = null // Add image path to this data class too
 )
