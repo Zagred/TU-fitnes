@@ -17,6 +17,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import com.example.myapplication.datamanager.user.UserScoreManager
+import android.view.View
+import android.widget.ImageView
+
 
 class                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    LeaderBoardActivity : AppCompatActivity() {
 
@@ -49,7 +53,7 @@ class                                                                           
 
             // For each user, get their dumbbell count
             users.forEach { user ->
-                val dumbbellCount = getUserDumbbellCount(user.username)
+                val dumbbellCount = UserScoreManager.getDumbbellCount(this@LeaderBoardActivity, user.username)
                 userScores.add(UserScore(user.username, dumbbellCount))
             }
 
