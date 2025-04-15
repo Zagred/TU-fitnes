@@ -95,27 +95,13 @@
                     android:layout_gravity="center">
 
                     <Button
-                        android:id="@+id/btLeaderBoardP"
-                        android:layout_width="180dp"
-                        android:layout_height="80dp"
-                        android:backgroundTint="@color/white"
-                        android:drawableLeft="@drawable/meals"
-                        android:text="LeaderBoard"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        app:cornerRadius="70dp"
-                        android:elevation="8dp"
-                        android:translationZ="2dp"/>
-
-                    <Button
                         android:id="@+id/btMealsHomeP"
-                        android:layout_width="180dp"
+                        android:layout_width="185dp"
                         android:layout_height="80dp"
                         android:backgroundTint="@color/white"
                         android:drawableLeft="@drawable/meals"
                         android:text="Meals"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         app:cornerRadius="70dp"
@@ -124,12 +110,12 @@
 
                     <Button
                         android:id="@+id/btLocationsHomeP"
-                        android:layout_width="180dp"
+                        android:layout_width="185dp"
                         android:layout_height="80dp"
                         android:backgroundTint="@color/white"
                         android:drawableLeft="@drawable/location"
                         android:text="Locations"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         app:cornerRadius="70dp"
@@ -138,13 +124,13 @@
 
                     <Button
                         android:id="@+id/btCalendarHomeP"
-                        android:layout_width="180dp"
+                        android:layout_width="185dp"
                         android:layout_height="80dp"
                         android:layout_marginTop="25dp"
                         android:backgroundTint="@color/white"
                         android:drawableLeft="@drawable/calendar"
                         android:text="Calendar"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         app:cornerRadius="70dp"
@@ -153,13 +139,13 @@
 
                     <Button
                         android:id="@+id/btTrainerHomeP"
-                        android:layout_width="180dp"
+                        android:layout_width="185dp"
                         android:layout_height="80dp"
                         android:layout_marginTop="25dp"
                         android:backgroundTint="@color/white"
                         android:drawableLeft="@drawable/coach"
                         android:text="Coach"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         app:cornerRadius="70dp"
@@ -167,29 +153,59 @@
                         android:translationZ="2dp"/>
 
                     <Button
-                        android:id="@+id/btChallengeHomeP"
-                        android:layout_width="180dp"
+                        android:id="@+id/btCommunityHomeP"
+                        android:layout_width="185dp"
                         android:layout_height="80dp"
                         android:layout_marginTop="25dp"
                         android:backgroundTint="@color/white"
-                        android:drawableLeft="@drawable/challenge"
-                        android:text="Challenges"
-                        android:textSize="16sp"
+                        android:drawableLeft="@drawable/community"
+                        android:text="Social"
+                        android:textSize="15sp"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         app:cornerRadius="70dp"
                         android:elevation="8dp"
-                        android:translationZ="2dp" />
+                        android:translationZ="2dp"/>
+
+                    <Button
+                        android:id="@+id/btFriendsHomeP"
+                        android:layout_width="185dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="25dp"
+                        android:backgroundTint="@color/white"
+                        android:drawableLeft="@drawable/friends"
+                        android:text="Friends"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:cornerRadius="70dp"
+                        android:elevation="8dp"
+                        android:translationZ="2dp"/>
 
                     <Button
                         android:id="@+id/btCalculatorHomeP"
-                        android:layout_width="180dp"
+                        android:layout_width="185dp"
                         android:layout_height="80dp"
                         android:layout_marginTop="25dp"
                         android:backgroundTint="@color/white"
                         android:drawableLeft="@drawable/calculator"
                         android:text="Calculator"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:cornerRadius="70dp"
+                        android:elevation="8dp"
+                        android:translationZ="2dp"/>
+
+                    <Button
+                        android:id="@+id/btLeaderBoardP"
+                        android:layout_width="185dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="25dp"
+                        android:backgroundTint="@color/white"
+                        android:drawableLeft="@drawable/crown"
+                        android:text="LeaderBoard"
+                        android:textSize="15sp"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         app:cornerRadius="70dp"
@@ -213,6 +229,23 @@
             android:gravity="center">
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btChallengeHomeP"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                app:icon="@drawable/challenge"
+                app:iconGravity="top"
+                app:iconPadding="4dp"
+                app:iconTint="@color/black"
+                android:text="Challenges"
+                android:textSize="11sp"
+                android:textColor="@color/black"
+                app:cornerRadius="70dp"
+                android:backgroundTint="@color/white"/>
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btHome"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
@@ -224,40 +257,6 @@
                 app:iconPadding="4dp"
                 app:iconTint="@color/black"
                 android:text="Home"
-                android:textSize="11sp"
-                android:textColor="@color/black"
-                app:cornerRadius="70dp"
-                android:backgroundTint="@color/white"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btCommunityHomeP"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                app:icon="@drawable/community"
-                app:iconGravity="top"
-                app:iconPadding="4dp"
-                app:iconTint="@color/black"
-                android:text="Social"
-                android:textSize="11sp"
-                android:textColor="@color/black"
-                app:cornerRadius="70dp"
-                android:backgroundTint="@color/white"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btFriendsHomeP"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                app:icon="@drawable/friends"
-                app:iconGravity="top"
-                app:iconPadding="4dp"
-                app:iconTint="@color/black"
-                android:text="Friends"
                 android:textSize="11sp"
                 android:textColor="@color/black"
                 app:cornerRadius="70dp"
