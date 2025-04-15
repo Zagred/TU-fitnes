@@ -24,4 +24,6 @@ object LoggedUser {
 
     fun setPassword(password: String) {this.password = password}
 
+    private var userId: Int = -1
+
 }

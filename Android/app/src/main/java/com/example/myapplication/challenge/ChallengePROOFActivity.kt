@@ -15,7 +15,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.myapplication.databinding.ActivityChallengeProofactivityBinding
 import com.example.myapplication.datamanager.AppDatabase
-import com.example.myapplication.datamanager.user.UserScoreManager
 import com.example.myapplication.datamanager.user.UserChallengeManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -174,15 +173,13 @@ class ChallengePROOFActivity : AppCompatActivity() {
     private fun completeChallenge() {
         CoroutineScope(Dispatchers.IO).launch {
             challenge?.let {
-                // Save feedback to the challenge object (if you still need this)
+                // Save feedback to the challenge object
                 it.feedback = binding.etfeedback.text.toString()
                 challengeDao.update(it)
 
-                // IMPORTANT CHANGE: Mark the challenge as completed for this specific user
-                // Instead of updating the database directly, use UserChallengeManager
+                // Mark the challenge as completed for this specific user
                 UserChallengeManager.completeCurrentUserChallenge(this@ChallengePROOFActivity, challengeId)
 
-                // Add points to the current user's score
 
             }
 
@@ -197,10 +194,5 @@ class ChallengePROOFActivity : AppCompatActivity() {
                 finish()
             }
         }
-    }
-
-    private fun updateDumbbellCounter(pointsToAdd: Int) {
-        // Use the UserScoreManager to add dumbbells to the current user
-        UserScoreManager.addDumbbellsToCurrentUser(this, pointsToAdd)
     }
 }
