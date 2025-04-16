@@ -92,7 +92,7 @@ class Profile : AppCompatActivity() {
 
     private fun showAvatarSelectionDialog() {
         // List of available avatar animals (these should match your drawable resource names)
-        val avatarOptions = listOf("panda", "duck")
+        val avatarOptions = listOf("panda", "duck", "bear", "pig", "frog", "elephant", "monkey", "bober", "koala", "tiger")
 
         // Create a grid layout for the avatars
         val builder = AlertDialog.Builder(this)

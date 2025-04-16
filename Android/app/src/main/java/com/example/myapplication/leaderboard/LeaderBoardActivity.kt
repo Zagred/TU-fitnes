@@ -115,7 +115,7 @@ class LeaderBoardActivity : AppCompatActivity() {
             // Show friend icon if this user is a friend of the logged-in user
             if (friendUsernames.contains(userScore.username)) {
                 friendIcon.visibility = View.VISIBLE
-                friendIcon.setImageResource(R.drawable.ic_friend) // Use the provided ic_friend drawable
+                friendIcon.setImageResource(R.drawable.friends) // Use the provided ic_friend drawable
             } else {
                 friendIcon.visibility = View.GONE // Hide the icon if not a friend
             }

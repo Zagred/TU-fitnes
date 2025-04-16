@@ -106,7 +106,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_marginStart="8dp"
-                        android:src="@drawable/ic_friend"
+                        android:src="@drawable/friends"
                         android:visibility="gone" />
                 </LinearLayout>
 
