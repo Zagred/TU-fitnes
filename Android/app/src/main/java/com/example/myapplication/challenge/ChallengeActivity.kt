@@ -3,10 +3,12 @@ package com.example.myapplication.challenge
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.myapplication.HomePage
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityChallengeBinding
 import com.example.myapplication.datamanager.AppDatabase
@@ -27,6 +29,7 @@ class ChallengeActivity : AppCompatActivity() {
     private lateinit var challengeDao: ChallengeDAO
     private var selectedChallenge: Challenge? = null
     private val loadedChallenges = mutableListOf<Challenge>()
+    private var userId: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +44,7 @@ class ChallengeActivity : AppCompatActivity() {
 
         // Check if we need to load new daily challenges or use existing ones
         checkAndLoadDailyChallenges()
+        userId = intent.getIntExtra("USER_ID", -1)
 
         binding.btnConfirm.setOnClickListener {
             if (selectedChallenge != null) {
@@ -59,6 +63,13 @@ class ChallengeActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Please select a challenge", Toast.LENGTH_SHORT).show()
             }
+        }
+        val home=findViewById<Button>(R.id.btHome)
+        home.setOnClickListener{
+            val intent = Intent(this, HomePage::class.java)
+            intent.putExtra("USER_ID", userId)
+            startActivity(intent)
+            finish()
         }
     }
 

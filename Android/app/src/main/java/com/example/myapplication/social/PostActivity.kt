@@ -89,7 +89,13 @@ class PostActivity : AppCompatActivity() {
 
             withContext(Dispatchers.Main) {
                 // Initialize adapter after determining admin status
-                adapter = PostAdapter(loggedUserId, isAdmin) { post -> deletePost(post) }
+                adapter = PostAdapter(
+                    loggedUserId = loggedUserId,
+                    isAdmin = isAdmin,
+                    onDeleteClick = { post -> deletePost(post) },
+                    coroutineScope = lifecycleScope,
+                    isFriend = { userId -> checkIfFriend(userId) }
+                )
                 recyclerView.layoutManager = LinearLayoutManager(this@PostActivity)
                 recyclerView.adapter = adapter
 
@@ -122,6 +128,11 @@ class PostActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+
+    // New function to check if a user is a friend
+    private suspend fun checkIfFriend(userId: Int): Boolean {
+        return database.friendsDAO().isAlreadyFriend(loggedUserId, userId) > 0
     }
 
     private fun loadPosts() {

@@ -22,10 +22,11 @@ import android.view.View
 import android.widget.ImageView
 
 
-class                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    LeaderBoardActivity : AppCompatActivity() {
+class LeaderBoardActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLeaderBoardBinding
     private val userScores = mutableListOf<UserScore>()
+    private val friendUsernames = mutableListOf<String>() // List to store friend usernames
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +51,18 @@ class                                                                           
             val users = userDao.getAll()
 
             userScores.clear()
+
+            // Get the currently logged in user's ID for friends check
+            val loggedUsername = LoggedUser.getUsername()
+            val loggedUser = loggedUsername?.let { userDao.findByUsername(it) }
+
+            // Get friends list for the current user
+            if (loggedUser != null) {
+                val friendsDao = AppDatabase.getInstance(this@LeaderBoardActivity).friendsDAO()
+                // Get list of friend usernames
+                friendUsernames.clear()
+                friendUsernames.addAll(friendsDao.getFriendsNames(loggedUser.uid))
+            }
 
             // For each user, get their dumbbell count
             users.forEach { user ->
@@ -95,6 +108,17 @@ class                                                                           
 
             // Set score
             rankingView.findViewById<TextView>(R.id.tvPoints).text = "${userScore.score}"
+
+            // Get the friend icon ImageView
+            val friendIcon = rankingView.findViewById<ImageView>(R.id.FriendAsset)
+
+            // Show friend icon if this user is a friend of the logged-in user
+            if (friendUsernames.contains(userScore.username)) {
+                friendIcon.visibility = View.VISIBLE
+                friendIcon.setImageResource(R.drawable.ic_friend) // Use the provided ic_friend drawable
+            } else {
+                friendIcon.visibility = View.GONE // Hide the icon if not a friend
+            }
 
             // Highlight current user
             if (userScore.username == LoggedUser.getUsername()) {
