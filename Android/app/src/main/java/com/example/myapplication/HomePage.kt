@@ -1,8 +1,13 @@
 package com.example.myapplication
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.achievement.AchievementActivity
 import com.example.myapplication.calculator.CalculatorPage
@@ -21,6 +26,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import android.widget.Toast
 import com.example.myapplication.challenge.ChallengeActivity
+import com.example.myapplication.datamanager.quotes.QuotesManager
 import com.example.myapplication.leaderboard.LeaderBoardActivity
 import de.hdodenhof.circleimageview.CircleImageView
 
@@ -39,6 +45,8 @@ class HomePage : AppCompatActivity() {
         val calculator = findViewById<Button>(R.id.btCalculatorHomeP)
         val locations = findViewById<Button>(R.id.btLocationsHomeP)
         val leaderboard = findViewById<Button>(R.id.btLeaderBoardP)
+
+        displayRandomMotivationalQuote()
 
         val userId = intent.getIntExtra("USER_ID", -1)
         loadUserAvatar(userId, profile)
@@ -154,10 +162,45 @@ class HomePage : AppCompatActivity() {
     }
     override fun onResume() {
         super.onResume()
+        displayRandomMotivationalQuote()
         // Refresh avatar when returning to the homepage (after potential profile changes)
         val profileImageView = findViewById<CircleImageView>(R.id.btProfileHomeP)
         val userId = intent.getIntExtra("USER_ID", -1)
         loadUserAvatar(userId, profileImageView)
+    }
+
+    private fun displayRandomMotivationalQuote() {
+        val tvQuote = findViewById<TextView>(R.id.tvMotivationalQuote)
+        val quote = QuotesManager.getRandomQuote()
+
+        val words = quote.split(" ")
+        val firstWordEndIndex = quote.indexOf(words.first()) + words.first().length
+        val lastWordStartIndex = quote.lastIndexOf(words.last())
+
+        val spannableString = SpannableString(quote)
+
+        spannableString.setSpan(
+            ForegroundColorSpan(Color.parseColor("#ED1C24")),
+            0,
+            firstWordEndIndex,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        spannableString.setSpan(
+            ForegroundColorSpan(Color.BLACK),
+            firstWordEndIndex,
+            lastWordStartIndex,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        spannableString.setSpan(
+            ForegroundColorSpan(Color.parseColor("#ED1C24")),
+            lastWordStartIndex,
+            quote.length,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        tvQuote.text = spannableString
     }
 
     private fun loadUserAvatar(userId: Int, imageView: CircleImageView) {
