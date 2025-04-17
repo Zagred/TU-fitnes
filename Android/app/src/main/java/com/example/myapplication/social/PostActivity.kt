@@ -79,7 +79,7 @@ class PostActivity : AppCompatActivity() {
 
         loggedUserId = intent.getIntExtra("USER_ID", -1)
         if (loggedUserId == -1) {
-            Toast.makeText(this, "Invalid User", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_invalid_user), Toast.LENGTH_SHORT).show()
             finish()
         }
 
@@ -109,7 +109,7 @@ class PostActivity : AppCompatActivity() {
             if (title.isNotEmpty() && message.isNotEmpty()) {
                 addPost(title, message, currentPhotoPath)
             } else {
-                Toast.makeText(this, "Title and message cannot be empty", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.toast_empty_post_fields), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -160,14 +160,14 @@ class PostActivity : AppCompatActivity() {
                 etMessage.text.clear()
                 ivImagePreview.visibility = ImageView.GONE
                 currentPhotoPath = null
-                Toast.makeText(this@PostActivity, "Post created successfully!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@PostActivity, getString(R.string.toast_post_created), Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     private fun deletePost(post: PostWithUsername) {
         if (!isAdmin && post.userId != loggedUserId) {
-            Toast.makeText(this, "You can only delete your own posts", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_delete_own_posts), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -213,7 +213,7 @@ class PostActivity : AppCompatActivity() {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     dispatchTakePictureIntent()
                 } else {
-                    Toast.makeText(this, "Camera permission denied", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.toast_camera_permission_denied), Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -259,7 +259,7 @@ class PostActivity : AppCompatActivity() {
             // Handle any exception
             Toast.makeText(
                 this,
-                "Camera error: ${ex.localizedMessage}",
+                getString(R.string.toast_camera_error, ex.localizedMessage),
                 Toast.LENGTH_SHORT
             ).show()
             ex.printStackTrace()

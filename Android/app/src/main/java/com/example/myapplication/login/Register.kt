@@ -92,24 +92,20 @@ class Register : BaseActivity() {
 
         // Validate all fields
         if (email.isBlank() || username.isBlank() || password.isBlank() || confirmPassword.isBlank()) {
-            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_empty_fields), Toast.LENGTH_SHORT).show()
             return
         }
 
         // Check if passwords match
         if (password != confirmPassword) {
-            Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_passwords_mismatch), Toast.LENGTH_SHORT).show()
             return
         }
 
         if (!isPasswordStrong(password)) {
             Toast.makeText(
                 this,
-                "Password must be at least 8 characters long and contain:\n" +
-                        "- Uppercase letter\n" +
-                        "- Lowercase letter\n" +
-                        "- Number\n" +
-                        "- Special character (!@#$%^&*()_+)",
+                getString(R.string.toast_password_requirements),
                 Toast.LENGTH_LONG
             ).show()
             return
@@ -118,7 +114,7 @@ class Register : BaseActivity() {
         if (!isEmailValid(email)) {
             Toast.makeText(
                 this,
-                "Please enter a valid email address!\n",
+                getString(R.string.toast_invalid_email),
                 Toast.LENGTH_LONG
             ).show()
             return
@@ -130,7 +126,7 @@ class Register : BaseActivity() {
                 val existingUserByUsername = userDAO.findByUsername(username)
                 if (existingUserByUsername != null) {
                     withContext(Dispatchers.Main) {
-                        Toast.makeText(this@Register, "Username is already taken", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@Register, getString(R.string.toast_username_taken), Toast.LENGTH_SHORT).show()
                     }
                     return@launch
                 }
@@ -138,7 +134,7 @@ class Register : BaseActivity() {
                 val existingUserByEmail = userDAO.findByEmail(email)
                 if (existingUserByEmail != null) {
                     withContext(Dispatchers.Main) {
-                        Toast.makeText(this@Register, "Email is already registered", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@Register, getString(R.string.toast_email_registered), Toast.LENGTH_SHORT).show()
                     }
                     return@launch
                 }
@@ -147,7 +143,7 @@ class Register : BaseActivity() {
                 userDAO.insert(User(0, username = username, password = password, email = email))
 
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(this@Register, "User registered successfully!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@Register, getString(R.string.toast_register_success), Toast.LENGTH_SHORT).show()
                 }
 
                 val id = userDAO.findByUsername(username)
@@ -166,7 +162,7 @@ class Register : BaseActivity() {
 
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(this@Register, "Failed to register user: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@Register, getString(R.string.toast_register_fail, e.message), Toast.LENGTH_SHORT).show()
                 }
             }
         }

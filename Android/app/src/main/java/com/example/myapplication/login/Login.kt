@@ -57,7 +57,7 @@ class Login : BaseActivity() {
             Log.e("Login", "Error initializing database", e)
             Toast.makeText(
                 this,
-                "Error initializing app: ${e.message}",
+                getString(R.string.toast_db_init_error, e.message),
                 Toast.LENGTH_LONG
             ).show()
         }
@@ -75,7 +75,7 @@ class Login : BaseActivity() {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(
                         this@Login,
-                        "Please fill in all fields",
+                        getString(R.string.toast_login_empty_fields),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -104,7 +104,7 @@ class Login : BaseActivity() {
                         withContext(Dispatchers.Main) {
                             Toast.makeText(
                                 this@Login,
-                                "User logged in successfully!",
+                                getString(R.string.toast_login_success),
                                 Toast.LENGTH_SHORT
                             ).show()
 
@@ -123,7 +123,7 @@ class Login : BaseActivity() {
                     withContext(Dispatchers.Main) {
                         Toast.makeText(
                             this@Login,
-                            "Failed to login user: ${e.message}",
+                            getString(R.string.toast_login_fail, e.message),
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -134,7 +134,7 @@ class Login : BaseActivity() {
             withContext(Dispatchers.Main) {
                 Toast.makeText(
                     this@Login,
-                    "Unexpected error: ${e.message}",
+                    getString(R.string.toast_login_error, e.message),
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -148,7 +148,7 @@ class Login : BaseActivity() {
             if (loginAttempts >= 3) {
                 Toast.makeText(
                     this@Login,
-                    "Too many failed login attempts",
+                    getString(R.string.toast_login_attempts),
                     Toast.LENGTH_LONG
                 ).show()
                 // You could implement a temporary lockout here
@@ -156,7 +156,7 @@ class Login : BaseActivity() {
             } else {
                 Toast.makeText(
                     this@Login,
-                    "Invalid email or password",
+                    getString(R.string.toast_invalid_credentials),
                     Toast.LENGTH_SHORT
                 ).show()
             }
