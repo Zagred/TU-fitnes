@@ -52,7 +52,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.room.common)
     implementation(libs.androidx.room.ktx)
-    implementation(libs.androidx.room.runtime) // Ensure Room runtime is included
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx) // Ensure Room runtime is included
     kapt(libs.androidx.room.compiler)
 
     testImplementation(libs.junit)

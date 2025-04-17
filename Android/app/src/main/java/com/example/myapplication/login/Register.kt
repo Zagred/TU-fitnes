@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.example.myapplication.BaseActivity
 import com.example.myapplication.R
 import com.example.myapplication.datamanager.AppDatabase
 import com.example.myapplication.datamanager.custom.CustomWorkout
@@ -30,7 +31,7 @@ import kotlinx.coroutines.withContext
 import java.util.regex.Pattern
 
 
-class Register : AppCompatActivity() {
+class Register : BaseActivity() {
     private lateinit var userDAO: UserDAO
     private lateinit var userInfoDAO: UserInfoDAO
     private lateinit var nutritionInfo: NutritionInfoDAO

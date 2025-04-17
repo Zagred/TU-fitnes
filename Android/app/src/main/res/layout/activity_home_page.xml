@@ -16,37 +16,37 @@
         android:paddingStart="16dp"
         android:paddingTop="10dp">
 
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="30dp"
+            android:text="@string/app_name_part1"
+            android:textColor="@color/yellow"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="30dp">
+
             <TextView
-                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="30dp"
-                android:text="TU"
-                android:textColor="@color/yellow"
+                android:text="@string/app_name_part2"
+                android:textColor="@color/white"
                 android:textSize="40sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingTop="30dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" Fitness"
-                    android:textColor="@color/white"
-                    android:textSize="40sp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="4dp"
-                    android:layout_marginTop="-6dp"
-                    android:background="@color/yellow" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="-6dp"
+                android:background="@color/yellow" />
         </LinearLayout>
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -74,180 +74,180 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alignmentMode="alignMargins"
+                android:columnCount="1"
+                android:columnOrderPreserved="false"
+                android:useDefaultMargins="true"
+                android:layout_marginTop="-60dp"
+                android:padding="16dp"
+                android:gravity="center"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvWeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center"
+                    app:cardBackgroundColor="@color/yellow"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.08">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/motivational_quote">
+                        </ImageView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
 
                 <GridLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:alignmentMode="alignMargins"
-                    android:columnCount="1"
+                    android:columnCount="2"
                     android:columnOrderPreserved="false"
                     android:useDefaultMargins="true"
-                    android:layout_marginTop="-60dp"
                     android:padding="16dp"
                     android:gravity="center"
                     android:layout_gravity="center">
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cvWeight"
-                        android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:layout_gravity="center"
-                        app:cardBackgroundColor="@color/yellow"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="10dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.08">
+                    <Button
+                        android:id="@+id/btMealsHomeP"
+                        android:layout_width="185dp"
+                        android:layout_height="80dp"
+                        android:backgroundTint="@color/white"
+                        android:drawableLeft="@drawable/meals"
+                        android:text="@string/meals_button"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:cornerRadius="70dp"
+                        android:elevation="8dp"
+                        android:translationZ="2dp"/>
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                    <Button
+                        android:id="@+id/btLocationsHomeP"
+                        android:layout_width="185dp"
+                        android:layout_height="80dp"
+                        android:backgroundTint="@color/white"
+                        android:drawableLeft="@drawable/location"
+                        android:text="@string/locations_button"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:cornerRadius="70dp"
+                        android:elevation="8dp"
+                        android:translationZ="2dp"/>
 
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:src="@drawable/motivational_quote">
-                            </ImageView>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </androidx.cardview.widget.CardView>
+                    <Button
+                        android:id="@+id/btCalendarHomeP"
+                        android:layout_width="185dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="25dp"
+                        android:backgroundTint="@color/white"
+                        android:drawableLeft="@drawable/calendar"
+                        android:text="@string/calendar_button"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:cornerRadius="70dp"
+                        android:elevation="8dp"
+                        android:translationZ="2dp"/>
 
-                    <GridLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:alignmentMode="alignMargins"
-                        android:columnCount="2"
-                        android:columnOrderPreserved="false"
-                        android:useDefaultMargins="true"
-                        android:padding="16dp"
-                        android:gravity="center"
-                        android:layout_gravity="center">
+                    <Button
+                        android:id="@+id/btTrainerHomeP"
+                        android:layout_width="185dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="25dp"
+                        android:backgroundTint="@color/white"
+                        android:drawableLeft="@drawable/coach"
+                        android:text="@string/coach_button"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:cornerRadius="70dp"
+                        android:elevation="8dp"
+                        android:translationZ="2dp"/>
 
-                        <Button
-                            android:id="@+id/btMealsHomeP"
-                            android:layout_width="185dp"
-                            android:layout_height="80dp"
-                            android:backgroundTint="@color/white"
-                            android:drawableLeft="@drawable/meals"
-                            android:text="Meals"
-                            android:textSize="15sp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            app:cornerRadius="70dp"
-                            android:elevation="8dp"
-                            android:translationZ="2dp"/>
+                    <Button
+                        android:id="@+id/btCommunityHomeP"
+                        android:layout_width="185dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="25dp"
+                        android:backgroundTint="@color/white"
+                        android:drawableLeft="@drawable/community"
+                        android:text="@string/social_button"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:cornerRadius="70dp"
+                        android:elevation="8dp"
+                        android:translationZ="2dp"/>
 
-                        <Button
-                            android:id="@+id/btLocationsHomeP"
-                            android:layout_width="185dp"
-                            android:layout_height="80dp"
-                            android:backgroundTint="@color/white"
-                            android:drawableLeft="@drawable/location"
-                            android:text="Locations"
-                            android:textSize="15sp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            app:cornerRadius="70dp"
-                            android:elevation="8dp"
-                            android:translationZ="2dp"/>
+                    <Button
+                        android:id="@+id/btFriendsHomeP"
+                        android:layout_width="185dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="25dp"
+                        android:backgroundTint="@color/white"
+                        android:drawableLeft="@drawable/friends"
+                        android:text="@string/friends_button"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:cornerRadius="70dp"
+                        android:elevation="8dp"
+                        android:translationZ="2dp"/>
 
-                        <Button
-                            android:id="@+id/btCalendarHomeP"
-                            android:layout_width="185dp"
-                            android:layout_height="80dp"
-                            android:layout_marginTop="25dp"
-                            android:backgroundTint="@color/white"
-                            android:drawableLeft="@drawable/calendar"
-                            android:text="Calendar"
-                            android:textSize="15sp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            app:cornerRadius="70dp"
-                            android:elevation="8dp"
-                            android:translationZ="2dp"/>
+                    <Button
+                        android:id="@+id/btCalculatorHomeP"
+                        android:layout_width="185dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="25dp"
+                        android:backgroundTint="@color/white"
+                        android:drawableLeft="@drawable/calculator"
+                        android:text="@string/calculator_button"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:cornerRadius="70dp"
+                        android:elevation="8dp"
+                        android:translationZ="2dp"/>
 
-                        <Button
-                            android:id="@+id/btTrainerHomeP"
-                            android:layout_width="185dp"
-                            android:layout_height="80dp"
-                            android:layout_marginTop="25dp"
-                            android:backgroundTint="@color/white"
-                            android:drawableLeft="@drawable/coach"
-                            android:text="Coach"
-                            android:textSize="15sp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            app:cornerRadius="70dp"
-                            android:elevation="8dp"
-                            android:translationZ="2dp"/>
-
-                        <Button
-                            android:id="@+id/btCommunityHomeP"
-                            android:layout_width="185dp"
-                            android:layout_height="80dp"
-                            android:layout_marginTop="25dp"
-                            android:backgroundTint="@color/white"
-                            android:drawableLeft="@drawable/community"
-                            android:text="Social"
-                            android:textSize="15sp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            app:cornerRadius="70dp"
-                            android:elevation="8dp"
-                            android:translationZ="2dp"/>
-
-                        <Button
-                            android:id="@+id/btFriendsHomeP"
-                            android:layout_width="185dp"
-                            android:layout_height="80dp"
-                            android:layout_marginTop="25dp"
-                            android:backgroundTint="@color/white"
-                            android:drawableLeft="@drawable/friends"
-                            android:text="Friends"
-                            android:textSize="15sp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            app:cornerRadius="70dp"
-                            android:elevation="8dp"
-                            android:translationZ="2dp"/>
-
-                        <Button
-                            android:id="@+id/btCalculatorHomeP"
-                            android:layout_width="185dp"
-                            android:layout_height="80dp"
-                            android:layout_marginTop="25dp"
-                            android:backgroundTint="@color/white"
-                            android:drawableLeft="@drawable/calculator"
-                            android:text="Calculator"
-                            android:textSize="15sp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            app:cornerRadius="70dp"
-                            android:elevation="8dp"
-                            android:translationZ="2dp"/>
-
-                        <Button
-                            android:id="@+id/btLeaderBoardP"
-                            android:layout_width="185dp"
-                            android:layout_height="80dp"
-                            android:layout_marginTop="25dp"
-                            android:backgroundTint="@color/white"
-                            android:drawableLeft="@drawable/crown"
-                            android:text="LeaderBoard"
-                            android:textSize="15sp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            app:cornerRadius="70dp"
-                            android:elevation="8dp"
-                            android:translationZ="2dp"/>
-                    </GridLayout>
+                    <Button
+                        android:id="@+id/btLeaderBoardP"
+                        android:layout_width="185dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="25dp"
+                        android:backgroundTint="@color/white"
+                        android:drawableLeft="@drawable/crown"
+                        android:text="@string/leaderboard_button"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:cornerRadius="70dp"
+                        android:elevation="8dp"
+                        android:translationZ="2dp"/>
                 </GridLayout>
-            </ScrollView>
+            </GridLayout>
+        </ScrollView>
     </androidx.cardview.widget.CardView>
 
     <FrameLayout
@@ -274,7 +274,7 @@
                 app:iconGravity="top"
                 app:iconPadding="4dp"
                 app:iconTint="@color/black"
-                android:text="Challenges"
+                android:text="@string/challenges_button"
                 android:textSize="11sp"
                 android:textColor="@color/black"
                 app:cornerRadius="70dp"
@@ -291,7 +291,7 @@
                 app:iconGravity="top"
                 app:iconPadding="4dp"
                 app:iconTint="@color/black"
-                android:text="Home"
+                android:text="@string/home"
                 android:textSize="11sp"
                 android:textColor="@color/black"
                 app:cornerRadius="70dp"
@@ -308,7 +308,7 @@
                 app:iconGravity="top"
                 app:iconPadding="4dp"
                 app:iconTint="@color/black"
-                android:text="Workout"
+                android:text="@string/workout_button"
                 android:textSize="11sp"
                 android:textColor="@color/black"
                 app:cornerRadius="70dp"
