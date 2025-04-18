@@ -102,7 +102,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/healthy_food5">
+                            android:src="@drawable/healthy_food2">
                         </ImageView>
                     </LinearLayout>
 
@@ -128,7 +128,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/healthy_food4">
+                            android:src="@drawable/healthy_food5">
                         </ImageView>
 
                         <Button
@@ -166,17 +166,6 @@
                             app:layout_constraintTop_toBottomOf="@+id/btnCalculatorCalorie" />
                     </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_gravity="center"
-                        android:text="Eat wise!!!"
-                        android:textColor="@color/black"
-                        android:textSize="32sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -192,16 +181,11 @@
                         android:paddingTop="-10dp">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/healthy_food4">
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/mealfigures">
                         </ImageView>
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/healthy_food5">
-                        </ImageView>
                     </LinearLayout>
 
                     <LinearLayout
@@ -209,60 +193,21 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical"
-                        android:paddingTop="25dp">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/healthy_food1">
-                        </ImageView>
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/healthy_food2">
-                        </ImageView>
-                    </LinearLayout>
+                        android:paddingTop="25dp"/>
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical"
-                        android:paddingTop="-10dp">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/healthy_food4">
-                        </ImageView>
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/healthy_food5">
-                        </ImageView>
-                    </LinearLayout>
+                        android:paddingTop="-10dp"/>
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical"
-                        android:paddingTop="25dp">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/healthy_food1">
-                        </ImageView>
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/healthy_food2">
-                        </ImageView>
-                    </LinearLayout>
+                        android:paddingTop="25dp"/>
                 </LinearLayout>
             </GridLayout>
         </ScrollView>
