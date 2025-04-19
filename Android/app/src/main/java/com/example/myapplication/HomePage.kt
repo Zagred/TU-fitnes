@@ -180,7 +180,7 @@ class HomePage : AppCompatActivity() {
         val spannableString = SpannableString(quote)
 
         spannableString.setSpan(
-            ForegroundColorSpan(Color.parseColor("#ED1C24")),
+            ForegroundColorSpan(Color.parseColor("#FCCF1F")),
             0,
             firstWordEndIndex,
             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
@@ -194,7 +194,7 @@ class HomePage : AppCompatActivity() {
         )
 
         spannableString.setSpan(
-            ForegroundColorSpan(Color.parseColor("#ED1C24")),
+            ForegroundColorSpan(Color.parseColor("#FCCF1F")),
             lastWordStartIndex,
             quote.length,
             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
