@@ -121,6 +121,13 @@
                     android:textColor="@color/white"
                     android:backgroundTint="@color/black"
                     app:cornerRadius="40dp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="80dp"
+                    android:src="@drawable/hiking"/>
+
             </LinearLayout>
         </ScrollView>
     </androidx.cardview.widget.CardView>

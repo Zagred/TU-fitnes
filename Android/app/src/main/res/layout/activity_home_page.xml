@@ -91,30 +91,23 @@
                     android:layout_gravity="center">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cvWeight"
                         android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:layout_gravity="center"
-                        app:cardBackgroundColor="@color/yellow"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="10dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.08">
+                        android:layout_height="match_parent"
+                        app:cardCornerRadius="32dp"
+                        android:paddingTop="-30dp"
+                        app:cardBackgroundColor="@color/white"
+                        android:layout_gravity="center">
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        <TextView
+                            android:id="@+id/tvMotivationalQuote"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:src="@drawable/motivational_quote">
-                            </ImageView>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:padding="16dp"
+                            android:text="Motivational quote bla bla.."
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
                     </androidx.cardview.widget.CardView>
 
                     <GridLayout
@@ -124,9 +117,9 @@
                         android:columnCount="2"
                         android:columnOrderPreserved="false"
                         android:useDefaultMargins="true"
-                        android:padding="16dp"
                         android:gravity="center"
-                        android:layout_gravity="center">
+                        android:layout_gravity="center"
+                        android:layout_marginTop="40dp">
 
                         <Button
                             android:id="@+id/btMealsHomeP"
