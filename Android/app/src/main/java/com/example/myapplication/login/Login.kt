@@ -1,6 +1,8 @@
 package com.example.myapplication.login
 
+import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -9,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.myapplication.BaseActivity
 import com.example.myapplication.HomePage
 import com.example.myapplication.R
 import com.example.myapplication.datamanager.AppDatabase
@@ -17,19 +20,22 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import com.example.myapplication.datamanager.LoggedUser
+import java.util.Locale
 
-
-
-class Login : AppCompatActivity() {
+class Login : BaseActivity() {
     private lateinit var userDAO: UserDAO
     private var loginAttempts = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Load saved language setting before setting content view
+        loadLocale()
         setContentView(R.layout.activity_main)
 
         val login = findViewById<Button>(R.id.btLogin)
         val register = findViewById<Button>(R.id.btRegister)
+        val bulgarianBtn = findViewById<Button>(R.id.btBulgarian)
+        val englishBtn = findViewById<Button>(R.id.btEnglish)
 
         try {
             val db = AppDatabase.getInstance(applicationContext)
@@ -44,6 +50,16 @@ class Login : AppCompatActivity() {
                 val intent = Intent(this, Register::class.java)
                 startActivity(intent)
             }
+
+            // Add click listeners for language buttons
+            bulgarianBtn.setOnClickListener {
+                changeLanguage("bg")
+            }
+
+            englishBtn.setOnClickListener {
+                changeLanguage("en")
+            }
+
         } catch (e: Exception) {
             Log.e("Login", "Error initializing database", e)
             Toast.makeText(
@@ -51,6 +67,48 @@ class Login : AppCompatActivity() {
                 "Error initializing app: ${e.message}",
                 Toast.LENGTH_LONG
             ).show()
+        }
+    }
+
+    // Method to change the app language
+    private fun changeLanguage(languageCode: String) {
+        val locale = Locale(languageCode)
+        Locale.setDefault(locale)
+
+        val config = Configuration()
+        config.locale = locale
+
+        baseContext.resources.updateConfiguration(
+            config,
+            baseContext.resources.displayMetrics
+        )
+
+        // Save language preference
+        val sharedPref = getSharedPreferences("LanguageSettings", Context.MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            putString("app_language", languageCode)
+            apply()
+        }
+
+        // Restart the activity to apply language changes
+        recreate()
+    }
+
+    // Method to load saved language preference
+    private fun loadLocale() {
+        val sharedPref = getSharedPreferences("LanguageSettings", Context.MODE_PRIVATE)
+        val language = sharedPref.getString("app_language", "en") // Default to English
+        language?.let {
+            val locale = Locale(it)
+            Locale.setDefault(locale)
+
+            val config = Configuration()
+            config.locale = locale
+
+            baseContext.resources.updateConfiguration(
+                config,
+                baseContext.resources.displayMetrics
+            )
         }
     }
 

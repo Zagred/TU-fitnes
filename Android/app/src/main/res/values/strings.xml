@@ -1,4 +1,5 @@
 <resources>
+    <!-- Existing strings retained -->
     <string name="app_name">TU Fitness</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
@@ -14,4 +15,317 @@
         <item>Male</item>
         <item>Female</item>
     </string-array>
+    <string name="home">Home</string>
+
+    <!-- All the existing strings are kept as is -->
+    <!-- Post Screen Strings -->
+    <string name="posts_title">Posts</string>
+    <string name="post_title_hint">Title of the post</string>
+    <string name="post_content_hint">Write a post…</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="post_button">Post</string>
+    <string name="delete">Delete</string>
+
+    <!-- Friends Screen Strings -->
+    <string name="friends_title">Friends</string>
+    <string name="add_button">Add</string>
+    <string name="clear_button">Clear</string>
+    <string name="friend_name_placeholder">Friend Name</string>
+
+    <!-- User List Strings -->
+    <string name="username_placeholder">Username</string>
+    <string name="role_format">Role: %1$s</string>
+    <string name="role_user">user</string>
+    <string name="delete_user">Delete User</string>
+
+    <!-- Post List Item Strings -->
+    <string name="your_post_hint">Your post…</string>
+
+    <!-- Content Descriptions for Accessibility -->
+    <string name="image_preview_description">Post image preview</string>
+    <string name="camera_icon_description">Camera button</string>
+    <string name="friend_icon_description">Friend indicator</string>
+    <string name="post_image_description">Post image</string>
+
+    <!-- Workout Item Strings -->
+    <string name="workout_name">Workout Name</string>
+    <string name="workout_timer">Rest: X sec</string>
+    <string name="workout_options">Options</string>
+
+    <!-- Nutrition Item Strings -->
+    <string name="food_name">Food Name</string>
+    <string name="calories">Calories: %1$d</string>
+    <string name="serving_size">Serving: %1$s</string>
+    <string name="fat_content">Fat: %1$sg (Sat: %2$sg)</string>
+    <string name="protein_content">Protein: %1$sg</string>
+    <string name="carbs_content">Carbs: %1$sg (Sugar: %2$sg, Fiber: %3$sg)</string>
+    <string name="minerals_content">Sodium: %1$smg | Potassium: %2$smg</string>
+    <string name="cholesterol_content">Cholesterol: %1$smg</string>
+
+    <!-- Meal Item Strings -->
+    <string name="meal_title">Meal Title</string>
+    <string name="meal_category">Category: %1$s</string>
+    <string name="meal_calories">Calories: %1$d (%2$d servings)</string>
+    <string name="meal_ingredients">Ingredients: %1$s</string>
+
+    <!-- Location Item Strings -->
+    <string name="location_name_placeholder">Location Name</string>
+    <string name="location_address_placeholder">Location Address</string>
+    <string name="location_description_placeholder">Location Description</string>
+
+    <!-- Leaderboard Item Strings -->
+    <string name="rank_number">%1$d</string>
+    <string name="points">%1$d</string>
+
+    <!-- Exercise Item Strings -->
+    <string name="exercise_name">Exercise Name</string>
+    <string name="edit_exercise">Edit</string>
+    <string name="exercise_details">Exercise Details</string>
+    <string name="activity_description">Activity Description</string>
+
+    <!-- Achievement Item Strings -->
+    <string name="goal_name">Goal Name</string>
+    <string name="progress_text">Progress Text</string>
+    <string name="progress_hint">Enter progress</string>
+    <string name="update_button">Update</string>
+    <string name="delete_button">Delete</string>
+
+    <!-- Dialog Edit Exercise Strings -->
+    <string name="activity_label">Activity</string>
+    <string name="weight_hint">Weight (kg)</string>
+    <string name="reps_hint">Reps</string>
+    <string name="sets_hint">Sets</string>
+    <string name="save_changes">Save Changes</string>
+
+    <!-- Dialog Add Workout Strings -->
+    <string name="workout_name_hint">Workout Name</string>
+    <string name="workout_timer_hint">Workout Timer (seconds)</string>
+    <string name="save">Save</string>
+
+    <!-- Dialog Add Location Strings -->
+    <string name="location_name_hint">Location Name</string>
+    <string name="latitude_hint">Latitude (e.g., 42.6500)</string>
+    <string name="longitude_hint">Longitude (e.g., 23.4134)</string>
+    <string name="address_hint">Address</string>
+    <string name="description_hint">Description (optional)</string>
+
+    <!-- Dialog Add Exercise Strings -->
+    <string name="select_activity">Select Activity</string>
+    <string name="save_exercise">Save Exercise</string>
+
+    <!-- Coach Item Strings -->
+    <string name="remove_coach">Remove</string>
+    <string name="registration_title">TU Fitness</string>
+    <string name="email_hint">Email</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="register_button">Register</string>
+    <string name="or_divider">OR</string>
+    <string name="login_redirect">Already have an account? Login</string>
+
+    <!-- Profile Screen -->
+    <string name="profile_title">My profile</string>
+    <string name="name_hint">Name</string>
+    <string name="gender_label">Gender</string>
+    <string name="phone_hint">Phone Number</string>
+    <string name="birth_date_label">Date of Birth</string>
+    <string name="birth_date_hint">Select date</string>
+    <string name="height_hint">Height (cm)</string>
+    <string name="weight_hint_kg">Weight (kg)</string>
+    <string name="update_profile_button">Update Profile</string>
+    <string name="delete_profile_button">Delete Profile</string>
+
+    <!-- Workout Details Screen -->
+    <string name="workout_title_placeholder">Workout Name</string>
+    <string name="start_rest_button">Start Rest</string>
+
+    <!-- User Locations Screen -->
+    <string name="locations_title">You want location? Choose!</string>
+    <string name="set_location_button">Set My Starting Location</string>
+
+    <!-- Coaches List Screen -->
+    <string name="coaches_title">Coaches List</string>
+
+    <!-- Calculator Selection Screen -->
+    <string name="calculator_title">Choose Calculator</string>
+    <string name="calculator_subtitle">Calculate in seconds</string>
+    <string name="bmi_calculator_button">BMI Calculator</string>
+    <string name="bmi_calculator_description">The Body Mass Index (BMI) Calculator can be used to calculate BMI value and corresponding weight status while taking age into consideration.</string>
+    <string name="calorie_calculator_button">Calorie Calculator</string>
+    <string name="calorie_calculator_description">The Calorie Calculator can be used to estimate the number of calories a person needs to consume each day.</string>
+    <string name="bmi_calculator_title_correct">BMI Calculator</string>
+
+    <!-- Additional strings from activity_profile.xml -->
+    <string name="email_profile_hint">Email</string>
+
+    <!-- Additional strings from activity_pick_calculator.xml -->
+    <string name="choose_calculator">Choose Calculator</string>
+
+    <!-- Additional strings from activity_meal_plan_page.xml -->
+    <string name="about_your_meals">About your meals</string>
+    <string name="food_choices_matter">Your food choices matter!</string>
+    <string name="meal_plan_button">Meal Plan</string>
+    <string name="meal_plan_description">Get your daily meal plan within the calories you want.</string>
+    <string name="check_calories_button">Check Calories</string>
+    <string name="check_calories_description">See how much calories are in the food you eat.</string>
+    <string name="eat_wise">Eat wise!!!</string>
+
+    <!-- Additional strings from activity_meal_plan.xml -->
+    <string name="find_meal_plan">Find your meal plan</string>
+    <string name="enter_calories_hint">Enter calories (kcal)</string>
+    <string name="search_button">Search</string>
+    <string name="enter_calories_message">Enter calories to find meal plans</string>
+
+    <!-- New strings from activity_meal_plan.xml -->
+    <string name="meal_plan_title">Find your meal plan</string>
+
+    <!-- New strings from activity_main_workout.xml -->
+    <string name="workout_title">Workout</string>
+    <string name="add_workout">+</string>
+
+    <!-- New strings from activity_main.xml (Login) -->
+    <string name="app_title">TU Fitness</string>
+    <string name="login_button">Login</string>
+    <string name="signup_prompt">Don\'t have an account?  Sign up</string>
+
+    <!-- New strings from activity_leader_board.xml -->
+    <string name="leaderboard_title">LeaderBoard</string>
+
+    <!-- New strings from activity_home_page.xml -->
+    <string name="app_name_part1">TU</string>
+    <string name="app_name_part2">Fitness</string>
+    <string name="meals_button">Meals</string>
+    <string name="locations_button">Locations</string>
+    <string name="calendar_button">Calendar</string>
+    <string name="coach_button">Coach</string>
+    <string name="social_button">Social</string>
+    <string name="friends_button">Friends</string>
+    <string name="calculator_button">Calculator</string>
+    <string name="leaderboard_button">LeaderBoard</string>
+    <string name="challenges_button">Challenges</string>
+    <string name="workout_button">Workout</string>
+
+    <!-- New strings from activity_check_calories.xml -->
+    <string name="check_food_calories_title">Check food calories</string>
+    <string name="food_search_hint">Enter food (e.g., 1lb brisket and fries)</string>
+    <string name="empty_search_state">Enter a food to see nutrition information</string>
+
+    <!-- New strings from activity_challenge_proofactivity.xml -->
+    <string name="challenge_proof_title">Challenge Proof</string>
+    <string name="challenge_title_placeholder">Challenge Title</string>
+    <string name="challenge_description_placeholder">Challenge description goes here...</string>
+    <string name="challenge_difficulty_format">Difficulty: %1$s</string>
+    <string name="challenge_points_format">%1$d</string>
+    <string name="before_label">Before</string>
+    <string name="after_label">After</string>
+    <string name="take_before_photo">Take Before Photo</string>
+    <string name="take_after_photo">Take After Photo</string>
+    <string name="experience_question">How was your experience?</string>
+    <string name="experience_hint">Share your experience...</string>
+    <string name="submit_experience">Submit Experience</string>
+    <string name="complete_challenge">Complete Challenge</string>
+    <string name="before_image_description">Before image</string>
+    <string name="after_image_description">After image</string>
+
+    <!-- New strings for activity_challenge.xml -->
+    <string name="challenges_title">Challenges</string>
+    <string name="dumbbell_icon_description">Dumbbell icon</string>
+    <string name="greeting_message">Hello, User!\nAre you ready for your challenges of the day? :)</string>
+    <string name="confirm_button">Confirm</string>
+
+    <!-- New strings for activity_challenge_animation.xml -->
+    <string name="congrats_text">Congratulations!\nYou rock!</string>
+    <string name="points_earned_label">YOU JUST EARNED</string>
+    <string name="dumbbell_image_description">Dumbbell image</string>
+    <string name="continue_button">CONTINUE</string>
+
+    <!-- New strings from activity_calculator.xml -->
+    <string name="bmi_calculator_title">BMI Calculator</string>
+    <string name="weight_label">Weight</string>
+    <string name="kg_unit">Kg</string>
+    <string name="height_label">Height</string>
+    <string name="cm_unit">Cm</string>
+    <string name="calculate_button">Calculate</string>
+    <string name="home_button">Home</string>
+
+    <!-- New strings from activity_calorie_calculator.xml -->
+    <string name="calorie_calculator_title">BMI Calculator</string>
+    <string name="age_label">Age</string>
+    <string name="years_unit">Years</string>
+    <string name="male_label">Male</string>
+    <string name="female_label">Female</string>
+
+    <!-- New strings from activity_calendar2.xml -->
+    <string name="calendar_screen_title">Calendar</string>
+    <string name="select_date_prompt">Select a Date</string>
+    <string name="tap_date_instructions">Tap on a date to select/unselect</string>
+    <string name="all_selected_dates_heading">All Selected Dates:</string>
+
+    <!-- Additional strings needed for activity_calendar2.xml -->
+    <string name="sunday_initial">S</string>
+    <string name="monday_initial">M</string>
+    <string name="tuesday_initial">T</string>
+    <string name="wednesday_initial">W</string>
+    <string name="thursday_initial">T</string>
+    <string name="friday_initial">F</string>
+    <string name="saturday_initial">S</string>
+    <string name="home_button_text">Home</string>
+
+    <!-- New strings for Admin Coaches screen -->
+    <string name="admin_coaches_title">Coaches List</string>
+    <string name="coach_name_hint">Coach Name</string>
+    <string name="coach_specialization_hint">Specialization</string>
+    <string name="coach_contact_info_hint">Contact Info</string>
+    <string name="add_coach_button">Add Coach</string>
+
+    <!-- New strings for Admin Locations screen -->
+    <string name="admin_locations_title">Manage Locations</string>
+    <string name="add_location_button">Add Location</string>
+
+    <!-- Some toast messages -->
+    <string name="database_error">Error reading from database</string>
+    <!-- Register Activity Toast Messages -->
+    <string name="toast_empty_fields">Please fill in all fields</string>
+    <string name="toast_passwords_mismatch">Passwords do not match</string>
+    <string name="toast_password_requirements">Password must be at least 8 characters long and contain:\n- Uppercase letter\n- Lowercase letter\n- Number\n- Special character (!@#$%^&amp;*()_+)</string>
+    <string name="toast_invalid_email">Please enter a valid email address!</string>
+    <string name="toast_username_taken">Username is already taken</string>
+    <string name="toast_email_registered">Email is already registered</string>
+    <string name="toast_register_success">User registered successfully!</string>
+    <string name="toast_register_fail">Failed to register user: %1$s</string>
+
+    <!-- Login Activity Toast Messages -->
+    <string name="toast_db_init_error">Error initializing app: %1$s</string>
+    <string name="toast_login_empty_fields">Please fill in all fields</string>
+    <string name="toast_login_success">User logged in successfully!</string>
+    <string name="toast_login_fail">Failed to login user: %1$s</string>
+    <string name="toast_login_error">Unexpected error: %1$s</string>
+    <string name="toast_login_attempts">Too many failed login attempts</string>
+    <string name="toast_invalid_credentials">Invalid email or password</string>
+
+    <!-- Profile Activity Toast Messages -->
+    <string name="toast_invalid_user_id">Invalid User ID</string>
+    <string name="toast_avatar_updated">Avatar updated</string>
+    <string name="toast_user_id_not_found">User ID not found</string>
+    <string name="toast_user_info_not_found">User info not found</string>
+    <string name="toast_profile_updated">Profile updated successfully</string>
+    <string name="toast_profile_deleted">Profile deleted successfully</string>
+
+    <!-- Post Activity Toast Messages -->
+    <string name="toast_invalid_user">Invalid User</string>
+    <string name="toast_empty_post_fields">Title and message cannot be empty</string>
+    <string name="toast_post_created">Post created successfully!</string>
+    <string name="toast_delete_own_posts">You can only delete your own posts</string>
+    <string name="toast_camera_permission_denied">Camera permission denied</string>
+    <string name="toast_camera_error">Camera error: %1$s</string>
+
+    <!-- Friends Activity Toast Messages -->
+    <string name="toast_enter_username">Enter a username</string>
+    <string name="toast_user_not_found">User not found</string>
+    <string name="toast_cannot_add_self">You cannot add yourself</string>
+    <string name="toast_already_added">Already added</string>
+    <string name="toast_cannot_delete_self">You cannot delete yourself</string>
+    <string name="toast_user_deleted">User deleted</string>
+
 </resources>

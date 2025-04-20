@@ -39,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:text="Edit"
+                    android:text="@string/edit_exercise"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
             </RelativeLayout>

@@ -38,7 +38,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Workout Name"
+                    android:text="@string/workout_name"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -49,7 +49,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Rest: X sec"
+                    android:text="@string/workout_timer"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     tools:ignore="Suspicious0dp" />
@@ -59,7 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="Options"
+                    android:text="@string/workout_options"
                     android:textColor="@color/black"
                     android:paddingTop="8dp"/>
             </LinearLayout>
