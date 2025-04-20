@@ -37,7 +37,7 @@
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:gravity="center"
-                android:text="@string/registration_title"
+                android:text="TU Fitness"
                 android:textSize="40sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
@@ -66,7 +66,7 @@
                     android:id="@+id/tEmailRegister"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/email_hint"
+                    android:hint="Email"
                     android:inputType="textEmailAddress"
                     android:textColor="@color/black"
                     android:textColorHint="@color/text_hint"
@@ -102,7 +102,7 @@
                     android:id="@+id/tUsernameRegister"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/username_hint"
+                    android:hint="Username"
                     android:inputType="text"
                     android:textColor="@color/black"
                     android:textColorHint="@color/text_hint"
@@ -139,7 +139,7 @@
                     android:id="@+id/tPassRegister"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/password_hint"
+                    android:hint="Password"
                     android:inputType="textPassword"
                     android:textColor="@color/black"
                     android:textColorHint="@color/text_hint"
@@ -172,7 +172,7 @@
                     android:id="@+id/tPassConfirmRegister"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/confirm_password_hint"
+                    android:hint="Confirm Password"
                     android:inputType="textPassword"
                     android:textColor="@color/black"
                     android:textColorHint="@color/text_hint"
@@ -190,12 +190,17 @@
                 android:layout_marginTop="-9dp"
                 android:layout_marginBottom="8dp"/>
 
+            <!--<View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/black" />-->
+
             <Button
                 android:id="@+id/btSubmit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:text="@string/register_button"
+                android:text="Register"
                 android:textStyle="bold"
                 android:textSize="19sp"
                 android:textColor="@color/black"
@@ -221,7 +226,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/or_divider"
+                    android:text="OR"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -240,7 +245,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:text="@string/login_redirect"
+                android:text="Already have an account? Login"
                 android:textStyle="bold"
                 android:textSize="13sp"
                 android:textColor="@color/black"/>

@@ -69,7 +69,7 @@
                     android:layout_gravity="top|center"
                     android:backgroundTint="@color/red"
                     android:gravity="center"
-                    android:text="@string/remove_coach"
+                    android:text="Remove"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"

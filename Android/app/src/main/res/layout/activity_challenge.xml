@@ -9,12 +9,12 @@
     android:background="@color/yellow"
     tools:context=".challenge.ChallengeActivity">
 
-    <!-- Title -->
+    <!-- Заглавие -->
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="200dp"
         android:layout_height="70dp"
-        android:text="@string/challenges_title"
+        android:text="Challenges"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -28,7 +28,7 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:src="@drawable/fitness"
-        android:contentDescription="@string/dumbbell_icon_description"
+        android:contentDescription="Dumbbell icon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
@@ -46,7 +46,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imgDumbbell"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp" />
-    <!-- Main card -->
+    <!-- Основна карта -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -70,13 +70,13 @@
                 android:gravity="center"
                 android:paddingHorizontal="20dp">
 
-                <!-- Greeting -->
+                <!-- Приветствие -->
                 <TextView
                     android:id="@+id/tvGreeting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:text="@string/greeting_message"
+                    android:text="Hello, User!\nAre you ready for your challenges of the day? :)"
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -109,13 +109,13 @@
                         android:text="RadioButton" />
                 </RadioGroup>
 
-                <!-- Confirm button -->
+                <!-- Confirm бутон -->
                 <Button
                     android:id="@+id/btnConfirm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    android:text="@string/confirm_button"
+                    android:text="Confirm"
                     android:textSize="18sp"
                     android:enabled="false"
                     android:textColor="@color/white"
@@ -148,7 +148,7 @@
                 app:iconGravity="top"
                 app:iconPadding="4dp"
                 app:iconTint="@color/black"
-                android:text="@string/home"
+                android:text="Home"
                 android:textSize="11sp"
                 android:textColor="@color/black"
                 app:cornerRadius="70dp"

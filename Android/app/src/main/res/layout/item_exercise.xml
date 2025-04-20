@@ -29,7 +29,6 @@
                     android:id="@+id/tvExerciseName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/exercise_name"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -40,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:text="@string/edit_exercise"
+                    android:text="Edit"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
             </RelativeLayout>
@@ -51,7 +50,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginTop="8dp"
-                android:text="@string/exercise_details"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 tools:ignore="Suspicious0dp" />
@@ -62,7 +60,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginTop="8dp"
-                android:text="@string/activity_description"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 tools:ignore="Suspicious0dp" />

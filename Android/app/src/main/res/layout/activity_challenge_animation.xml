@@ -25,7 +25,7 @@
             android:id="@+id/tvCongrats"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/congrats_text"
+            android:text="Congratulations!\nYou rock!"
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -38,7 +38,7 @@
         android:id="@+id/tvPointsLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/points_earned_label"
+        android:text="YOU JUST EARNED"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -63,13 +63,15 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Dumbbell image - properly constrained -->
+
+    <!-- Continue button -->
+
     <ImageView
         android:id="@+id/imgdumbell"
         android:layout_width="334dp"
         android:layout_height="358dp"
         android:scaleType="fitCenter"
         android:src="@drawable/dum"
-        android:contentDescription="@string/dumbbell_image_description"
         app:layout_constraintBottom_toTopOf="@id/btnContinue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -77,12 +79,11 @@
         app:layout_constraintTop_toBottomOf="@id/tvPointsLabel"
         app:layout_constraintVertical_bias="0.155" />
 
-    <!-- Continue button -->
     <Button
         android:id="@+id/btnContinue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/continue_button"
+        android:text="CONTINUE"
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:backgroundTint="@color/black"

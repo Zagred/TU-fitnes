@@ -37,7 +37,7 @@
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:gravity="center"
-                android:text="@string/app_title"
+                android:text="TU Fitness"
                 android:textSize="40sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
@@ -66,7 +66,7 @@
                     android:id="@+id/tEmailLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/email_hint"
+                    android:hint="Email"
                     android:inputType="textEmailAddress"
                     android:textColor="@color/black"
                     android:textColorHint="@color/text_hint"
@@ -104,7 +104,7 @@
                     android:id="@+id/tPassLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/password_hint"
+                    android:hint="Password"
                     android:inputType="textPassword"
                     android:textColor="@color/black"
                     android:textColorHint="@color/text_hint"
@@ -133,7 +133,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:text="@string/login_button"
+                android:text="Login"
                 android:textStyle="bold"
                 android:textSize="19sp"
                 android:textColor="@color/black"
@@ -159,7 +159,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/or_divider"
+                    android:text="OR"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -178,51 +178,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:text="@string/signup_prompt"
+                android:text="Don't have an account?  Sign up"
                 android:textStyle="bold"
                 android:textSize="13sp"
                 android:textColor="@color/black"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginTop="8dp">
-
-            <Button
-                android:id="@+id/btBulgarian"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:text="BG"
-                android:textStyle="bold"
-                android:textSize="14sp"
-                android:textColor="@color/black"
-                android:padding="4dp"
-                android:minHeight="0dp"
-                android:minWidth="0dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="|"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:layout_marginHorizontal="4dp"/>
-
-            <Button
-                android:id="@+id/btEnglish"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:text="EN"
-                android:textStyle="bold"
-                android:textSize="14sp"
-                android:textColor="@color/black"
-                android:padding="4dp"
-                android:minHeight="0dp"
-                android:minWidth="0dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

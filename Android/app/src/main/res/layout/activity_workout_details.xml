@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingStart="16dp"
-            android:text="@string/workout_title_placeholder"
+            android:text="Workout Name"
             android:textColor="@color/white"
             android:textSize="40sp"
             android:textStyle="bold"
@@ -68,34 +68,34 @@
                     android:weightSum="2"
                     android:gravity="center_vertical">
 
-                    <TextView
-                        android:id="@+id/startTimer"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1.5"
-                        android:layout_marginEnd="190dp"
-                        android:gravity="center_vertical|start"
-                        android:layout_gravity="center"
-                        android:paddingStart="15dp"
-                        android:background="@drawable/pick_calculator_text"
-                        android:drawableLeft="@drawable/timer"
-                        android:text="@string/start_rest_button"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        app:layout_constraintEnd_toStartOf="@+id/addExercise"
-                        app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/startTimer"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1.5"
+                    android:layout_marginEnd="190dp"
+                    android:gravity="center_vertical|start"
+                    android:layout_gravity="center"
+                    android:paddingStart="15dp"
+                    android:background="@drawable/pick_calculator_text"
+                    android:drawableLeft="@drawable/timer"
+                    android:text="Start Rest"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toStartOf="@+id/addExercise"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/addExercise"
-                        android:layout_width="0dp"
-                        android:layout_height="45dp"
-                        android:layout_weight="0.5"
-                        android:gravity="center"
-                        android:background="@drawable/circle"
-                        android:layout_marginEnd="0dp"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="@color/white"/>
+                <TextView
+                    android:id="@+id/addExercise"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:background="@drawable/circle"
+                    android:layout_marginEnd="0dp"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"/>
                 </LinearLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -133,7 +133,7 @@
                 app:iconGravity="top"
                 app:iconPadding="4dp"
                 app:iconTint="@color/black"
-                android:text="@string/home"
+                android:text="Home"
                 android:textSize="11sp"
                 android:textColor="@color/black"
                 app:cornerRadius="70dp"

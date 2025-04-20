@@ -9,7 +9,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.myapplication.BaseActivity
 import com.example.myapplication.HomePage
 import com.example.myapplication.R
 import com.example.myapplication.datamanager.AppDatabase
@@ -18,10 +17,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import com.example.myapplication.datamanager.LoggedUser
-import com.example.myapplication.utils.LocaleHelper
 
 
-class Login : BaseActivity() {
+
+class Login : AppCompatActivity() {
     private lateinit var userDAO: UserDAO
     private var loginAttempts = 0
 
@@ -31,15 +30,7 @@ class Login : BaseActivity() {
 
         val login = findViewById<Button>(R.id.btLogin)
         val register = findViewById<Button>(R.id.btRegister)
-        val btnBulgarian = findViewById<Button>(R.id.btBulgarian)
-        val btnEnglish = findViewById<Button>(R.id.btEnglish)
-        btnBulgarian.setOnClickListener {
-            changeLanguage("bg")
-        }
 
-        btnEnglish.setOnClickListener {
-            changeLanguage("en")
-        }
         try {
             val db = AppDatabase.getInstance(applicationContext)
             userDAO = db.userDAO()
@@ -62,10 +53,7 @@ class Login : BaseActivity() {
             ).show()
         }
     }
-    private fun changeLanguage(languageCode: String) {
-        LocaleHelper.setLocale(this, languageCode)
-        recreate()
-    }
+
     private suspend fun login() {
         try {
             val email = findViewById<EditText>(R.id.tEmailLogin).text.toString()

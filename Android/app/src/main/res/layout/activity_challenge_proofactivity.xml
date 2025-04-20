@@ -14,7 +14,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:text="@string/challenge_proof_title"
+        android:text="Challenge Proof"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -52,7 +52,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:text="@string/challenge_title_placeholder"
+                    android:text="Challenge Title"
                     android:textSize="24sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -63,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="@string/challenge_description_placeholder"
+                    android:text="Challenge description goes here..."
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:gravity="center" />
@@ -79,7 +79,7 @@
                         android:id="@+id/tvChallengeDifficulty"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/challenge_difficulty_format"
+                        android:text="Difficulty: MEDIUM"
                         android:textSize="14sp"
                         android:textColor="@color/black"
                         android:layout_marginEnd="16dp" />
@@ -89,7 +89,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableRight="@drawable/min_fitness"
-                        android:text="@string/challenge_points_format"
+                        android:text="2 "
                         android:textSize="14sp"
                         android:textColor="@color/black" />
                 </LinearLayout>
@@ -97,7 +97,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/before_label"
+                    android:text="Before"
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -111,13 +111,13 @@
                     android:layout_marginTop="8dp"
                     android:background="#EEEEEE"
                     android:scaleType="centerCrop"
-                    android:contentDescription="@string/before_image_description" />
+                    android:contentDescription="Before image" />
 
                 <Button
                     android:id="@+id/btnTakeBefore"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/take_before_photo"
+                    android:text="Take Before Photo"
                     android:layout_marginTop="8dp"
                     android:backgroundTint="@color/black"
                     app:cornerRadius="20dp" />
@@ -125,7 +125,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/after_label"
+                    android:text="After"
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -139,13 +139,13 @@
                     android:layout_marginTop="8dp"
                     android:background="#EEEEEE"
                     android:scaleType="centerCrop"
-                    android:contentDescription="@string/after_image_description" />
+                    android:contentDescription="After image" />
 
                 <Button
                     android:id="@+id/btnTakeAfter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/take_after_photo"
+                    android:text="Take After Photo"
                     android:layout_marginTop="8dp"
                     android:backgroundTint="@color/black"
                     app:cornerRadius="20dp" />
@@ -153,7 +153,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/experience_question"
+                    android:text="How was your experience?"
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -167,7 +167,7 @@
                     android:layout_gravity="left"
                     android:layout_marginTop="8dp"
                     android:background="@android:drawable/editbox_background"
-                    android:hint="@string/experience_hint"
+                    android:hint="Share your experience..."
                     android:inputType="textMultiLine"
                     android:minLines="3"
                     android:padding="10dp" />
@@ -179,7 +179,7 @@
                     android:layout_gravity="right"
                     android:layout_marginTop="10dp"
                     android:backgroundTint="@color/black"
-                    android:text="@string/submit_experience"
+                    android:text="Submit Experience"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     app:cornerRadius="40dp" />
@@ -191,7 +191,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="50dp"
                     android:backgroundTint="@color/red"
-                    android:text="@string/complete_challenge"
+                    android:text="Complete Challenge"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     app:cornerRadius="40dp" />
