@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingStart="16dp"
-            android:text="Calendar"
+            android:text="@string/calendar_screen_title"
             android:textColor="@color/white"
             android:textSize="40sp"
             android:textStyle="bold"
@@ -87,7 +87,7 @@
                         android:layout_weight="0.5"
                         android:gravity="center"
                         android:background="@drawable/main_text"
-                        android:text="Select a Date"
+                        android:text="@string/select_date_prompt"
                         android:textSize="30sp"
                         android:textColor="@color/black"
                         android:textStyle="bold"
@@ -123,7 +123,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="S"
+                        android:text="@string/sunday_initial"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
@@ -132,7 +132,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="M"
+                        android:text="@string/monday_initial"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
@@ -141,7 +141,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="T"
+                        android:text="@string/tuesday_initial"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
@@ -150,7 +150,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="W"
+                        android:text="@string/wednesday_initial"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
@@ -159,7 +159,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="T"
+                        android:text="@string/thursday_initial"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
@@ -168,7 +168,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="F"
+                        android:text="@string/friday_initial"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
@@ -177,7 +177,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="S"
+                        android:text="@string/saturday_initial"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -202,7 +202,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="Tap on a date to select/unselect"
+                        android:text="@string/tap_date_instructions"
                         android:textColor="@color/black"
                         android:textSize="17sp"/>
 
@@ -213,7 +213,7 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:layout_marginTop="20dp"
-                        android:text="All Selected Dates:"
+                        android:text="@string/all_selected_dates_heading"
                         android:textColor="@color/black"
                         android:textSize="19sp"/>
 
@@ -261,7 +261,7 @@
                 app:iconGravity="top"
                 app:iconPadding="4dp"
                 app:iconTint="@color/black"
-                android:text="Home"
+                android:text="@string/home_button_text"
                 android:textSize="11sp"
                 android:textColor="@color/black"
                 app:cornerRadius="70dp"

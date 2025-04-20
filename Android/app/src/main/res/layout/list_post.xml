@@ -45,7 +45,7 @@
                     app:boxStrokeColor="@android:color/black"
                     app:boxStrokeWidth="2dp"
                     app:boxBackgroundColor="@color/white"
-                    android:hint="Title of the post"
+                    android:hint="@string/post_title_hint"
                     android:textColorHint="@color/black"
                     android:textSize="22sp"
                     android:textStyle="bold"
@@ -60,7 +60,7 @@
                     app:boxStrokeColor="@android:color/black"
                     app:boxStrokeWidth="2dp"
                     app:boxBackgroundColor="@color/white"
-                    android:hint="Your post..."
+                    android:hint="@string/your_post_hint"
                     android:textColorHint="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -79,6 +79,7 @@
                     android:scaleType="fitCenter"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
+                    android:contentDescription="@string/post_image_description"
                     android:visibility="gone" />
 
                 <!-- Username layout with friend icon -->
@@ -106,7 +107,8 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_marginStart="8dp"
-                        android:src="@drawable/friends"
+                        android:src="@drawable/ic_friend"
+                        android:contentDescription="@string/friend_icon_description"
                         android:visibility="gone" />
                 </LinearLayout>
 
@@ -115,7 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/red"
-                    android:text="Delete"
+                    android:text="@string/delete"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
