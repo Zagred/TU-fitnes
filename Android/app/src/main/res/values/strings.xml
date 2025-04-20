@@ -283,49 +283,4 @@
     <string name="admin_locations_title">Manage Locations</string>
     <string name="add_location_button">Add Location</string>
 
-    <!-- Some toast messages -->
-    <string name="database_error">Error reading from database</string>
-    <!-- Register Activity Toast Messages -->
-    <string name="toast_empty_fields">Please fill in all fields</string>
-    <string name="toast_passwords_mismatch">Passwords do not match</string>
-    <string name="toast_password_requirements">Password must be at least 8 characters long and contain:\n- Uppercase letter\n- Lowercase letter\n- Number\n- Special character (!@#$%^&amp;*()_+)</string>
-    <string name="toast_invalid_email">Please enter a valid email address!</string>
-    <string name="toast_username_taken">Username is already taken</string>
-    <string name="toast_email_registered">Email is already registered</string>
-    <string name="toast_register_success">User registered successfully!</string>
-    <string name="toast_register_fail">Failed to register user: %1$s</string>
-
-    <!-- Login Activity Toast Messages -->
-    <string name="toast_db_init_error">Error initializing app: %1$s</string>
-    <string name="toast_login_empty_fields">Please fill in all fields</string>
-    <string name="toast_login_success">User logged in successfully!</string>
-    <string name="toast_login_fail">Failed to login user: %1$s</string>
-    <string name="toast_login_error">Unexpected error: %1$s</string>
-    <string name="toast_login_attempts">Too many failed login attempts</string>
-    <string name="toast_invalid_credentials">Invalid email or password</string>
-
-    <!-- Profile Activity Toast Messages -->
-    <string name="toast_invalid_user_id">Invalid User ID</string>
-    <string name="toast_avatar_updated">Avatar updated</string>
-    <string name="toast_user_id_not_found">User ID not found</string>
-    <string name="toast_user_info_not_found">User info not found</string>
-    <string name="toast_profile_updated">Profile updated successfully</string>
-    <string name="toast_profile_deleted">Profile deleted successfully</string>
-
-    <!-- Post Activity Toast Messages -->
-    <string name="toast_invalid_user">Invalid User</string>
-    <string name="toast_empty_post_fields">Title and message cannot be empty</string>
-    <string name="toast_post_created">Post created successfully!</string>
-    <string name="toast_delete_own_posts">You can only delete your own posts</string>
-    <string name="toast_camera_permission_denied">Camera permission denied</string>
-    <string name="toast_camera_error">Camera error: %1$s</string>
-
-    <!-- Friends Activity Toast Messages -->
-    <string name="toast_enter_username">Enter a username</string>
-    <string name="toast_user_not_found">User not found</string>
-    <string name="toast_cannot_add_self">You cannot add yourself</string>
-    <string name="toast_already_added">Already added</string>
-    <string name="toast_cannot_delete_self">You cannot delete yourself</string>
-    <string name="toast_user_deleted">User deleted</string>
-
 </resources>

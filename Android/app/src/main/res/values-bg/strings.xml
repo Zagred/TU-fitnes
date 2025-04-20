@@ -8,7 +8,7 @@
     <string name="welcome">Добре дошъл!</string>
     <string name="invalid_username">Невалидно потребителско име</string>
     <string name="invalid_password">Паролата трябва да е над 5 символа</string>
-    <string name="login_failed">Входът е неуспешен</string>
+    <string name="login_failed">Входът неуспешен</string>
     <string name="my_map_api_key">AIzaSyA5MuL3YX5vAtpCXnA5XrEYoffb2MyV-yc</string>
     <string-array name="gender_options">
         <item>Мъж</item>
@@ -51,7 +51,7 @@
     <string name="workout_options">Опции</string>
 
     <!-- Nutrition Item Strings -->
-    <string name="food_name">Въведи храна</string>
+    <string name="food_name">Име на храна</string>
     <string name="calories">Калории: %1$d</string>
     <string name="serving_size">Порция: %1$s</string>
     <string name="fat_content">Мазнини: %1$sg (Наситени: %2$sg)</string>
@@ -113,7 +113,7 @@
 
     <!-- Coach Item Strings -->
     <string name="remove_coach">Премахни</string>
-    <string name="registration_title">TU Fitness</string>
+    <string name="registration_title">TU Фитнес</string>
     <string name="email_hint">Имейл</string>
     <string name="username_hint">Потребителско име</string>
     <string name="password_hint">Парола</string>
@@ -139,8 +139,8 @@
     <string name="start_rest_button">Започни почивка</string>
 
     <!-- User Locations Screen -->
-    <string name="locations_title">Търсиш фитнес? Избери си!</string>
-    <string name="set_location_button">Задай начално местоположение</string>
+    <string name="locations_title">Искаш място? Избери!</string>
+    <string name="set_location_button">Задай начално място</string>
 
     <!-- Coaches List Screen -->
     <string name="coaches_title">Списък с треньори</string>
@@ -151,7 +151,7 @@
     <string name="bmi_calculator_button">BMI Калкулатор</string>
     <string name="bmi_calculator_description">BMI калкулаторът изчислява индекса на телесната маса според възрастта.</string>
     <string name="calorie_calculator_button">Калориен Калкулатор</string>
-    <string name="calorie_calculator_description">Калорийният калкулатор изчислява нужните калории за деня.</string>
+    <string name="calorie_calculator_description">Калорийният калкулатор изчислява нужните калории на ден.</string>
     <string name="bmi_calculator_title_correct">BMI Калкулатор</string>
 
     <!-- Additional strings from activity_profile.xml -->
@@ -161,10 +161,10 @@
     <string name="choose_calculator">Избери калкулатор</string>
 
     <!-- Additional strings from activity_meal_plan_page.xml -->
-    <string name="about_your_meals">За твоя хранителен режим</string>
+    <string name="about_your_meals">За твоите хранения</string>
     <string name="food_choices_matter">Твоят избор на храна има значение!</string>
     <string name="meal_plan_button">Хранителен план</string>
-    <string name="meal_plan_description">Вземи своя хранителен план според избраните калории.</string>
+    <string name="meal_plan_description">Вземи план според избраните калории.</string>
     <string name="check_calories_button">Провери калории</string>
     <string name="check_calories_description">Виж колко калории има в храната.</string>
     <string name="eat_wise">Храни се разумно!!!</string>
@@ -173,7 +173,7 @@
     <string name="find_meal_plan">Намери хранителен план</string>
     <string name="enter_calories_hint">Въведи калории (kcal)</string>
     <string name="search_button">Търси</string>
-    <string name="enter_calories_message">Въведи калории, за да откриеш своя план</string>
+    <string name="enter_calories_message">Въведи калории, за да откриеш план</string>
     <string name="meal_plan_title">Намери своя хранителен план</string>
 
     <!-- New strings from activity_main_workout.xml -->
@@ -181,21 +181,21 @@
     <string name="add_workout">+</string>
 
     <!-- New strings from activity_main.xml -->
-    <string name="app_title">TU Fitness</string>
+    <string name="app_title">TU Фитнес</string>
     <string name="login_button">Вход</string>
-    <string name="signup_prompt">Нямаш създаден акаунт? Регистрирай се</string>
+    <string name="signup_prompt">Нямаш акаунт? Регистрирай се</string>
 
     <!-- LeaderBoard -->
     <string name="leaderboard_title">Класация</string>
 
     <!-- Home Page -->
-    <string name="app_name_part1">TU</string>
-    <string name="app_name_part2">Fitness</string>
-    <string name="meals_button">Хранителен режим</string>
-    <string name="locations_button">Локации</string>
+    <string name="app_name_part1">TU Фитнес</string>
+    <string name="app_name_part2">Фитнес</string>
+    <string name="meals_button">Храна</string>
+    <string name="locations_button">Места</string>
     <string name="calendar_button">Календар</string>
     <string name="coach_button">Треньор</string>
-    <string name="social_button">Социална мрежа</string>
+    <string name="social_button">Социално</string>
     <string name="friends_button">Приятели</string>
     <string name="calculator_button">Калкулатор</string>
     <string name="leaderboard_button">Класация</string>
@@ -215,8 +215,8 @@
     <string name="challenge_points_format">%1$d</string>
     <string name="before_label">Преди</string>
     <string name="after_label">След</string>
-    <string name="take_before_photo">Снимай се преди</string>
-    <string name="take_after_photo">Снимай се след</string>
+    <string name="take_before_photo">Снимай преди</string>
+    <string name="take_after_photo">Снимай след</string>
     <string name="experience_question">Как беше преживяването?</string>
     <string name="experience_hint">Сподели впечатленията си...</string>
     <string name="submit_experience">Изпрати</string>
@@ -227,7 +227,7 @@
     <!-- Challenge -->
     <string name="challenges_title">Предизвикателства</string>
     <string name="dumbbell_icon_description">Икона с дъмбел</string>
-    <string name="greeting_message">Здравей, потребителю!\nГотов/а ли си за днешните предизвикателства? :)</string>
+    <string name="greeting_message">Здравей, потребителю!\nГотов ли си за днешните предизвикателства? :)</string>
     <string name="confirm_button">Потвърди</string>
 
     <!-- Challenge Animation -->
@@ -276,49 +276,4 @@
     <!-- Admin Locations -->
     <string name="admin_locations_title">Управление на места</string>
     <string name="add_location_button">Добави място</string>
-
-    <!-- Some toast messages -->
-    <string name="database_error">Грешка с базата данни</string>
-    <!-- Register Activity Toast Messages -->
-    <string name="toast_empty_fields">Моля попълнете всички полета</string>
-    <string name="toast_passwords_mismatch">Паролите не съвпадат</string>
-    <string name="toast_password_requirements">Паролата трябва да е поне 8 символа дълга и да съдържа\n- Главна буква\n- Малка буква\n- Цифра\n- Специален знак (!@#$%^&amp;*()_+)</string>
-    <string name="toast_invalid_email">Моля попълнете валиден имейл адрес!</string>
-    <string name="toast_username_taken">Името вече е заето</string>
-    <string name="toast_email_registered">Имейлът вече е регистриран</string>
-    <string name="toast_register_success">Потребителят е регистриран успешно!</string>
-    <string name="toast_register_fail">Грешка при регистрирането на потребителя: %1$s</string>
-
-    <!-- Login Activity Toast Messages -->
-    <string name="toast_db_init_error">Грешка при стартиране на приложението: %1$s</string>
-    <string name="toast_login_empty_fields">Моля попълнете всички полета</string>
-    <string name="toast_login_success">Потребителят е регистриран успешно!</string>
-    <string name="toast_login_fail">Грешка при регистрирането на потребителя: %1$s</string>
-    <string name="toast_login_error">Неочаквана грешка: %1$s</string>
-    <string name="toast_login_attempts">Твърде много провалени опити за влизане!</string>
-    <string name="toast_invalid_credentials">Невалиден имейл или парола!</string>
-
-    <!-- Profile Activity Toast Messages -->
-    <string name="toast_invalid_user_id">Невалидно потребителско ID</string>
-    <string name="toast_avatar_updated">Аватарът е успешно променен!</string>
-    <string name="toast_user_id_not_found">Потребителят не е намерен</string>
-    <string name="toast_user_info_not_found">Данните за потребителя не са намерени</string>
-    <string name="toast_profile_updated">Профилът е променен успешно</string>
-    <string name="toast_profile_deleted">Профилът е изтрит успешно</string>
-
-    <!-- Post Activity Toast Messages -->
-    <string name="toast_invalid_user">Невалиден потребител</string>
-    <string name="toast_empty_post_fields">Заглавието и описанието не могат да бъдат празни!</string>
-    <string name="toast_post_created">Постът е създаден успешно!</string>
-    <string name="toast_delete_own_posts">Можеш да изтриваш само собствените си постове!</string>
-    <string name="toast_camera_permission_denied">Няма достъп до камера!</string>
-    <string name="toast_camera_error">Грешка камера: %1$s</string>
-
-    <!-- Friends Activity Toast Messages -->
-    <string name="toast_enter_username">Въведи име</string>
-    <string name="toast_user_not_found">Потребителят не е намерен</string>
-    <string name="toast_cannot_add_self">Не можеш да изпратиш покана на себе си</string>
-    <string name="toast_already_added">Вече добавен</string>
-    <string name="toast_cannot_delete_self">Не можеш да се изтриеш </string>
-    <string name="toast_user_deleted">Потребителят е изтрит от приятели!</string>
 </resources>

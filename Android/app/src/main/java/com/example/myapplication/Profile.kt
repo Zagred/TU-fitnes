@@ -66,7 +66,7 @@ class Profile : AppCompatActivity() {
         userId = intent.getIntExtra("USER_ID", -1)
 
         if (userId == -1) {
-            Toast.makeText(this, getString(R.string.toast_invalid_user_id), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Invalid User ID", Toast.LENGTH_SHORT).show()
             finish()
             return
         }
@@ -131,7 +131,7 @@ class Profile : AppCompatActivity() {
                 // Update the image view with the new avatar
                 val resourceId = resources.getIdentifier(avatarName, "drawable", packageName)
                 profileImageView.setImageResource(resourceId)
-                Toast.makeText(this@Profile, getString(R.string.toast_avatar_updated), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@Profile, "Avatar updated", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -192,7 +192,7 @@ class Profile : AppCompatActivity() {
         val userId = intent.getIntExtra("USER_ID", -1)
 
         if (userId == -1) {
-            Toast.makeText(this, getString(R.string.toast_invalid_user_id), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Invalid User ID", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -258,14 +258,14 @@ class Profile : AppCompatActivity() {
         val userId = intent.getIntExtra("USER_ID", -1)
 
         if (userId == -1) {
-            Toast.makeText(this, getString(R.string.toast_user_id_not_found), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "User ID not found", Toast.LENGTH_SHORT).show()
             return
         }
 
         val userInfo = withContext(Dispatchers.IO) { infoDAO.getUserInfoByUserId(userId) }
 
         if (userInfo == null) {
-            Toast.makeText(this, getString(R.string.toast_user_info_not_found), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "User info not found", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -296,7 +296,7 @@ class Profile : AppCompatActivity() {
         }
 
         withContext(Dispatchers.Main) {
-            Toast.makeText(this@Profile, getString(R.string.toast_profile_updated), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@Profile, "Profile updated successfully", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -321,7 +321,7 @@ class Profile : AppCompatActivity() {
         }
 
         withContext(Dispatchers.Main) {
-            Toast.makeText(this@Profile, getString(R.string.toast_profile_deleted), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@Profile, "Profile deleted successfully", Toast.LENGTH_SHORT).show()
 
             val intent = Intent(this@Profile, Login::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK

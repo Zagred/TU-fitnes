@@ -127,7 +127,7 @@ class FriendsActivity : AppCompatActivity() {
                 if (friendUsername.isNotEmpty()) {
                     addFriend(friendUsername)
                 } else {
-                    Toast.makeText(this, "toast_enter_username", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Enter a username", Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -186,14 +186,14 @@ class FriendsActivity : AppCompatActivity() {
 
             if (friendUser == null) {
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(this@FriendsActivity, "toast_user_not_found", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@FriendsActivity, "User not found", Toast.LENGTH_SHORT).show()
                 }
                 return@launch
             }
 
             if (friendUser.uid == loggedUserId) {
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(this@FriendsActivity, "toast_cannot_add_self", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@FriendsActivity, "You cannot add yourself", Toast.LENGTH_SHORT).show()
                 }
                 return@launch
             }
@@ -201,7 +201,7 @@ class FriendsActivity : AppCompatActivity() {
             val exists = database.friendsDAO().friendshipExists(loggedUserId, friendUser.uid)
             if (exists > 0) {
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(this@FriendsActivity, "toast_already_added", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@FriendsActivity, "Already added", Toast.LENGTH_SHORT).show()
                 }
                 return@launch
             }
@@ -225,7 +225,7 @@ class FriendsActivity : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.IO) {
             if (user.uid == loggedUserId) {
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(this@FriendsActivity, "toast_cannot_delete_self", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@FriendsActivity, "You cannot delete yourself", Toast.LENGTH_SHORT).show()
                 }
                 return@launch
             }
@@ -238,7 +238,7 @@ class FriendsActivity : AppCompatActivity() {
             withContext(Dispatchers.Main) {
                 // Apply current filter after deleting
                 filterUsers(etFriendUsername.text.toString())
-                Toast.makeText(this@FriendsActivity, "toast_user_deleted", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@FriendsActivity, "User deleted", Toast.LENGTH_SHORT).show()
             }
         }
     }
