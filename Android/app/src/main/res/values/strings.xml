@@ -154,7 +154,7 @@
     <string name="bmi_calculator_description">The Body Mass Index (BMI) Calculator can be used to calculate BMI value and corresponding weight status while taking age into consideration.</string>
     <string name="calorie_calculator_button">Calorie Calculator</string>
     <string name="calorie_calculator_description">The Calorie Calculator can be used to estimate the number of calories a person needs to consume each day.</string>
-    <string name="bmi_calculator_title_correct">BMI Calculator</string>
+    <string name="bmi_calculator_title_correct">Calorie Calculator</string>
 
     <!-- Additional strings from activity_profile.xml -->
     <string name="email_profile_hint">Email</string>

@@ -152,7 +152,7 @@
     <string name="bmi_calculator_description">BMI калкулаторът изчислява индекса на телесната маса според възрастта.</string>
     <string name="calorie_calculator_button">Калориен Калкулатор</string>
     <string name="calorie_calculator_description">Калорийният калкулатор изчислява нужните калории за деня.</string>
-    <string name="bmi_calculator_title_correct">BMI Калкулатор</string>
+    <string name="bmi_calculator_title_correct">Калориен Калкулатор</string>
 
     <!-- Additional strings from activity_profile.xml -->
     <string name="email_profile_hint">Имейл</string>
