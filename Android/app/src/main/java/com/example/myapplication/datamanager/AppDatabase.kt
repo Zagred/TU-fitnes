@@ -43,7 +43,7 @@ import com.example.myapplication.challenge.ChallengeDAO
         Friends::class, CalendarEvent::class, Achievement::class, Coach::class,Location::class,
         Challenge::class
     ],
-    version = 7
+    version = 9
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDAO(): UserDAO
