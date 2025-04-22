@@ -88,6 +88,7 @@ class HomePage : AppCompatActivity() {
 
         calculator.setOnClickListener{
             val intent = Intent(this, CalculatorPage::class.java)
+            intent.putExtra("USER_ID", userId)
             startActivity(intent)
         }
 
@@ -131,7 +132,6 @@ class HomePage : AppCompatActivity() {
             }
         }
 
-        // Set click listener for Locations button
         locations.setOnClickListener {
             val userDAO = AppDatabase.getInstance(applicationContext).userDAO()
 
@@ -163,7 +163,6 @@ class HomePage : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         displayRandomMotivationalQuote()
-        // Refresh avatar when returning to the homepage (after potential profile changes)
         val profileImageView = findViewById<CircleImageView>(R.id.btProfileHomeP)
         val userId = intent.getIntExtra("USER_ID", -1)
         loadUserAvatar(userId, profileImageView)

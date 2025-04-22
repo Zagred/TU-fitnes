@@ -12,7 +12,7 @@ data class Location(
     @ColumnInfo(name = "longitude") val longitude: Double,
     @ColumnInfo(name = "address") val address: String,
     @ColumnInfo(name = "description") val description: String = "",
-    @ColumnInfo(name = "addedBy") val addedBy: Int // User ID of admin who added this location
+    @ColumnInfo(name = "addedBy") val addedBy: Int
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

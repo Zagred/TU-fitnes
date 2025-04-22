@@ -58,7 +58,6 @@ class PostAdapter(
             holder.friendIcon.visibility = View.GONE
         }
 
-        // Handle image display if available
         if (!currentPost.imagePath.isNullOrEmpty()) {
             val imageFile = File(currentPost.imagePath)
             if (imageFile.exists()) {
@@ -71,7 +70,6 @@ class PostAdapter(
             holder.postImageView.visibility = View.GONE
         }
 
-        // Show delete button if admin or if post belongs to logged-in user
         if (isAdmin || currentPost.userId == loggedUserId) {
             holder.deleteButton.visibility = View.VISIBLE
             holder.deleteButton.setOnClickListener {

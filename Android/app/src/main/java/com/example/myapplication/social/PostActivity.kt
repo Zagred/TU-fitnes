@@ -52,11 +52,9 @@ class PostActivity : AppCompatActivity() {
         private const val PERMISSION_REQUEST_CAMERA = 100
     }
 
-    // Result launcher for camera
     private val cameraLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
-                // Image captured successfully, display it in preview
                 currentPhotoPath?.let { path ->
                     ivImagePreview.setImageURI(Uri.fromFile(File(path)))
                     ivImagePreview.visibility = ImageView.VISIBLE
@@ -88,7 +86,6 @@ class PostActivity : AppCompatActivity() {
             isAdmin = user?.role == "admin"
 
             withContext(Dispatchers.Main) {
-                // Initialize adapter after determining admin status
                 adapter = PostAdapter(
                     loggedUserId = loggedUserId,
                     isAdmin = isAdmin,
@@ -130,7 +127,6 @@ class PostActivity : AppCompatActivity() {
         }
     }
 
-    // New function to check if a user is a friend
     private suspend fun checkIfFriend(userId: Int): Boolean {
         return database.friendsDAO().isAlreadyFriend(loggedUserId, userId) > 0
     }
@@ -184,7 +180,6 @@ class PostActivity : AppCompatActivity() {
         }
     }
 
-    // Check camera permission
     private fun checkCameraPermission(): Boolean {
         return ContextCompat.checkSelfPermission(
             this,
@@ -192,7 +187,6 @@ class PostActivity : AppCompatActivity() {
         ) == PackageManager.PERMISSION_GRANTED
     }
 
-    // Request camera permission
     private fun requestCameraPermission() {
         ActivityCompat.requestPermissions(
             this,
@@ -201,7 +195,6 @@ class PostActivity : AppCompatActivity() {
         )
     }
 
-    // Handle permission results
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -219,18 +212,15 @@ class PostActivity : AppCompatActivity() {
         }
     }
 
-    // Create a file for storing the camera image
     @Throws(IOException::class)
     private fun createImageFile(): File {
-        // Create an image file name
         val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
         val storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         return File.createTempFile(
-            "JPEG_${timeStamp}_", /* prefix */
-            ".jpg", /* suffix */
-            storageDir /* directory */
+            "JPEG_${timeStamp}_",
+            ".jpg",
+            storageDir
         ).apply {
-            // Save a file path for use with ACTION_VIEW intents
             currentPhotoPath = absolutePath
         }
     }
@@ -239,24 +229,19 @@ class PostActivity : AppCompatActivity() {
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
 
         try {
-            // Create the File where the photo should go
             val photoFile = createImageFile()
 
-            // Create content URI
             val photoURI = FileProvider.getUriForFile(
                 this,
                 "com.example.myapplication.fileprovider",
                 photoFile
             )
 
-            // Add output URI to the intent
             takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
 
-            // Launch camera activity
             cameraLauncher.launch(takePictureIntent)
 
         } catch (ex: Exception) {
-            // Handle any exception
             Toast.makeText(
                 this,
                 "Camera error: ${ex.localizedMessage}",

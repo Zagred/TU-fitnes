@@ -8,14 +8,12 @@ import com.example.myapplication.utils.LanguageUtils
 open class BaseActivity : AppCompatActivity() {
 
     override fun attachBaseContext(newBase: Context) {
-        // Load saved language before attaching context
         LanguageUtils.loadSavedLanguage(newBase)
         super.attachBaseContext(newBase)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Make sure locale is applied
         LanguageUtils.loadSavedLanguage(this)
     }
 }

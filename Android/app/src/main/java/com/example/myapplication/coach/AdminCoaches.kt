@@ -31,7 +31,7 @@ class AdminCoachesActivity : AppCompatActivity() {
 
     // List of specializations
     private val specializations = listOf(
-        "Select Specialization",  // Default prompt item
+        "Select Specialization",
         "Strength Training",
         "Cardio",
         "Yoga",
@@ -83,17 +83,14 @@ class AdminCoachesActivity : AppCompatActivity() {
     }
 
     private fun setupSpecializationSpinner() {
-        // Create an ArrayAdapter using the string array and the custom dropdown item layout
         val adapter = ArrayAdapter(
             this,
-            R.layout.dropdown_item_layout,  // Use your custom dropdown layout
+            R.layout.dropdown_item_layout,
             specializations
         )
 
-        // Apply the adapter to the AutoCompleteTextView
         (specializationSpinner as? AutoCompleteTextView)?.setAdapter(adapter)
 
-        // Set item click listener for selection
         specializationSpinner.setOnItemClickListener { parent, _, position, _ ->
             selectedSpecialization = if (position > 0) {
                 specializations[position]
@@ -107,14 +104,12 @@ class AdminCoachesActivity : AppCompatActivity() {
         val name = nameInput.text.toString().trim()
         val contactInfo = contactInfoInput.text.toString().trim()
 
-        // Validate individual fields
         val nameValidation = validator.validateName(name)
         if (!nameValidation.isValid) {
             nameInput.error = nameValidation.errorMessage
             return
         }
 
-        // Validate specialization (now using spinner selection)
         if (selectedSpecialization.isEmpty()) {
             Toast.makeText(this, "Please select a specialization", Toast.LENGTH_SHORT).show()
             return
@@ -126,10 +121,8 @@ class AdminCoachesActivity : AppCompatActivity() {
             return
         }
 
-        // Check for duplicates and add the coach
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                // Check for duplicate coaches
                 val duplicateValidation = validator.checkDuplicate(coachDAO, name, contactInfo)
                 if (!duplicateValidation.isValid) {
                     withContext(Dispatchers.Main) {
@@ -138,7 +131,6 @@ class AdminCoachesActivity : AppCompatActivity() {
                     return@launch
                 }
 
-                // Create and insert the coach
                 val newCoach = Coach(
                     name = name,
                     specialization = selectedSpecialization,
@@ -148,17 +140,14 @@ class AdminCoachesActivity : AppCompatActivity() {
                 coachDAO.insertCoach(newCoach)
 
                 withContext(Dispatchers.Main) {
-                    // Clear input fields
                     nameInput.text.clear()
                     nameInput.error = null
-                    specializationSpinner.setSelection(0)  // Reset spinner to default
+                    specializationSpinner.setSelection(0)
                     contactInfoInput.text.clear()
                     contactInfoInput.error = null
 
-                    // Show success message
                     Toast.makeText(this@AdminCoachesActivity, "Coach added successfully", Toast.LENGTH_SHORT).show()
 
-                    // Reload coaches list
                     loadCoaches()
                 }
             } catch (e: Exception) {
@@ -188,7 +177,6 @@ class AdminCoachesActivity : AppCompatActivity() {
     private fun deleteCoach(coach: Coach) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                // Soft delete by setting isActive to false
                 val updatedCoach = coach.copy(isActive = false)
                 coachDAO.updateCoach(updatedCoach)
 

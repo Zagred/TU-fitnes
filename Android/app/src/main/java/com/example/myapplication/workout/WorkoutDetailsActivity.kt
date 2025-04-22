@@ -69,7 +69,6 @@ class WorkoutDetailsActivity : AppCompatActivity() {
 
         loadExercises()
 
-        // Add the button to add exercises
         findViewById<TextView>(R.id.addExercise).setOnClickListener {
             showAddExerciseDialog()
         }

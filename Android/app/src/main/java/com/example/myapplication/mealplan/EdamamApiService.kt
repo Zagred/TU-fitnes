@@ -8,7 +8,7 @@ interface EdamamApiService {
         @Path("app_id") appId: String,
         @Query("app_key") appKey: String,
         @Query("type") type: String,
-        @Header("Edamam-Account-User") userId: String = "kristianstanev03",
+        @Header("Edamam-Account-User") userId: String = "new user",
         @Header("Authorization") authorization: String,
         @Body request: MealPlanRequest
     ): MealPlanResponse
@@ -19,6 +19,6 @@ interface EdamamApiService {
         @Query("type") type: String,
         @Query("app_id") appId: String,
         @Query("app_key") appKey: String,
-        @Header("Edamam-Account-User") userId: String = "kristianstanev03"
+        @Header("Edamam-Account-User") userId: String = "new user"
     ): RecipeResponse
 }

@@ -12,6 +12,8 @@ import com.example.myapplication.HomePage
 import com.example.myapplication.R
 
 class BMICalculator : AppCompatActivity() {
+    private var userId: Int = -1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
@@ -19,6 +21,8 @@ class BMICalculator : AppCompatActivity() {
         val weightText = findViewById<EditText>(R.id.etWeight)
         val heightText = findViewById<EditText>(R.id.etHeight)
         val calcButton = findViewById<Button>(R.id.btnCalculate)
+        userId = intent.getIntExtra("USER_ID", -1)
+
         calcButton.setOnClickListener {
             val weight = weightText.text.toString()
             val height = heightText.text.toString()
@@ -31,6 +35,7 @@ class BMICalculator : AppCompatActivity() {
         val home=findViewById<Button>(R.id.btHome)
         home.setOnClickListener{
             val intent = Intent(this, HomePage::class.java)
+            intent.putExtra("USER_ID", userId)
             startActivity(intent)
             finish()
         }

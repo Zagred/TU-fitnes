@@ -22,6 +22,7 @@ class CheckCalories : AppCompatActivity() {
     private lateinit var binding: ActivityCheckCaloriesBinding
     private lateinit var adapter: NutritionAdapter
     private val nutritionItems = mutableListOf<NutritionItem>()
+    private var userId: Int = -1
 
     private val apiKey = "HOBpNVIKKDVsL8GfAnSf+g==ogR1fKvNYW7B2xqU"
 
@@ -32,9 +33,12 @@ class CheckCalories : AppCompatActivity() {
 
         setupRecyclerView()
         setupSearchFunctionality()
+        userId = intent.getIntExtra("USER_ID", -1)
+
         val home=findViewById<Button>(R.id.btHome)
         home.setOnClickListener{
             val intent = Intent(this, HomePage::class.java)
+            intent.putExtra("USER_ID", userId)
             startActivity(intent)
             finish()
         }

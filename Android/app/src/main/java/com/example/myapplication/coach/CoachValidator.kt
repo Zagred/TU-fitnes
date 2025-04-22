@@ -8,7 +8,6 @@ class CoachValidator {
         private const val MIN_CONTACT_INFO_LENGTH = 5
         private const val MAX_CONTACT_INFO_LENGTH = 100
 
-        // List of valid specializations - should match the ones in the spinner
         val VALID_SPECIALIZATIONS = listOf(
             "Strength Training",
             "Cardio",
@@ -24,10 +23,8 @@ class CoachValidator {
             "General Fitness"
         )
 
-        // Email validation regex pattern
         private val EMAIL_PATTERN = Regex("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$")
 
-        // Phone validation regex pattern (simple version)
         private val PHONE_PATTERN = Regex("^[+]?[0-9]{10,15}$")
     }
 
@@ -75,7 +72,6 @@ class CoachValidator {
     }
 
     private fun isValidCharacters(text: String): Boolean {
-        // Allow letters, spaces, hyphens, and apostrophes (common in names)
         return text.all { it.isLetter() || it.isWhitespace() || it == '-' || it == '\'' }
     }
 

@@ -19,6 +19,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import com.example.myapplication.datamanager.user.UserScoreManager
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 
 
@@ -26,54 +27,50 @@ class LeaderBoardActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLeaderBoardBinding
     private val userScores = mutableListOf<UserScore>()
-    private val friendUsernames = mutableListOf<String>() // List to store friend usernames
+    private val friendUsernames = mutableListOf<String>()
+    private var userId: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLeaderBoardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Set up home button click listener
-        binding.btHome.setOnClickListener {
+        userId = intent.getIntExtra("USER_ID", -1)
+
+        val home=findViewById<Button>(R.id.btHome)
+        home.setOnClickListener{
             val intent = Intent(this, HomePage::class.java)
+            intent.putExtra("USER_ID", userId)
             startActivity(intent)
             finish()
         }
 
-        // Load leaderboard data
         loadLeaderboardData()
     }
 
     private fun loadLeaderboardData() {
         CoroutineScope(Dispatchers.IO).launch {
-            // Get all users from the database
             val userDao = AppDatabase.getInstance(this@LeaderBoardActivity).userDAO()
             val users = userDao.getAll()
 
             userScores.clear()
 
-            // Get the currently logged in user's ID for friends check
             val loggedUsername = LoggedUser.getUsername()
             val loggedUser = loggedUsername?.let { userDao.findByUsername(it) }
 
-            // Get friends list for the current user
             if (loggedUser != null) {
                 val friendsDao = AppDatabase.getInstance(this@LeaderBoardActivity).friendsDAO()
-                // Get list of friend usernames
                 friendUsernames.clear()
                 friendUsernames.addAll(friendsDao.getFriendsNames(loggedUser.uid))
             }
 
-            // For each user, get their dumbbell count
             users.forEach { user ->
                 val dumbbellCount = UserScoreManager.getDumbbellCount(this@LeaderBoardActivity, user.username)
                 userScores.add(UserScore(user.username, dumbbellCount))
             }
 
-            // Sort users by dumbbell count (descending)
             userScores.sortByDescending { it.score }
 
-            // Update UI on main thread
             withContext(Dispatchers.Main) {
                 displayLeaderboard()
             }
@@ -81,57 +78,45 @@ class LeaderBoardActivity : AppCompatActivity() {
     }
 
     private fun getUserDumbbellCount(username: String): Int {
-        // Get the specific SharedPreferences file for this user
         val sharedPref = getSharedPreferences("user_${username}_prefs", MODE_PRIVATE)
         return sharedPref.getInt("dumbbell_count", 0)
     }
 
     private fun displayLeaderboard() {
-        // Get the GridLayout from our ScrollView
         val gridLayout = (binding.root.findViewById<LinearLayout>(R.id.leaderboard_grid)
             ?: LinearLayout(this))
 
-        // Clear previous entries
         gridLayout.removeAllViews()
 
-        // Create entries for each user
         userScores.forEachIndexed { index, userScore ->
             val rankingView = LayoutInflater.from(this).inflate(
                 R.layout.item_leaderboard_entry, gridLayout, false
             )
 
-            // Set user ranking
             rankingView.findViewById<TextView>(R.id.tvRank).text = "${index + 1}"
 
-            // Set username
             rankingView.findViewById<TextView>(R.id.tvUsername).text = userScore.username
 
-            // Set score
             rankingView.findViewById<TextView>(R.id.tvPoints).text = "${userScore.score}"
 
-            // Get the friend icon ImageView
             val friendIcon = rankingView.findViewById<ImageView>(R.id.FriendAsset)
 
-            // Show friend icon if this user is a friend of the logged-in user
             if (friendUsernames.contains(userScore.username)) {
                 friendIcon.visibility = View.VISIBLE
-                friendIcon.setImageResource(R.drawable.friends) // Use the provided ic_friend drawable
+                friendIcon.setImageResource(R.drawable.friends)
             } else {
-                friendIcon.visibility = View.GONE // Hide the icon if not a friend
+                friendIcon.visibility = View.GONE
             }
 
-            // Highlight current user
             if (userScore.username == LoggedUser.getUsername()) {
                 rankingView.findViewById<CardView>(R.id.cardViewRanking).setCardBackgroundColor(
                     ContextCompat.getColor(this, R.color.yellow)
                 )
             }
 
-            // Add to the grid
             gridLayout.addView(rankingView)
         }
     }
 
-    // Data class to hold user score information
     data class UserScore(val username: String, val score: Int)
 }

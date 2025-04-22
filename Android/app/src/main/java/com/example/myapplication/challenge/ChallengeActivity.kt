@@ -39,10 +39,8 @@ class ChallengeActivity : AppCompatActivity() {
 
         challengeDao = AppDatabase.getInstance(this).challengeDAO()
 
-        // Load and display the dumbbell count
         loadDumbbellCount()
 
-        // Check if we need to load new daily challenges or use existing ones
         checkAndLoadDailyChallenges()
         userId = intent.getIntExtra("USER_ID", -1)
 
@@ -75,18 +73,14 @@ class ChallengeActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        // Reload the dumbbell count when returning to this activity
         loadDumbbellCount()
 
-        // Also refresh the challenges list to update completed status
         refreshChallengesUI()
     }
 
     private fun loadDumbbellCount() {
-        // Get the current dumbbell count using our manager
         val dumbbellCount = UserScoreManager.getCurrentUserDumbbellCount(this)
 
-        // Update the TextView displaying the count
         binding.tvDumbbellCount.text = dumbbellCount.toString()
     }
 

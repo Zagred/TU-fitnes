@@ -14,6 +14,8 @@ import com.example.myapplication.calculator.BMICalculator
 import com.example.myapplication.calculator.CalorieCalculator
 
 class MealPlanPage : AppCompatActivity() {
+    private var userId: Int = -1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_meal_plan_page)
@@ -26,11 +28,16 @@ class MealPlanPage : AppCompatActivity() {
         }
         checkCaloriesBtn.setOnClickListener {
             val intent = Intent(this, CheckCalories::class.java)
+            intent.putExtra("USER_ID", getIntent().getIntExtra("USER_ID", -1))
+
             startActivity(intent)
         }
+        userId = intent.getIntExtra("USER_ID", -1)
+
         val home=findViewById<Button>(R.id.btHome)
         home.setOnClickListener{
             val intent = Intent(this, HomePage::class.java)
+            intent.putExtra("USER_ID", userId)
             startActivity(intent)
             finish()
         }

@@ -35,6 +35,7 @@ class MealPlan : AppCompatActivity() {
     private lateinit var adapter: MealsAdapter
     private lateinit var calorieEditText: EditText
     private lateinit var searchButton: Button
+    private var userId: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,9 +88,11 @@ class MealPlan : AppCompatActivity() {
             // Fetch meal plans with the entered calories
             fetchMealPlan(calories)
         }
+        userId = intent.getIntExtra("USER_ID", -1)
         val home=findViewById<Button>(R.id.btHome)
         home.setOnClickListener{
             val intent = Intent(this, HomePage::class.java)
+            intent.putExtra("USER_ID", userId)
             startActivity(intent)
             finish()
         }

@@ -32,7 +32,6 @@ class LocationAdapter(
         holder.nameText.text = location.name
         holder.addressText.text = location.address
 
-        // Show description if available
         if (location.description.isNotEmpty()) {
             holder.descriptionText.visibility = View.VISIBLE
             holder.descriptionText.text = location.description
@@ -40,7 +39,6 @@ class LocationAdapter(
             holder.descriptionText.visibility = View.GONE
         }
 
-        // Set item click listener
         holder.itemView.setOnClickListener {
             onItemClick(location)
         }

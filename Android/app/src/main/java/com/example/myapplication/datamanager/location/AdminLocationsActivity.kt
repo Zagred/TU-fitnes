@@ -41,20 +41,16 @@ class AdminLocationsActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.locationsRecyclerView)
         addLocationButton = findViewById(R.id.addLocationButton)
 
-        // Set up RecyclerView
         adapter = LocationAdapter(locations, true) { location ->
-            // Edit location when clicked
             showLocationDialog(location)
         }
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
-        // Add new location button
         addLocationButton.setOnClickListener {
             showLocationDialog()
         }
 
-        // Load locations
         loadLocations()
         val home=findViewById<Button>(R.id.btHome)
         home.setOnClickListener{
@@ -92,14 +88,12 @@ class AdminLocationsActivity : AppCompatActivity() {
     private fun showLocationDialog(existingLocation: Location? = null) {
         val dialogView = layoutInflater.inflate(R.layout.dialog_add_location, null)
 
-        // Get references to dialog fields
         val nameField = dialogView.findViewById<EditText>(R.id.locationNameEditText)
         val latitudeField = dialogView.findViewById<EditText>(R.id.latitudeEditText)
         val longitudeField = dialogView.findViewById<EditText>(R.id.longitudeEditText)
         val addressField = dialogView.findViewById<EditText>(R.id.addressEditText)
         val descriptionField = dialogView.findViewById<EditText>(R.id.descriptionEditText)
 
-        // If editing an existing location, populate the fields
         existingLocation?.let {
             nameField.setText(it.name)
             latitudeField.setText(it.latitude.toString())
@@ -108,7 +102,6 @@ class AdminLocationsActivity : AppCompatActivity() {
             descriptionField.setText(it.description)
         }
 
-        // Create and show the dialog
         val dialogTitle = if (existingLocation == null) "Add New Location" else "Edit Location"
 
         AlertDialog.Builder(this)
@@ -134,7 +127,6 @@ class AdminLocationsActivity : AppCompatActivity() {
             }
             .setNegativeButton("Cancel", null)
             .apply {
-                // Add delete button if editing an existing location
                 existingLocation?.let {
                     this.setNeutralButton("Delete") { _, _ ->
                         deleteLocation(it)
@@ -157,7 +149,6 @@ class AdminLocationsActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 if (existingLocation == null) {
-                    // Create new location
                     val newLocation = Location(
                         name = name,
                         latitude = latitude,
@@ -168,7 +159,6 @@ class AdminLocationsActivity : AppCompatActivity() {
                     )
                     locationDAO.insert(newLocation)
                 } else {
-                    // Update existing location
                     val updatedLocation = existingLocation.copy(
                         name = name,
                         latitude = latitude,
@@ -179,7 +169,6 @@ class AdminLocationsActivity : AppCompatActivity() {
                     locationDAO.update(updatedLocation)
                 }
 
-                // Reload the locations
                 val updatedLocations = locationDAO.getAll()
 
                 withContext(Dispatchers.Main) {
@@ -211,7 +200,6 @@ class AdminLocationsActivity : AppCompatActivity() {
             try {
                 locationDAO.delete(location)
 
-                // Reload the locations
                 val updatedLocations = locationDAO.getAll()
 
                 withContext(Dispatchers.Main) {

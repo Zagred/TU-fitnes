@@ -20,6 +20,7 @@ class UserCoachesActivity : AppCompatActivity() {
     private lateinit var coachRecyclerView: RecyclerView
     private lateinit var coachDAO: CoachDAO
     private lateinit var coachAdapter: CoachAdapter
+    private var userId: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,9 +39,12 @@ class UserCoachesActivity : AppCompatActivity() {
         coachRecyclerView.adapter = coachAdapter
 
         loadCoaches()
+        userId = intent.getIntExtra("USER_ID", -1)
+
         val home=findViewById<Button>(R.id.btHome)
         home.setOnClickListener{
             val intent = Intent(this, HomePage::class.java)
+            intent.putExtra("USER_ID", userId)
             startActivity(intent)
             finish()
         }

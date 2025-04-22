@@ -34,7 +34,6 @@ class FriendsActivity : AppCompatActivity() {
     private var isAdmin: Boolean = false
     private lateinit var adapter: FriendsAdapter
 
-    // Store the complete list of users for filtering
     private var allUsers: List<User> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,7 +73,6 @@ class FriendsActivity : AppCompatActivity() {
 
     private fun setupUI() {
         if (isAdmin) {
-            // Admin mode setup
             tvTitle.text = "Manage Users"
             etFriendUsername.hint = "Search users..."
             btnAddFriend.visibility = View.GONE
@@ -90,7 +88,6 @@ class FriendsActivity : AppCompatActivity() {
 
             loadAllUsers()
 
-            // Setup search functionality for admin
             etFriendUsername.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -103,7 +100,6 @@ class FriendsActivity : AppCompatActivity() {
 
             btnClear.setOnClickListener {
                 etFriendUsername.setText("")
-                // Reset to display all users when cleared
                 adapter.setUsersData(allUsers)
             }
 
@@ -232,11 +228,9 @@ class FriendsActivity : AppCompatActivity() {
 
             database.userDAO().delete(user)
 
-            // Reload and update the filtered list as well
             allUsers = database.userDAO().getAll()
 
             withContext(Dispatchers.Main) {
-                // Apply current filter after deleting
                 filterUsers(etFriendUsername.text.toString())
                 Toast.makeText(this@FriendsActivity, "User deleted", Toast.LENGTH_SHORT).show()
             }

@@ -15,6 +15,8 @@ import com.example.myapplication.HomePage
 import com.example.myapplication.R
 
 class CalorieCalculator : AppCompatActivity() {
+    private var userId: Int = -1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -30,6 +32,8 @@ class CalorieCalculator : AppCompatActivity() {
         val radioGroup = findViewById<RadioGroup>(R.id.rgGender)
         val btnCalculate = findViewById<Button>(R.id.btnCalculate)
         val tvIndex = findViewById<TextView>(R.id.tvIndex)
+        userId = intent.getIntExtra("USER_ID", -1)
+
 
         btnCalculate.setOnClickListener {
             val weight = etWeight.text.toString().toDoubleOrNull()
@@ -50,6 +54,7 @@ class CalorieCalculator : AppCompatActivity() {
         val home=findViewById<Button>(R.id.btHome)
         home.setOnClickListener{
             val intent = Intent(this, HomePage::class.java)
+            intent.putExtra("USER_ID", userId)
             startActivity(intent)
             finish()
         }

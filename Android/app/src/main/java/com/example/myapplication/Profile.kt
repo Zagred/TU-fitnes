@@ -46,17 +46,14 @@ class Profile : AppCompatActivity() {
             insets
         }
 
-        // Initialize views
         val editButton = findViewById<Button>(R.id.btEditProfile)
         val deleteButton = findViewById<Button>(R.id.btDeleteProfile)
         profileImageView = findViewById(R.id.imageView)
 
-        // Initialize date picker components
         birthDateTextView = findViewById(R.id.tBirthProfile)
         datePickerLayout = findViewById(R.id.datePickerLayout)
         setupDatePicker()
 
-        // Setup avatar selection
         setupAvatarSelection()
 
         val db = AppDatabase.getInstance(applicationContext)
@@ -91,10 +88,8 @@ class Profile : AppCompatActivity() {
     }
 
     private fun showAvatarSelectionDialog() {
-        // List of available avatar animals (these should match your drawable resource names)
         val avatarOptions = listOf("panda", "duck", "bear", "pig", "frog","sheep", "monkey", "bober", "koala", "tiger", "elephant","lion" )
 
-        // Create a grid layout for the avatars
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Choose your avatar")
 
@@ -123,12 +118,9 @@ class Profile : AppCompatActivity() {
 
     private fun updateUserAvatar(avatarName: String) {
         lifecycleScope.launch(Dispatchers.IO) {
-            // Update the avatar in the database
             infoDAO.updateUserAvatar(userId, avatarName)
 
-            // Update the UI on the main thread
             withContext(Dispatchers.Main) {
-                // Update the image view with the new avatar
                 val resourceId = resources.getIdentifier(avatarName, "drawable", packageName)
                 profileImageView.setImageResource(resourceId)
                 Toast.makeText(this@Profile, "Avatar updated", Toast.LENGTH_SHORT).show()
@@ -137,7 +129,6 @@ class Profile : AppCompatActivity() {
     }
 
     private fun setupDatePicker() {
-        // Set click listener on both the TextView and parent layout
         datePickerLayout.setOnClickListener {
             showDatePickerDialog()
         }
@@ -160,10 +151,8 @@ class Profile : AppCompatActivity() {
             calendar.get(Calendar.DAY_OF_MONTH)
         )
 
-        // Set a reasonable date range (e.g., no future dates)
         datePickerDialog.datePicker.maxDate = System.currentTimeMillis()
 
-        // Set a minimum date (120 years ago as reasonable minimum)
         val minCalendar = Calendar.getInstance()
         minCalendar.add(Calendar.YEAR, -120)
         datePickerDialog.datePicker.minDate = minCalendar.timeInMillis
@@ -199,7 +188,6 @@ class Profile : AppCompatActivity() {
         val user = withContext(Dispatchers.IO) { userDAO.findById(userId) }
         val userInfo = withContext(Dispatchers.IO) { infoDAO.getUserInfoByUserId(userId) }
 
-        // Set up gender spinner
         val genderSpinner = findViewById<Spinner>(R.id.spinnerGender)
         val genderOptions = resources.getStringArray(R.array.gender_options)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, genderOptions)
@@ -209,7 +197,6 @@ class Profile : AppCompatActivity() {
         withContext(Dispatchers.Main) {
             findViewById<EditText>(R.id.tNameProfile).setText(user?.username ?: "")
 
-            // Display email if available
             if (user?.email != null) {
                 findViewById<EditText>(R.id.tEmailProfile).setText(user.email)
             }
@@ -218,18 +205,15 @@ class Profile : AppCompatActivity() {
                 findViewById<EditText>(R.id.tHeightProfile).setText(it.height.toString())
                 findViewById<EditText>(R.id.tWeightProfile).setText(it.weight.toString())
 
-                // Set gender spinner selection
                 val genderPosition = when (it.gender.toLowerCase()) {
                     "male" -> 0
                     "female" -> 1
-                    else -> 0 // Default to male if gender is not recognized
+                    else -> 0
                 }
                 genderSpinner.setSelection(genderPosition)
 
-                // Set birth date and update calendar
                 try {
                     birthDateTextView.text = it.birthdate
-                    // Parse the stored date to set the calendar
                     val date = dateFormat.parse(it.birthdate)
                     if (date != null) {
                         calendar.time = date
@@ -238,13 +222,11 @@ class Profile : AppCompatActivity() {
                     birthDateTextView.text = ""
                 }
 
-                // Load avatar
                 try {
                     val resourceId = resources.getIdentifier(it.avatar, "drawable", packageName)
                     if (resourceId != 0) {
                         profileImageView.setImageResource(resourceId)
                     } else {
-                        // Fallback to default avatar if resource not found
                         profileImageView.setImageResource(R.drawable.panda)
                     }
                 } catch (e: Exception) {
@@ -275,7 +257,6 @@ class Profile : AppCompatActivity() {
         val weight = findViewById<EditText>(R.id.tWeightProfile).text.toString().toDoubleOrNull() ?: 0.0
         val birthdate = birthDateTextView.text.toString()
 
-        // Get gender from spinner
         val genderSpinner = findViewById<Spinner>(R.id.spinnerGender)
         val gender = genderSpinner.selectedItem.toString()
 
@@ -290,7 +271,7 @@ class Profile : AppCompatActivity() {
                     height = height,
                     weight = weight,
                     userId = userInfo.userId,
-                    avatar = userInfo.avatar // Preserve the current avatar
+                    avatar = userInfo.avatar
                 )
             )
         }

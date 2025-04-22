@@ -24,7 +24,6 @@ object LanguageUtils {
             context.resources.displayMetrics
         )
 
-        // Save language preference
         val sharedPref = context.getSharedPreferences("LanguageSettings", Context.MODE_PRIVATE)
         with(sharedPref.edit()) {
             putString("app_language", languageCode)
